@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Page\Queries;
+namespace Domain\Page\Queries;
 
 use App\Models\Page;
 
 /**
  * Class GetPageByIdQuery
- * @package App\Domain\Page\Queries
+ * @package Domain\Page\Queries
  */
 class GetPageByIdQuery
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
 use App\Http\Requests\Request;
 use App\Models\MenuItem;
 
 /**
  * Class CreateMenuItemCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class CreateMenuItemCommand
 {

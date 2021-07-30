@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
 use App\Models\MenuItem;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class UpdateMenuItemsLinkCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class UpdateMenuItemsLinkCommand
 {

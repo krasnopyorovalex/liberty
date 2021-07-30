@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware' => ['redirector', 'shortcode']], static function () {
+Route::group(['middleware' => ['redirector']], static function () {
     Route::get('{alias}', PageController::class)->name('page.show');
     Route::get('articles/{alias}', 'BlogController@show')->name('sales_leader.show');
 });

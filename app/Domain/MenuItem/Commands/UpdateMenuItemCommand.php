@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
-use App\Domain\MenuItem\Queries\GetMenuItemByIdQuery;
+use Domain\MenuItem\Queries\GetMenuItemByIdQuery;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateMenuItemCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class UpdateMenuItemCommand
 {

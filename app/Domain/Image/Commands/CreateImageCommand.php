@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Image\Commands;
+namespace Domain\Image\Commands;
 
 use App\Models\Image;
 
 /**
  * Class CreateImageCommand
- * @package App\Domain\Image\Commands
+ * @package Domain\Image\Commands
  */
 class CreateImageCommand
 {

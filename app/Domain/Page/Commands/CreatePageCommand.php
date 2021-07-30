@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Page\Commands;
+namespace Domain\Page\Commands;
 
-use App\Domain\Image\Commands\UploadImageCommand;
+use Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
 use App\Models\Page;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CreatePageCommand
- * @package App\Domain\Page\Commands
+ * @package Domain\Page\Commands
  */
 class CreatePageCommand
 {

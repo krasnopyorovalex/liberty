@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Image\Commands;
+namespace Domain\Image\Commands;
 
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -10,7 +10,7 @@ use Storage;
 
 /**
  * Class UploadImageCommand
- * @package App\Domain\Image\Commands
+ * @package Domain\Image\Commands
  */
 class UploadImageCommand
 {

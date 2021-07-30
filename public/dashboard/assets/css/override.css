@@ -279,14 +279,15 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 .logout-form {
     display: none;
 }
-#image__box {
+#image__box, .image__box-a {
     text-align: center;
+    margin: 0 0 2rem 0;
 }
-#image__box .btn__actions{
+#image__box .btn__actions, .image__box-a .btn__actions {
     display: inline-block;
     margin-top: 20px;
 }
-#image__box .form-group:last-child {
+#image__box .form-group:last-child, .image__box-a .form-group:last-child {
     margin-bottom: 0;
 }
 .upload__image {

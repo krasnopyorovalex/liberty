@@ -15,6 +15,7 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('slider_id')->nullable();
             $table->string('template', 24)->default('page.index');
             $table->string('name', 512);
             $table->string('title', 512);
@@ -24,6 +25,8 @@ class CreatePagesTable extends Migration
             $table->string('alias', 64)->unique();
             $table->enum('is_published',[0,1])->default(1);
             $table->timestamps();
+
+            $table->foreign('slider_id')->references('id')->on('sliders')->onDelete('set null');
         });
     }
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\MenuItem\Queries;
+namespace Domain\MenuItem\Queries;
 
 use App\Models\MenuItem;
 
 /**
  * Class GetMenuItemByIdQuery
- * @package App\Domain\MenuItem\Queries
+ * @package Domain\MenuItem\Queries
  */
 class GetMenuItemByIdQuery
 {

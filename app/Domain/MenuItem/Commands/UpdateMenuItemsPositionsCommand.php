@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
 use App\Models\MenuItem;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateMenuItemsPositionsCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class UpdateMenuItemsPositionsCommand
 {

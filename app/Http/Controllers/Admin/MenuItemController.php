@@ -5,12 +5,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\MenuItem\Commands\CreateMenuItemCommand;
-use App\Domain\MenuItem\Commands\DeleteMenuItemCommand;
-use App\Domain\MenuItem\Commands\UpdateMenuItemCommand;
-use App\Domain\MenuItem\Commands\UpdateMenuItemsPositionsCommand;
-use App\Domain\MenuItem\Queries\GetAllMenuItemsQuery;
-use App\Domain\MenuItem\Queries\GetMenuItemByIdQuery;
+use Domain\MenuItem\Commands\CreateMenuItemCommand;
+use Domain\MenuItem\Commands\DeleteMenuItemCommand;
+use Domain\MenuItem\Commands\UpdateMenuItemCommand;
+use Domain\MenuItem\Commands\UpdateMenuItemsPositionsCommand;
+use Domain\MenuItem\Queries\GetAllMenuItemsQuery;
+use Domain\MenuItem\Queries\GetMenuItemByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\MenuItem\Requests\CreateMenuItemRequest;
 use Domain\MenuItem\Requests\UpdateMenuItemRequest;

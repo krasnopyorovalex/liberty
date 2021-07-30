@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Page\Commands\CreatePageCommand;
-use App\Domain\Page\Commands\DeletePageCommand;
-use App\Domain\Page\Commands\UpdatePageCommand;
-use App\Domain\Page\Queries\GetAllPagesQuery;
-use App\Domain\Page\Queries\GetPageByIdQuery;
+use Domain\Page\Commands\CreatePageCommand;
+use Domain\Page\Commands\DeletePageCommand;
+use Domain\Page\Commands\UpdatePageCommand;
+use Domain\Page\Queries\GetAllPagesQuery;
+use Domain\Page\Queries\GetPageByIdQuery;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Domain\Page\Requests\CreatePageRequest;

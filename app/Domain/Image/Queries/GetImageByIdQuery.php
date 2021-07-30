@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Image\Queries;
+namespace Domain\Image\Queries;
 
 use App\Models\Image;
 
 /**
  * Class GetImageByIdQuery
- * @package App\Domain\Image\Queries
+ * @package Domain\Image\Queries
  */
 class GetImageByIdQuery
 {

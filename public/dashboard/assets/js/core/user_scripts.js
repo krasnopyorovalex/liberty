@@ -11,9 +11,8 @@ $(function() {
      |   left navigation
      |-----------------------------------------------------------
      */
-    var sidebar_li = $('.sidebar-category li > a'),
-
-    pathname = window.location.pathname.replace('menu-items', 'menus').split('/');
+    const sidebar_li = $('.sidebar-category li > a');
+    let pathname = window.location.pathname.replace('menu-items', 'menus').split('/');
     pathname = pathname[1] + '/' + pathname[2];
 
     sidebar_li.each(function () {
@@ -27,15 +26,15 @@ $(function() {
     |   Удаление элемента из списка
     |-----------------------------------------------------------
     */
-    var table = $('.table-responsive table td');
+    const table = $('.table-responsive table td');
     table.on('click', '.last__btn', function (e) {
         e.preventDefault();
-        var _this = $(this),
+        const _this = $(this),
             alias = _this.data('data-alias');
         return sendDestroyRequest(_this, alias);
     });
 
-    var checkBox = $(".control-primary"),
+    const checkBox = $(".control-primary"),
         checkBoxStyled = $(".styled");
 
     checkBoxStyled.uniform({
@@ -52,7 +51,7 @@ $(function() {
     |   image actions
     |-----------------------------------------------------------
     */
-    var editImageBox = jQuery('#edit-image'),
+    const editImageBox = jQuery('#edit-image'),
         imagesBox = jQuery('#_images_box');
     imagesBox.on('click', '.icon-pencil', function () {
         $.get(jQuery(this).closest('a').attr('href'), function(data){
@@ -65,7 +64,7 @@ $(function() {
 
     editImageBox.on('submit', 'form', function (e) {
         e.preventDefault();
-        var _this = jQuery(this);
+        const _this = jQuery(this);
         return jQuery.ajax({
             url: _this.attr('action'),
             type: "POST",
@@ -95,7 +94,7 @@ $(function() {
     imagesBox.on('click', '.icon-trash', function (e) {
         e.preventDefault();
         if(confirm('Вы уверены, что хотите удалить изображение?')) {
-            var _this = jQuery(this);
+            const _this = jQuery(this);
             return $.ajax({
                 url: _this.parent('a').attr('href'),
                 type: "POST",
@@ -147,11 +146,11 @@ $(function() {
         fileButtonHtml: 'Выбрать'
     });
 
-    var modalInfo = $('#modal_info'),
-        imageBox = $('#image__box');
+    const modalInfo = $('#modal_info'),
+        imageBox = $('.image__box-a');
     modalInfo.on('submit', 'form', function (e) {
         e.preventDefault();
-        var _this = jQuery(this);
+        const _this = jQuery(this);
         return jQuery.ajax({
             url: _this.attr('action'),
             type: "POST",
@@ -171,7 +170,7 @@ $(function() {
 
     imageBox.on('click', '.delete__img', function () {
         if(confirm('Вы уверены, что хотите удалить изображение?')) {
-            var _this = jQuery(this);
+            const _this = jQuery(this);
             return $.ajax({
                 url: _this.attr('data-href'),
                 type: "POST",
@@ -183,7 +182,7 @@ $(function() {
                         icon: 'icon-checkmark3',
                         type: 'success'
                     });
-                    return imageBox.fadeOut();
+                    return _this.closest('.panel').fadeOut();
                 }
             });
         }
@@ -201,19 +200,19 @@ $(function() {
 
 // Format icon
 function iconFormat(icon) {
-    var originalOption = icon.element;
+    const originalOption = icon.element;
     if (!icon.id) { return icon.text; }
     //var $icon = "<i class='icon-" + $(icon.element).data('icon') + "'></i>" + icon.text;
 
-    var $icon = "<svg class=\"icon\">\n" +
-            "<use xlink:href=\"/img/symbols.svg#" + $(icon.element).data('icon') + "\"></use>\n" +
+    const $icon = "<svg class=\"icon\">\n" +
+        "<use xlink:href=\"/img/symbols.svg#" + $(icon.element).data('icon') + "\"></use>\n" +
         "</svg>" + icon.text;
 
     return $icon;
 }
 
 function sendDestroyRequest(_this, alias = '') {
-    var notice = new PNotify({
+    const notice = new PNotify({
         title: 'Предупреждение',
         text: '<p>Вы действительно хотите удалить?</p>',
         hide: false,

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Events;
 
 use Illuminate\Queue\SerializesModels;
@@ -13,17 +15,17 @@ class RedirectDetected
     /**
      * @var string
      */
-    public $urlOld;
+    public string $urlOld;
 
     /**
      * @var string
      */
-    public $urlNew;
+    public string $urlNew;
 
     /**
      * @var string
      */
-    public $routeName;
+    public string $routeName;
 
     /**
      * RedirectDetected constructor.

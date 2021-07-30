@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
-use App\Domain\MenuItem\Queries\GetMenuItemByIdQuery;
+use Domain\MenuItem\Queries\GetMenuItemByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteMenuItemCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class DeleteMenuItemCommand
 {

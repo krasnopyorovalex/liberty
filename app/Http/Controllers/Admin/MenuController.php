@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Menu\Commands\CreateMenuCommand;
-use App\Domain\Menu\Commands\DeleteMenuCommand;
-use App\Domain\Menu\Commands\UpdateMenuCommand;
-use App\Domain\Menu\Queries\GetAllMenusQuery;
-use App\Domain\Menu\Queries\GetMenuByIdQuery;
+use Domain\Menu\Commands\CreateMenuCommand;
+use Domain\Menu\Commands\DeleteMenuCommand;
+use Domain\Menu\Commands\UpdateMenuCommand;
+use Domain\Menu\Queries\GetAllMenusQuery;
+use Domain\Menu\Queries\GetMenuByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Menu\Requests\CreateMenuRequest;
 use Domain\Menu\Requests\UpdateMenuRequest;

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Image\Commands\DeleteImageCommand;
-use App\Domain\Image\Commands\UpdateImageCommand;
-use App\Domain\Image\Queries\GetImageByIdQuery;
+use Domain\Image\Commands\DeleteImageCommand;
+use Domain\Image\Commands\UpdateImageCommand;
+use Domain\Image\Queries\GetImageByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Image\Requests\UpdateImageRequest;
 
