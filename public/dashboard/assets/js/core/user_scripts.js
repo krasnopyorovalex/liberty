@@ -86,7 +86,7 @@ $(function() {
                     icon: 'icon-checkmark3',
                     type: 'success'
                 });
-                return imagesBox.html(data.images);
+                return imagesBox.html(data.images) && startDnDImages();
             }
         });
     });

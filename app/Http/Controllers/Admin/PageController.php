@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use Domain\Slider\Queries\GetAllSlidersQuery;
 use Domain\Page\Commands\CreatePageCommand;
 use Domain\Page\Commands\DeletePageCommand;
 use Domain\Page\Commands\UpdatePageCommand;
@@ -33,9 +34,11 @@ class PageController extends Controller
     public function index()
     {
         $pages = $this->dispatch(new GetAllPagesQuery);
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.pages.index', [
-            'pages' => $pages
+            'pages' => $pages,
+            'sliders' => $sliders
         ]);
     }
 
@@ -75,9 +78,11 @@ class PageController extends Controller
     public function edit(int $id)
     {
         $page = $this->dispatch(new GetPageByIdQuery($id));
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.pages.edit', [
-            'page' => $page
+            'page' => $page,
+            'sliders' => $sliders
         ]);
     }
 
@@ -86,7 +91,7 @@ class PageController extends Controller
      * @param UpdatePageRequest $request
      * @return RedirectResponse
      */
-    public function update(int $id, UpdatePageRequest $request)
+    public function update(int $id, UpdatePageRequest $request): RedirectResponse
     {
         $this->dispatch(new UpdatePageCommand($id, $request));
 

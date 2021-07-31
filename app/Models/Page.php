@@ -25,9 +25,11 @@ class Page extends Model
 
     private const TEMPLATES = [
         'page.index' => 'Главная',
-        'page.page' => 'Информационная',
-        'page.blog' => 'Блог',
-        'page.portfolio' => 'Портфолио',
+        'page.about' => 'О нас',
+        'page.doors' => 'Двери',
+        'page.furniture' => 'Мебель',
+        'page.interiors' => 'Интерьер',
+        'page.clients' => 'Клиентам',
         'page.contacts' => 'Контакты',
     ];
 

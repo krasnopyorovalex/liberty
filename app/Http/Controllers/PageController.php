@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Domain\Page\Queries\GetPageByAliasQuery;
+use Domain\Page\Queries\GetPageByAliasQuery;
 use App\Models\Page;
 use App\Services\CanonicalService;
 use App\Services\TextParserService;
@@ -21,12 +21,12 @@ class PageController extends Controller
     /**
      * @var CanonicalService
      */
-    protected $canonicalService;
+    protected CanonicalService $canonicalService;
 
     /**
      * @var TextParserService
      */
-    protected $parserService;
+    protected TextParserService $parserService;
 
     /**
      * PageController constructor.

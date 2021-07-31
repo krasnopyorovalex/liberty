@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
-use App\Domain\Redirect\Queries\GetRedirectByUriQuery;
+use Domain\Redirect\Queries\GetRedirectByUriQuery;
 use App\Models\Redirect;
 use Closure;
 use Illuminate\Contracts\Foundation\Application;

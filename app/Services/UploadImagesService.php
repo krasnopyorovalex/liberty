@@ -14,11 +14,8 @@ use Intervention\Image\ImageManager;
  */
 final class UploadImagesService
 {
-
-    /**
-     * @var int
-     */
     private int $widthThumb = 192;
+    private int $heightThumb = 192;
 
     /**
      * @var UploadedFile
@@ -35,6 +32,8 @@ final class UploadImagesService
      */
     private string $entity;
 
+    private bool $withThumb = false;
+
     /**
      * @param Request $request
      * @param string $entity
@@ -48,11 +47,20 @@ final class UploadImagesService
         $this->image = $request->file('upload');
 
         $this->image->store($this->getSavePath());
-        $this->createThumb();
+
+        if ($this->withThumb) {
+            $this->createThumb();
+        }
 
         return $this;
     }
 
+    public function withThumb(): UploadImagesService
+    {
+        $this->withThumb = true;
+
+        return $this;
+    }
 
     /**
      * @param int $widthThumb
@@ -101,8 +109,19 @@ final class UploadImagesService
 
     private function createThumb(): void
     {
-        (new ImageManager())->make($this->image)->resize($this->widthThumb, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));
+        (new ImageManager())
+            ->make($this->image)
+            ->fit($this->widthThumb, $this->heightThumb)
+            ->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));
+    }
+
+    /**
+     * @param int $heightThumb
+     * @return UploadImagesService
+     */
+    public function setHeightThumb(int $heightThumb): UploadImagesService
+    {
+        $this->heightThumb = $heightThumb;
+        return $this;
     }
 }

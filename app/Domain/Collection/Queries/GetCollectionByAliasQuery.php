@@ -15,7 +15,7 @@ class GetCollectionByAliasQuery
     /**
      * @var string
      */
-    private $alias;
+    private string $alias;
 
     /**
      * GetCollectionByAliasQuery constructor.

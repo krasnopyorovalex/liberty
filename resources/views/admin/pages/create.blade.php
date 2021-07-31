@@ -17,6 +17,8 @@
             <form action="{{ route('admin.pages.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
+                @select(['name' => 'slider_id', 'label' => 'Слайдер', 'items' => $sliders])
+
                 <div class="form-group">
                     <label for="template">Шаблон страницы:</label>
                     <select class="form-control border-blue border-xs select-search" id="template" name="template" data-width="100%">

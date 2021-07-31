@@ -20,6 +20,7 @@ class CreateSliderImagesTable extends Migration
             $table->string('link', 127)->nullable();
             $table->string('alt', 255)->nullable();
             $table->string('title', 255)->nullable();
+            $table->text('text')->nullable();
             $table->char('basename', 40);
             $table->string('ext', 5);
             $table->unsignedSmallInteger('pos')->default(0);

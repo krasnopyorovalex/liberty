@@ -26,6 +26,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
+                            @select(['name' => 'slider_id', 'label' => 'Слайдер', 'items' => $sliders, 'entity' => $page])
 
                             <div class="form-group">
                                 <label for="template">Шаблон страницы:</label>

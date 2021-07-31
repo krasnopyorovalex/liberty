@@ -13,15 +13,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property string $name
  * @property string $sys_name
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\MenuItem[] $menuItems
+ * @property-read \Illuminate\Database\Eloquent\Collection|MenuItem[] $menuItems
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu whereSysName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Menu query()
- */
+ **/
 class Menu extends Model
 {
     public $timestamps = false;
