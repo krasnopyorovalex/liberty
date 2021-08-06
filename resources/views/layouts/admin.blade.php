@@ -103,6 +103,8 @@
                             <li><a href="{{ route('admin.how_we_works.index') }}"><i class="icon-yin-yang"></i> <span>Как мы работаем</span></a></li>
                             <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
                             <li><a href="{{ route('admin.interiors.index') }}"><i class="icon-design"></i> <span>Интерьеры</span></a></li>
+                            <li><a href="{{ route('admin.for_clients.index') }}"><i class="icon-users4"></i> <span>Клиентам</span></a></li>
+                            <li><a href="{{ route('admin.authors.index') }}"><i class="icon-pencil-ruler"></i> <span>Авторы</span></a></li>
 {{--                            <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Услуги</span></a></li>--}}
 {{--                            <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>--}}
 {{--                            <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>--}}

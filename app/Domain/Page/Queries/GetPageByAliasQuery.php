@@ -15,7 +15,7 @@ class GetPageByAliasQuery
     /**
      * @var string
      */
-    private $alias;
+    private string $alias;
 
     /**
      * GetPageByAliasQuery constructor.

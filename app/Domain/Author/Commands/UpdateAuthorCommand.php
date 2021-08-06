@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Domain\Page\Commands;
+namespace Domain\Author\Commands;
 
 use Domain\Image\Commands\DeleteImageCommand;
 use Domain\Image\Commands\UploadImageCommand;
-use Domain\Page\Queries\GetPageByIdQuery;
+use Domain\Author\Queries\GetAuthorByIdQuery;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
-use App\Models\Page;
+use App\Models\Author;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class UpdatePageCommand
- * @package Domain\Page\Commands
+ * Class UpdateAuthorCommand
+ * @package Domain\Author\Commands
  */
-class UpdatePageCommand
+class UpdateAuthorCommand
 {
 
     use DispatchesJobs;
@@ -25,7 +25,7 @@ class UpdatePageCommand
     private int $id;
 
     /**
-     * UpdatePageCommand constructor.
+     * UpdateAuthorCommand constructor.
      * @param int $id
      * @param Request $request
      */
@@ -40,21 +40,21 @@ class UpdatePageCommand
      */
     public function handle(): bool
     {
-        $page = $this->dispatch(new GetPageByIdQuery($this->id));
+        $Author = $this->dispatch(new GetAuthorByIdQuery($this->id));
         $urlNew = $this->request->post('alias');
 
-        if ($page->getOriginal('alias') != $urlNew) {
-            event(new RedirectDetected($page->getOriginal('alias'), $urlNew));
+        if ($Author->getOriginal('alias') != $urlNew) {
+            event(new RedirectDetected($Author->getOriginal('alias'), $urlNew));
         }
 
         if ($this->request->has('image')) {
-            if ($page->image) {
-                $this->dispatch(new DeleteImageCommand($page->image));
+            if ($Author->image) {
+                $this->dispatch(new DeleteImageCommand($Author->image));
             }
-            $this->dispatch(new UploadImageCommand($this->request, $page->id, Page::class));
+            $this->dispatch(new UploadImageCommand($this->request, $Author->id, Author::class));
         }
 
-        return $page->update($this->request->validated());
+        return $Author->update($this->request->all());
     }
 
 }

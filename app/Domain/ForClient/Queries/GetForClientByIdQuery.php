@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Domain\Page\Queries;
+namespace Domain\ForClient\Queries;
 
-use App\Models\Page;
+use App\Models\ForClient;
 
 /**
- * Class GetPageByIdQuery
- * @package Domain\Page\Queries
+ * Class GetForClientByIdQuery
+ * @package Domain\ForClient\Queries
  */
-class GetPageByIdQuery
+class GetForClientByIdQuery
 {
     /**
      * @var int
@@ -18,7 +18,7 @@ class GetPageByIdQuery
     private int $id;
 
     /**
-     * GetPageByIdQuery constructor.
+     * GetForClientByIdQuery constructor.
      * @param int $id
      */
     public function __construct(int $id)
@@ -31,6 +31,6 @@ class GetPageByIdQuery
      */
     public function handle()
     {
-        return Page::with(['image'])->findOrFail($this->id);
+        return ForClient::findOrFail($this->id);
     }
 }

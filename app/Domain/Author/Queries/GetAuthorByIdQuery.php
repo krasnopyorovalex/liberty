@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Domain\Page\Queries;
+namespace Domain\Author\Queries;
 
-use App\Models\Page;
+use App\Models\Author;
 
 /**
- * Class GetPageByIdQuery
- * @package Domain\Page\Queries
+ * Class GetAuthorByIdQuery
+ * @package Domain\Author\Queries
  */
-class GetPageByIdQuery
+class GetAuthorByIdQuery
 {
     /**
      * @var int
      */
-    private int $id;
+    private $id;
 
     /**
-     * GetPageByIdQuery constructor.
+     * GetAuthorByIdQuery constructor.
      * @param int $id
      */
     public function __construct(int $id)
@@ -31,6 +31,6 @@ class GetPageByIdQuery
      */
     public function handle()
     {
-        return Page::with(['image'])->findOrFail($this->id);
+        return Author::with(['image'])->findOrFail($this->id);
     }
 }

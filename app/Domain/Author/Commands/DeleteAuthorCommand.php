@@ -2,27 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Domain\Page\Commands;
+namespace Domain\Author\Commands;
 
 use Domain\Image\Commands\DeleteImageCommand;
-use Domain\Page\Queries\GetPageByIdQuery;
+use Domain\Author\Queries\GetAuthorByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class DeletePageCommand
- * @package Domain\Page\Commands
+ * Class DeleteAuthorCommand
+ * @package Domain\Author\Commands
  */
-class DeletePageCommand
+class DeleteAuthorCommand
 {
+
     use DispatchesJobs;
 
     /**
      * @var int
      */
-    private int $id;
+    private $id;
 
     /**
-     * DeletePageCommand constructor.
+     * DeleteAuthorCommand constructor.
      * @param int $id
      */
     public function __construct(int $id)
@@ -37,12 +38,13 @@ class DeletePageCommand
      */
     public function handle(): bool
     {
-        $page = $this->dispatch(new GetPageByIdQuery($this->id));
+        $Author = $this->dispatch(new GetAuthorByIdQuery($this->id));
 
-        if ($page->image) {
-            $this->dispatch(new DeleteImageCommand($page->image));
+        if ($Author->image) {
+            $this->dispatch(new DeleteImageCommand($Author->image));
         }
 
-        return $page->delete();
+        return $Author->delete();
     }
+
 }

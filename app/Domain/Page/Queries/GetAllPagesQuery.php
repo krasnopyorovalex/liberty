@@ -16,7 +16,7 @@ class GetAllPagesQuery
     /**
      * @var bool
      */
-    private $isPublished;
+    private bool $isPublished;
 
     /**
      * GetAllPagesQuery constructor.

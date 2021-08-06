@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Domain\Page\Commands;
+namespace Domain\Author\Commands;
 
 use Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
-use App\Models\Page;
+use App\Models\Author;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class CreatePageCommand
- * @package Domain\Page\Commands
+ * Class CreateAuthorCommand
+ * @package Domain\Author\Commands
  */
-class CreatePageCommand
+class CreateAuthorCommand
 {
     use DispatchesJobs;
 
     private Request $request;
 
     /**
-     * CreatePageCommand constructor.
+     * CreateAuthorCommand constructor.
      * @param Request $request
      */
     public function __construct(Request $request)
@@ -33,14 +33,15 @@ class CreatePageCommand
      */
     public function handle(): bool
     {
-        $page = new Page();
-        $page->fill($this->request->validated());
-        $page->save();
+        $author = new Author();
+        $author->fill($this->request->validated());
+        $author->save();
 
         if ($this->request->has('image')) {
-            return $this->dispatch(new UploadImageCommand($this->request, $page->id, Page::class));
+            return $this->dispatch(new UploadImageCommand($this->request, $author->id, Author::class));
         }
 
         return true;
     }
+
 }
