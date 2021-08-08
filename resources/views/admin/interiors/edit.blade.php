@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumb')
-    <li><a href="{{ route('admin.interiors.index') }}">Интерьеры</a></li>
+    <li><a href="{{ route('admin.interiors.index') }}">Портфолио</a></li>
     <li class="active">Форма редактирования</li>
 @endsection
 
