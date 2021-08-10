@@ -12,12 +12,14 @@ $(function() {
      |-----------------------------------------------------------
      */
     const sidebar_li = $('.sidebar-category li > a');
-    let pathname = window.location.pathname.replace('menu-items', 'menus').split('/');
-    pathname = pathname[1] + '/' + pathname[2];
+    let pathname = window.location.pathname.replace('menu-items', 'menus');
 
     sidebar_li.each(function () {
-        if ($(this).attr('href').indexOf(pathname) != -1) {
-            return $(this).parent('li').addClass('active');
+        const href = $(this).attr('href').split('/');
+
+        if (pathname.match(href[href.length - 1])) {
+            $(this).parent('li').addClass('active');
+            return false;
         }
     });
 
@@ -140,9 +142,15 @@ $(function() {
         });
     }
 
-    $(".file-styled-primary").uniform({
+    $(".file-styled-primary").not('.file-3d').uniform({
         fileButtonClass: 'action btn bg-blue',
         fileDefaultHtml: 'Изображение не выбрано',
+        fileButtonHtml: 'Выбрать'
+    });
+
+    $(".file-3d").uniform({
+        fileButtonClass: 'action btn bg-blue',
+        fileDefaultHtml: 'Файл не выбран',
         fileButtonHtml: 'Выбрать'
     });
 

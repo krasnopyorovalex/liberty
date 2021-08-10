@@ -98,8 +98,9 @@
                             <!-- Main -->
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
-                            <li><a href="{{ route('admin.collections.index') }}"><i class="icon-stats-dots"></i> <span>Коллекции мебели</span></a></li>
-                            <li><a href="{{ route('admin.collections.index') }}"><i class="icon-furniture"></i> <span>Мебель</span></a></li>
+                            <li><a href="{{ route('admin.collections.index') }}"><i class="icon-stack4"></i> <span>Коллекции мебели</span></a></li>
+                            <li><a href="{{ route('admin.furniture_attributes.index') }}"><i class="icon-stack4"></i> <span>Атрибуты мебели</span></a></li>
+                            <li><a href="{{ route('admin.furniture.index') }}"><i class="icon-furniture"></i> <span>Мебель</span></a></li>
                             <li><a href="{{ route('admin.why_choose_us.index') }}"><i class="icon-question3"></i> <span>Почему выбирают нас</span></a></li>
                             <li><a href="{{ route('admin.how_we_works.index') }}"><i class="icon-yin-yang"></i> <span>Как мы работаем</span></a></li>
                             <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
@@ -112,7 +113,7 @@
 {{--                            <li><a href="{{ route('admin.portfolios.index') }}"><i class="icon-images3"></i> <span>Портфолио</span></a></li>--}}
                             <li><a href="{{ route('admin.menus.index') }}"><i class="icon-lan2"></i> <span>Навигация</span></a></li>
 {{--                            <li><a href="{{ route('admin.faqs.index') }}"><i class="icon-question3"></i> <span>Faq</span></a></li>--}}
-{{--                            <li><a href="{{ route('admin.seo_positions.index') }}"><i class="icon-stats-growth2"></i> <span>SEO-позиции</span></a></li>--}}
+{{--                            <li><a href="{{ route('admin.tabs.index') }}"><i class="icon-stack"></i> <span>Вкладки</span></a></li>--}}
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 

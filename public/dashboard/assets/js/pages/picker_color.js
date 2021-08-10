@@ -161,7 +161,30 @@ $(function() {
     	allowEmpty: true
     });
 
+    const finishingOptions = $('.finishing-options');
+    if (finishingOptions.length) {
+        finishingOptions.on('click', '.btn-add', function () {
+            const inputHtml = finishingOptions.find('input:first-child()').clone();
+            $(this).closest('.btn-box').before(inputHtml);
 
+            return $(".colorpicker-palette").spectrum({
+                showPalette: true,
+                palette: demoPalette,
+                cancelText: 'Отменить',
+                chooseText: 'Выбрать',
+                showInput: true
+            });
+        });
+
+        finishingOptions.on('click', '.btn-remove', function () {
+            const inputLength = finishingOptions.find('input').length;
+            const spReplacerLength = finishingOptions.find('.sp-replacer').length;
+
+            finishingOptions.find('input').eq(inputLength - 1).remove();
+
+            finishingOptions.find('.sp-replacer').eq(spReplacerLength - 1).remove();
+        });
+    }
 
     // Color palettes
     // ------------------------------
@@ -169,7 +192,10 @@ $(function() {
     // Display color palette
     $(".colorpicker-palette").spectrum({
     	showPalette: true,
-        palette: demoPalette
+        palette: demoPalette,
+        cancelText: 'Отменить',
+        chooseText: 'Выбрать',
+        showInput: true
     });
 
 
@@ -283,5 +309,5 @@ $(function() {
         var label = $("#dragstop-result");
         label.removeClass('hidden').html('Dragstop called: ' + '<span class="text-semibold">' + c.toHexString() + '</span>');
     });
-    
+
 });

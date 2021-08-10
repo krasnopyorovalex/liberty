@@ -34,11 +34,9 @@ class PageController extends Controller
     public function index()
     {
         $pages = $this->dispatch(new GetAllPagesQuery);
-        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.pages.index', [
-            'pages' => $pages,
-            'sliders' => $sliders
+            'pages' => $pages
         ]);
     }
 
@@ -50,9 +48,11 @@ class PageController extends Controller
     public function create()
     {
         $page = new Page();
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.pages.create', [
-            'templates' => $page->getTemplates()
+            'templates' => $page->getTemplates(),
+            'sliders' => $sliders
         ]);
     }
 

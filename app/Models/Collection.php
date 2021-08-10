@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Traits\AutoAliasTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Collection
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $text
  * @property string $image
  * @property string $image_mob
+ * @property \Illuminate\Database\Eloquent\Collection $furniture
  */
 class Collection extends Model
 {
@@ -26,6 +28,11 @@ class Collection extends Model
     public const STORE_PATH = 'public/collections';
 
     protected $guarded = ['image', 'image_mob'];
+
+    public function furniture(): HasMany
+    {
+        return $this->hasMany(Furniture::class);
+    }
 
     /**
      * @return string

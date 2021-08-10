@@ -296,7 +296,7 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     margin-bottom: 0;
 }
 .upload__image {
-    width: 100%;
+    width: auto;
     height: auto;
     margin: 0 auto;
     display: block;
@@ -330,4 +330,10 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 }
 .gu-mirror {
     display: table;
+}
+.btn-box {
+    margin: 1rem 0 0 0;
+}
+.finishing-options .sp-replacer {
+    margin: 0 1rem 0 0;
 }
