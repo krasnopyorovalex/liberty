@@ -16,8 +16,9 @@ class CreateFurnitureImageRequest extends Request
     {
         return [
             'upload' => 'image',
-            'FurnitureImageId' => 'integer',
-            'text' => 'string|nullable'
+            'furnitureImageId' => 'integer',
+            'text' => 'string|nullable',
+            'is_mobile' => 'digits_between:0,1',
         ];
     }
 
@@ -30,7 +31,7 @@ class CreateFurnitureImageRequest extends Request
     {
         return [
             'upload.image' => 'Разрешено загружать только изображения',
-            'FurnitureImageId.integer' => 'Поле «id» должно быть целым числом'
+            'furnitureImageId.integer' => 'Поле «id» должно быть целым числом'
         ];
     }
 }

@@ -22,6 +22,8 @@ final class UploadImagesService
      */
     private UploadedFile $image;
 
+    private string $isMobile = '0';
+
     /**
      * @var int
      */
@@ -45,6 +47,10 @@ final class UploadImagesService
         $this->entityId = $entityId;
         $this->entity = $entity;
         $this->image = $request->file('upload');
+
+        if ($request->has('isMobile')) {
+            $this->isMobile = $request->get('isMobile');
+        }
 
         $this->image->store($this->getSavePath());
 
@@ -123,5 +129,13 @@ final class UploadImagesService
     {
         $this->heightThumb = $heightThumb;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsMobile(): string
+    {
+        return $this->isMobile;
     }
 }

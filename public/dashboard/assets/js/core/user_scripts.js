@@ -54,7 +54,7 @@ $(function() {
     |-----------------------------------------------------------
     */
     const editImageBox = jQuery('#edit-image'),
-        imagesBox = jQuery('#_images_box');
+        imagesBox = jQuery('#_images_box, #_images_box-mob');
     imagesBox.on('click', '.icon-pencil', function () {
         $.get(jQuery(this).closest('a').attr('href'), function(data){
             return editImageBox.html(data) && $(".control-primary").uniform({

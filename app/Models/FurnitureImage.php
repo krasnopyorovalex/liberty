@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $furniture_id
  * @property string $basename
  * @property string $ext
+ * @property string $is_mobile
  */
 class FurnitureImage extends Model
 {

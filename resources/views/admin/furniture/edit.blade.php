@@ -147,8 +147,16 @@
                     <div class="tab-pane" id="images">
                         <form action="#" enctype="multipart/form-data" method="post">
                             <div class="form-group">
+                                <div class="type-select-box">
+                                    <label for="type-select">Выберите для каких устройств загружаем изображения</label>
+                                    <select name="type" id="type-select" class="form-control border-blue border-xs select-search">
+                                        <option value="0">Компьютеры</option>
+                                        <option value="1">Мобильные</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-lg-12">
-                                    <input type="hidden" name="furnitureId" value="{{ $furniture->id }}">
                                     <input type="hidden" name="uploadUrl"
                                            value="{{ route('admin.furniture_images.store', $furniture) }}">
                                     <input type="hidden" name="updatePositionUrl"
@@ -160,8 +168,15 @@
                         </form>
                         <div class="clearfix"></div>
                         @if ($furniture->images)
+                            <h4 class="text-center">Для компьютеров</h4>
                             <div id="_images_box">
                                 @include('admin.furniture._images_box')
+                            </div>
+                        @endif
+                        @if ($furniture->imagesForMobile)
+                            <h4 class="text-center">Для мобильных устройств</h4>
+                            <div id="_images_box-mob">
+                                @include('admin.furniture._images_box_mob')
                             </div>
                         @endif
                     </div>
@@ -172,12 +187,12 @@
 
     <div id="edit-image" class="modal fade"></div>
     @push('scripts')
+        <script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('dashboard/assets/js/plugins/pickers/color/spectrum.js') }}"></script>
+        <script src="{{ asset('dashboard/assets/js/pages/picker_color.js') }}"></script>
         <script src="{{ asset('dashboard/assets/js/plugins/ui/dragula.min.js') }}"></script>
         <script src="{{ asset('dashboard/assets/js/pages/extension_dnd.js') }}"></script>
         <script src="{{ asset('dashboard/assets/js/plugins/uploaders/fileinput.min.js') }}"></script>
         <script src="{{ asset('dashboard/assets/js/pages/uploader_bootstrap.js') }}"></script>
-        <script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
-        <script src="{{ asset('dashboard/assets/js/plugins/pickers/color/spectrum.js') }}"></script>
-        <script src="{{ asset('dashboard/assets/js/pages/picker_color.js') }}"></script>
     @endpush
 @endsection

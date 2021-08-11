@@ -58,7 +58,7 @@ class SliderImageController extends Controller
      */
     public function store(CreateSliderImageRequest $request, int $slider): array
     {
-        $image = $this->uploadSliderImagesService->upload($request, 'slider', $slider);
+        $image = $this->uploadSliderImagesService->withThumb()->upload($request, 'slider', $slider);
         $this->dispatch(new CreateSliderImageCommand($image));
 
         return [

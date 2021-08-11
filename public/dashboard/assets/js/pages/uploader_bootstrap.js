@@ -11,10 +11,10 @@
 
 $(function() {
     // AJAX upload
-    var fileInputAjax = jQuery(".file-input-ajax"),
-        entityId = jQuery('#images form input[name=entityId]').val(),
+    const fileInputAjax = jQuery(".file-input-ajax"),
         uploadUrl = jQuery('#images form input[name=uploadUrl]').val(),
         _images_box = jQuery("#_images_box");
+    _images_box_mob = jQuery("#_images_box-mob");
 
     fileInputAjax.fileinput({
         uploadUrl: uploadUrl,
@@ -37,6 +37,11 @@ $(function() {
             indicatorSuccess: '<i class="icon-checkmark3 file-icon-large text-success"></i>',
             indicatorError: '<i class="icon-cross2 text-danger"></i>',
             indicatorLoading: '<i class="icon-spinner2 spinner text-muted"></i>'
+        },
+        uploadExtraData: function () {
+            return {
+                isMobile: $('#images form').find('select').val()
+            };
         }
     });
 
@@ -44,8 +49,14 @@ $(function() {
         return jQuery.ajax({
             url: uploadUrl,
             type: "GET",
+            data: {
+                'isMobile': $('#images form').find('select').val() === '1'
+            },
             success: function(data) {
-                _images_box.html(data.images);
+                $('#images form').find('select').val() === '1'
+                    ? _images_box_mob.html(data.images)
+                    : _images_box.html(data.images);
+
                 return startDnDImages();
             }
         });

@@ -104,10 +104,14 @@ tr.gu-mirror td:last-child .last-child, tr.gu-mirror td:last-child .last__btn {
 .thumbnail {
     margin: 1em;
 }
-#_images_box {
+#_images_box, #_images_box-mob {
     display: block;
     margin: 2em 0 0 0;
     text-align: center;
+}
+.type-select-box {
+    display: block;
+    margin: 0 1rem;
 }
 .nav-pills.nav-justified > div {
     display: inline-block;

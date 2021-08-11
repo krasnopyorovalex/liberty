@@ -36,8 +36,12 @@ class FurnitureImageController extends Controller
     {
         $furniture = $this->dispatch(new GetFurnitureByIdQuery($id));
 
+        $viewFile = request()->get('isMobile') === 'true'
+            ? 'admin.furniture._images_box_mob'
+            : 'admin.furniture._images_box';
+
         return [
-            'images' => view('admin.furniture._images_box', [
+            'images' => view($viewFile, [
                 'furniture' => $furniture
             ])->render()
         ];

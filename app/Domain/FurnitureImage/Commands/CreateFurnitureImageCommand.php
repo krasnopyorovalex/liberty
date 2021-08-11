@@ -30,11 +30,12 @@ class CreateFurnitureImageCommand
      */
     public function handle(): bool
     {
-        $FurnitureImage = new FurnitureImage();
-        $FurnitureImage->basename = $this->uploadImage->getImageHashName();
-        $FurnitureImage->ext = $this->uploadImage->getExt();
-        $FurnitureImage->furniture_id = $this->uploadImage->getEntityId();
+        $furnitureImage = new FurnitureImage();
+        $furnitureImage->basename = $this->uploadImage->getImageHashName();
+        $furnitureImage->ext = $this->uploadImage->getExt();
+        $furnitureImage->furniture_id = $this->uploadImage->getEntityId();
+        $furnitureImage->is_mobile = $this->uploadImage->getIsMobile();
 
-        return $FurnitureImage->save();
+        return $furnitureImage->save();
     }
 }

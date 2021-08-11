@@ -123,7 +123,7 @@ $(function() {
 
 function startDnDImages() {
     var url = jQuery('#images form input[name=updatePositionUrl]').val();
-    return dragula([document.getElementById('pills-target-right')])
+    return dragula([document.getElementById('pills-target-right'), document.getElementById('pills-target-right-mobile')])
         .on('out', function (el, container) {
             var list = [];
             jQuery('#pills-target-right > div').each(function (item) {
@@ -135,7 +135,7 @@ function startDnDImages() {
                     text: data.message,
                     icon: 'icon-checkmark3',
                     type: 'success'
-                });;
+                });
             });
         });
 }
