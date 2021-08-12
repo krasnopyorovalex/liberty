@@ -16,7 +16,15 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create();
 
         $this->call([
-            PageSeeder::class
+            PageSeeder::class,
+            InteriorTypeSeeder::class,
+            MenuSeeder::class,
+            CollectionSeeder::class,
+            FurnitureAttributeSeeder::class,
+            AuthorSeeder::class,
+            HowWeWorkSeeder::class,
+            WhyChooseUsSeeder::class,
+            FurnitureTypeSeeder::class,
         ]);
     }
 }

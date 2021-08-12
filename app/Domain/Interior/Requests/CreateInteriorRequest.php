@@ -23,7 +23,7 @@ class CreateInteriorRequest extends Request
             'alias' => 'required|max:64|unique:interiors',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
-            'is_favorite' => 'digits_between:0,1',
+            'interior_type_id' => 'required|integer|exists:interior_types,id',
         ];
     }
 

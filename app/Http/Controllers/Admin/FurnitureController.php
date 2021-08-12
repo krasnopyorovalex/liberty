@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use Domain\Furniture\Requests\CreateFurnitureRequest;
 use Domain\Furniture\Requests\UpdateFurnitureRequest;
 use Domain\FurnitureAttribute\Queries\GetAllFurnitureAttributesQuery;
+use Domain\FurnitureType\Queries\GetAllFurnitureTypesQuery;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -51,11 +52,13 @@ class FurnitureController extends Controller
         $furnitureAttributes = $this->dispatch(new GetAllFurnitureAttributesQuery());
         $collections = $this->dispatch(new GetAllCollectionsQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
+        $furnitureTypes = $this->dispatch(new GetAllFurnitureTypesQuery());
 
         return view('admin.furniture.create', [
             'furnitureAttributes' => $furnitureAttributes,
             'collections' => $collections,
-            'authors' => $authors
+            'authors' => $authors,
+            'furnitureTypes' => $furnitureTypes
         ]);
     }
 
@@ -84,12 +87,14 @@ class FurnitureController extends Controller
         $furnitureAttributes = $this->dispatch(new GetAllFurnitureAttributesQuery());
         $collections = $this->dispatch(new GetAllCollectionsQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
+        $furnitureTypes = $this->dispatch(new GetAllFurnitureTypesQuery());
 
         return view('admin.furniture.edit', [
             'furniture' => $furniture,
             'furnitureAttributes' => $furnitureAttributes,
             'collections' => $collections,
-            'authors' => $authors
+            'authors' => $authors,
+            'furnitureTypes' => $furnitureTypes
         ]);
     }
 

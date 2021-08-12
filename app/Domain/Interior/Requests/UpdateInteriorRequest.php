@@ -21,9 +21,9 @@ class UpdateInteriorRequest extends Request
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
             'text' => 'string|nullable',
-            'is_favorite' => 'digits_between:0,1',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
+            'interior_type_id' => 'required|integer|exists:interior_types,id',
             'alias' => [
                 'required',
                 'max:64',

@@ -25,6 +25,7 @@
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $furniture])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $furniture])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $furniture])
+                            @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $furniture])
 
                             <div class="row">
                                 <div class="col-md-4">
@@ -34,7 +35,7 @@
                                     @select(['name' => 'author_id', 'label' => 'Автор мебели', 'items' => $authors, 'entity' => $furniture])
                                 </div>
                                 <div class="col-md-4">
-                                    @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $furniture])
+                                    @select(['name' => 'furniture_type_id', 'label' => 'Тип мебели', 'items' => $furnitureTypes, 'entity' => $furniture])
                                 </div>
                             </div>
 
@@ -64,13 +65,15 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="finishing-options">
+                                        <div class="finishing-options-item">
                                         @if($furniture->finishing_options)
                                             @foreach($furniture->finishing_options as $value)
-                                                <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="{{ $value }}" data-preferred-format="hex" data-fouc />
+                                                <input type="text" name="finishing_options[]" class="colorpicker-palette" value="{{ $value }}" data-preferred-format="hex" data-fouc />
                                             @endforeach
                                         @else
-                                            <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                                            <input type="text" name="finishing_options[]" class="colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
                                         @endif
+                                        </div>
                                         <div class="btn-box">
                                             <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>
                                             <button class="btn btn-danger btn-remove" type="button">Удалить последний вариант</button>

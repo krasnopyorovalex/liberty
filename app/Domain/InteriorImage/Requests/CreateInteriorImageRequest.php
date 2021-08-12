@@ -17,7 +17,8 @@ class CreateInteriorImageRequest extends Request
         return [
             'upload' => 'image',
             'interiorImageId' => 'integer',
-            'text' => 'string|nullable'
+            'text' => 'string|nullable',
+            'is_mobile' => 'digits_between:0,1',
         ];
     }
 

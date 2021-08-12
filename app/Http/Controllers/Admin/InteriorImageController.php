@@ -36,8 +36,12 @@ class InteriorImageController extends Controller
     {
         $interior = $this->dispatch(new GetInteriorByIdQuery($id));
 
+        $viewFile = request()->get('isMobile') === 'true'
+            ? 'admin.interiors._images_box_mob'
+            : 'admin.interiors._images_box';
+
         return [
-            'images' => view('admin.interiors._images_box', [
+            'images' => view($viewFile, [
                 'interior' => $interior
             ])->render()
         ];

@@ -17,6 +17,8 @@
             <form action="{{ route('admin.interiors.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
+                @select(['name' => 'interior_type_id', 'label' => 'Тип портфолио', 'items' => $interiorTypes])
+
                 @input(['name' => 'name', 'label' => 'Название'])
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])
@@ -31,10 +33,7 @@
                     </div>
                 </div>
 
-{{--                @textarea(['name' => 'text', 'label' => 'Текст'])--}}
-
-                @checkbox(['name' => 'is_favorite', 'label' => 'Отображать в избранном(слайдер)?'])
-
+                @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке'])
                 @submit_btn()
             </form>
 

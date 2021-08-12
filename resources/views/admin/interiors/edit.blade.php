@@ -22,15 +22,15 @@
                         <form action="{{ route('admin.interiors.update', ['id' => $interior->id]) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
+                            @select(['name' => 'interior_type_id', 'label' => 'Тип портфолио', 'items' => $interiorTypes, 'entity' => $interior])
+
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $interior])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $interior])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $interior])
 
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $interior])
 
-                            {{--                            @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $interior])--}}
-                            @checkbox(['name' => 'is_favorite', 'label' => 'Отображать в избранном(слайдер)?', 'entity' => $interior])
-
+                            @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке', 'entity' => $interior])
                             <div class="row">
                                 <div class="col-md-6 image__box-a">
                                     @if ($interior->image)
@@ -78,8 +78,16 @@
                     <div class="tab-pane" id="images">
                         <form action="#" enctype="multipart/form-data" method="post">
                             <div class="form-group">
+                                <div class="type-select-box">
+                                    <label for="type-select">Выберите для каких устройств загружаем изображения</label>
+                                    <select name="type" id="type-select" class="form-control border-blue border-xs select-search">
+                                        <option value="0">Компьютеры</option>
+                                        <option value="1">Мобильные</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-lg-12">
-                                    <input type="hidden" name="interiorId" value="{{ $interior->id }}">
                                     <input type="hidden" name="uploadUrl"
                                            value="{{ route('admin.interior_images.store', $interior) }}">
                                     <input type="hidden" name="updatePositionUrl"
@@ -91,8 +99,15 @@
                         </form>
                         <div class="clearfix"></div>
                         @if ($interior->images)
+                            <h4 class="text-center">Для компьютеров</h4>
                             <div id="_images_box">
                                 @include('admin.interiors._images_box')
+                            </div>
+                        @endif
+                        @if ($interior->imagesForMobile)
+                            <h4 class="text-center">Для мобильных устройств</h4>
+                            <div id="_images_box-mob">
+                                @include('admin.interiors._images_box_mob')
                             </div>
                         @endif
                     </div>

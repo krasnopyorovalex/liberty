@@ -30,11 +30,12 @@ class CreateInteriorImageCommand
      */
     public function handle(): bool
     {
-        $InteriorImage = new InteriorImage();
-        $InteriorImage->basename = $this->uploadImage->getImageHashName();
-        $InteriorImage->ext = $this->uploadImage->getExt();
-        $InteriorImage->interior_id = $this->uploadImage->getEntityId();
+        $interiorImage = new InteriorImage();
+        $interiorImage->basename = $this->uploadImage->getImageHashName();
+        $interiorImage->ext = $this->uploadImage->getExt();
+        $interiorImage->interior_id = $this->uploadImage->getEntityId();
+        $interiorImage->is_mobile = $this->uploadImage->getIsMobile();
 
-        return $InteriorImage->save();
+        return $interiorImage->save();
     }
 }

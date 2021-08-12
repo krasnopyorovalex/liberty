@@ -20,6 +20,7 @@
                 @input(['name' => 'name', 'label' => 'Название'])
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])
+                @input(['name' => 'alias', 'label' => 'Alias'])
 
                 <div class="row">
                     <div class="col-md-4">
@@ -29,7 +30,7 @@
                         @select(['name' => 'author_id', 'label' => 'Автор мебели', 'items' => $authors])
                     </div>
                     <div class="col-md-4">
-                        @input(['name' => 'alias', 'label' => 'Alias'])
+                        @select(['name' => 'furniture_type_id', 'label' => 'Тип мебели', 'items' => $furnitureTypes])
                     </div>
                 </div>
                 @if(count($furnitureAttributes))
@@ -58,7 +59,9 @@
                     </div>
                     <div class="panel-body">
                         <div class="finishing-options">
-                            <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                            <div class="finishing-options-item">
+                                <input type="text" name="finishing_options[]" class="colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                            </div>
                             <div class="btn-box">
                                 <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>
                             </div>

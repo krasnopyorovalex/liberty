@@ -17,6 +17,7 @@
             <tr class="border-solid">
                 <th>#</th>
                 <th>Название</th>
+                <th>Тип</th>
                 <th>Alias</th>
                 <th>Обновлена</th>
                 <th></th>
@@ -27,6 +28,7 @@
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $interior->name }}</td>
+                    <td>{{ $interior->interiorType->name }}</td>
                     <td>{{ $interior->alias }}</td>
                     <td><span class="label label-primary">{{ $interior->updated_at->diffForHumans() }}</span></td>
                     <td>

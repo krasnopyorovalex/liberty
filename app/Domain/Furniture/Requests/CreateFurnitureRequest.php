@@ -29,6 +29,7 @@ class CreateFurnitureRequest extends Request
             'finishing_options' => 'array|nullable',
             'collection_id' => 'required|integer|exists:collections,id',
             'author_id' => 'required|integer|exists:authors,id',
+            'furniture_type_id' => 'required|integer|exists:furniture_types,id',
             'file' => 'file|nullable',
         ];
     }

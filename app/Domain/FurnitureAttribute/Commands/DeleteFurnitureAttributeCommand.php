@@ -30,11 +30,9 @@ class DeleteFurnitureAttributeCommand
     }
 
     /**
-     * Execute the job.
-     *
-     * @return bool
+     * @return mixed
      */
-    public function handle(): bool
+    public function handle()
     {
         return FurnitureAttribute::whereId($this->id)->delete();
     }

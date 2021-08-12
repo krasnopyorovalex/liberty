@@ -21,6 +21,7 @@ class CreateInteriorImagesTable extends Migration
             $table->text('text')->nullable();
             $table->char('basename', 40);
             $table->string('ext', 5);
+            $table->enum('is_mobile',[0,1])->default(0);
             $table->unsignedSmallInteger('pos')->default(0);
 
             $table->index(['interior_id']);

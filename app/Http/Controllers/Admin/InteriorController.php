@@ -12,6 +12,7 @@ use Domain\Interior\Queries\GetInteriorByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Interior\Requests\CreateInteriorRequest;
 use Domain\Interior\Requests\UpdateInteriorRequest;
+use Domain\InteriorType\Queries\GetAllInteriorTypesQuery;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -45,7 +46,11 @@ class InteriorController extends Controller
      */
     public function create()
     {
-        return view('admin.interiors.create');
+        $interiorTypes = $this->dispatch(new GetAllInteriorTypesQuery());
+
+        return view('admin.interiors.create', [
+            'interiorTypes' => $interiorTypes
+        ]);
     }
 
     /**
@@ -70,9 +75,11 @@ class InteriorController extends Controller
     public function edit(int $id)
     {
         $interior = $this->dispatch(new GetInteriorByIdQuery($id));
+        $interiorTypes = $this->dispatch(new GetAllInteriorTypesQuery());
 
         return view('admin.interiors.edit', [
-            'interior' => $interior
+            'interior' => $interior,
+            'interiorTypes' => $interiorTypes
         ]);
     }
 

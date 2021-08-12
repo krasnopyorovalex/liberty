@@ -6,7 +6,6 @@ namespace Domain\Furniture\Commands;
 
 use App\Http\Requests\Request;
 use App\Models\Furniture;
-use App\Models\FurnitureHasAttributes;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Storage;
 

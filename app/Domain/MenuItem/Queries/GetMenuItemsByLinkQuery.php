@@ -13,7 +13,7 @@ class GetMenuItemsByLinkQuery
     /**
      * @var string
      */
-    private $link;
+    private string $link;
 
     /**
      * GetMenuItemsByLinkQuery constructor.

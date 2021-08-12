@@ -42,6 +42,11 @@ class Furniture extends Model
         return $this->hasMany(FurnitureImage::class)->where('is_mobile', '1')->orderBy('pos');
     }
 
+    public function furnitureType(): BelongsTo
+    {
+        return $this->belongsTo(FurnitureType::class);
+    }
+
     public function collection(): BelongsTo
     {
         return $this->belongsTo(Collection::class);

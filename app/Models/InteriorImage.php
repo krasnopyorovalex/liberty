@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $interior_id
  * @property string $basename
  * @property string $ext
+ * @property string $is_mobile
  */
 class InteriorImage extends Model
 {

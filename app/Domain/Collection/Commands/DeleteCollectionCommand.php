@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Collection\Commands;
 
-use Domain\Collection\Queries\GetSalesLeaderByIdQuery;
+use Domain\Collection\Queries\GetCollectionByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,16 +37,16 @@ class DeleteCollectionCommand
      */
     public function handle(): bool
     {
-        $salesLeader = $this->dispatch(new GetSalesLeaderByIdQuery($this->id));
+        $collection = $this->dispatch(new GetCollectionByIdQuery($this->id));
 
-        if ($salesLeader->image) {
-            Storage::delete(str_replace('/storage/', '/public/', $salesLeader->image));
+        if ($collection->image) {
+            Storage::delete(str_replace('/storage/', '/public/', $collection->image));
         }
 
-        if ($salesLeader->image_mob) {
-            Storage::delete(str_replace('/storage/', '/public/', $salesLeader->image_mob));
+        if ($collection->image_mob) {
+            Storage::delete(str_replace('/storage/', '/public/', $collection->image_mob));
         }
 
-        return $salesLeader->delete();
+        return $collection->delete();
     }
 }

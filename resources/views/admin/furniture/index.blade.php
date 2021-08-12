@@ -19,6 +19,7 @@
                 <th>Название</th>
                 <th>Коллекция</th>
                 <th>Автор</th>
+                <th>Тип</th>
                 <th>Обновлена</th>
                 <th></th>
             </tr>
@@ -30,6 +31,7 @@
                     <td>{{ $furniture->name }}</td>
                     <td>{{ $furniture->collection->name }}</td>
                     <td>{{ $furniture->author->name }}</td>
+                    <td>{{ $furniture->furnitureType->name }}</td>
                     <td><span class="label label-primary">{{ $furniture->updated_at->diffForHumans() }}</span></td>
                     <td>
                         <div>

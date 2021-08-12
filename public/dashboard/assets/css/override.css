@@ -341,3 +341,18 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 .finishing-options .sp-replacer {
     margin: 0 1rem 0 0;
 }
+.finishing-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.finishing-options .btn-box {
+    width: 100%;
+    flex-grow: 1;
+}
+.finishing-options .finishing-options-item + .finishing-options-item {
+    margin: 0 0 20px 1rem;
+}
+.finishing-options .finishing-options-item input:last-child {
+    margin: .5rem 0 0 0;
+}

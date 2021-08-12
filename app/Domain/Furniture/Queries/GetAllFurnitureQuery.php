@@ -18,6 +18,6 @@ class GetAllFurnitureQuery
      */
     public function handle()
     {
-        return Furniture::with(['collection', 'author'])->get();
+        return Furniture::with(['collection', 'author', 'furnitureType'])->get();
     }
 }

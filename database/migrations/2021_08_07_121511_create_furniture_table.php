@@ -17,6 +17,7 @@ class CreateFurnitureTable extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('collection_id')->nullable();
+            $table->unsignedBigInteger('furniture_type_id')->nullable();
             $table->string('name', 512);
             $table->string('title', 512);
             $table->string('description', 512);
@@ -31,9 +32,11 @@ class CreateFurnitureTable extends Migration
 
             $table->timestamps();
 
-            $table->index(['collection_id', 'author_id']);
+            $table->index(['collection_id', 'furniture_type_id', 'author_id']);
+
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('set null');
             $table->foreign('collection_id')->references('id')->on('collections')->onDelete('set null');
+            $table->foreign('furniture_type_id')->references('id')->on('furniture_types')->onDelete('set null');
         });
     }
 
