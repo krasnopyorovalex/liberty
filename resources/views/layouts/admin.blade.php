@@ -164,15 +164,7 @@
 
             <!-- Content area -->
             <div class="content">
-
                 @yield('content')
-
-                <!-- Footer -->
-                <div class="footer text-muted">
-                    &copy; <a href="https://krasber.ru" target="_blank">ООО «Красбер»</a> 2017 - {{ date('Y') }}
-                </div>
-                <!-- /footer -->
-
             </div>
             <!-- /content area -->
 

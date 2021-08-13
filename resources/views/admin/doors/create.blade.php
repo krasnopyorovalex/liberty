@@ -57,10 +57,11 @@
                         <div class="finishing-options">
                             <div class="finishing-options-item form-group">
                                 <input type="text" name="finishing_options[]" class="colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
-                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs" placeholder="метка" />
+                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs" placeholder="метка"/>
                             </div>
                             <div class="btn-box">
                                 <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>
+                                <button class="btn btn-danger btn-remove" type="button">Удалить последний вариант</button>
                             </div>
                         </div>
                     </div>

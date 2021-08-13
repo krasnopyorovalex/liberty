@@ -64,6 +64,7 @@
                             </div>
                             <div class="btn-box">
                                 <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>
+                                <button class="btn btn-danger btn-remove" type="button">Удалить последний вариант</button>
                             </div>
                         </div>
                     </div>

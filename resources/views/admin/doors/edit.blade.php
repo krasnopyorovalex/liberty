@@ -29,14 +29,10 @@
 
                             <div class="row">
                                 <div class="col-md-4">
-                                    @select(['name' => 'collection_id', 'label' => 'Коллекция', 'items' => $collections, 'entity' => $door])
-                                </div>
-                                <div class="col-md-4">
                                     @select(['name' => 'author_id', 'label' => 'Автор мебели', 'items' => $authors, 'entity' => $door])
                                 </div>
-                                <div class="col-md-4">
-                                    @select(['name' => 'door_type_id', 'label' => 'Тип мебели', 'items' => $doorTypes, 'entity' => $door])
-                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
                             </div>
 
                             @if(count($doorAttributes))
@@ -66,11 +62,17 @@
                                 <div class="panel-body">
                                     <div class="finishing-options">
                                         @if($door->finishing_options)
-                                            @foreach($door->finishing_options as $value)
+                                            @foreach($door->finishing_options as $key => $value)
+                                                <div class="finishing-options-item form-group">
                                                 <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="{{ $value }}" data-preferred-format="hex" data-fouc />
+                                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs" value="{{ $door->finishing_option_names[$key] ?? '' }}" placeholder="метка" />
+                                                </div>
                                             @endforeach
                                         @else
-                                            <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                                            <div class="finishing-options-item form-group">
+                                                <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs" placeholder="метка" />
+                                            </div>
                                         @endif
                                         <div class="btn-box">
                                             <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>

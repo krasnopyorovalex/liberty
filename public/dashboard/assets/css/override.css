@@ -350,8 +350,8 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
     width: 100%;
     flex-grow: 1;
 }
-.finishing-options .finishing-options-item + .finishing-options-item {
-    margin: 0 0 20px 1rem;
+.finishing-options .finishing-options-item {
+    margin: 0 0 20px .5rem;
 }
 .finishing-options .finishing-options-item input:last-child {
     margin: .5rem 0 0 0;

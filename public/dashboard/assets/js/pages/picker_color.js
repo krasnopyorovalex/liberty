@@ -179,12 +179,10 @@ $(function() {
         });
 
         finishingOptions.on('click', '.btn-remove', function () {
-            const inputLength = finishingOptions.find('input').length;
-            const spReplacerLength = finishingOptions.find('.sp-replacer').length;
-
-            finishingOptions.find('input').eq(inputLength - 1).remove();
-
-            finishingOptions.find('.sp-replacer').eq(spReplacerLength - 1).remove();
+            const itemLength = finishingOptions.find('.finishing-options-item').length;
+            return itemLength > 1
+                ? finishingOptions.find('.finishing-options-item').eq(itemLength - 1).remove()
+                : false;
         });
     }
 

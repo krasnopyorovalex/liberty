@@ -26,6 +26,10 @@ class UpdateDoorRequest extends Request
             'doorAttributes.*' => 'string|nullable',
             'doorAttributes' => 'array|nullable',
             'author_id' => 'required|integer|exists:authors,id',
+            'finishing_options.*' => 'string|nullable',
+            'finishing_options' => 'array|nullable',
+            'finishing_option_names.*' => 'string|nullable',
+            'finishing_option_names' => 'array|nullable',
             'alias' => [
                 'required',
                 'max:64',

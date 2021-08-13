@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -37,11 +38,21 @@ class Door extends Model
         return $this->belongsTo(Author::class);
     }
 
-    public function furnitureAttributes(): BelongsToMany
+    public function doorAttributes(): BelongsToMany
     {
         return $this->belongsToMany(DoorAttribute::class, 'door_has_attributes')
             ->withPivot('value')
             ->using(DoorHasAttribute::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(DoorImage::class)->where('is_mobile', '0')->orderBy('pos');
+    }
+
+    public function imagesForMobile(): HasMany
+    {
+        return $this->hasMany(DoorImage::class)->where('is_mobile', '1')->orderBy('pos');
     }
 
     /**
