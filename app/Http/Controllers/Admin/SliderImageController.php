@@ -44,8 +44,12 @@ class SliderImageController extends Controller
     {
         $slider = $this->dispatch(new GetSliderByIdQuery($gallery));
 
+        $viewFile = request()->get('isMobile') === 'true'
+            ? 'admin.sliders._images_box_mob'
+            : 'admin.sliders._images_box';
+
         return [
-            'images' => view('admin.sliders._images_box', [
+            'images' => view($viewFile, [
                 'slider' => $slider
             ])->render()
         ];

@@ -16,7 +16,7 @@ class CreateDoorImageRequest extends Request
     {
         return [
             'upload' => 'image',
-            'DoorImageId' => 'integer',
+            'doorImageId' => 'integer',
             'text' => 'string|nullable',
             'is_mobile' => 'digits_between:0,1',
         ];

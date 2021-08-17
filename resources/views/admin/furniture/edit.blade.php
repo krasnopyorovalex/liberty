@@ -28,6 +28,13 @@
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $furniture])
 
                             <div class="row">
+                                <div class="col-md-3">
+                                    @priceInput(['name' => 'price', 'label' => 'Цена', 'entity' => $furniture])
+                                </div>
+                                <div class="col-md-9"></div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-4">
                                     @select(['name' => 'collection_id', 'label' => 'Коллекция', 'items' => $collections, 'entity' => $furniture])
                                 </div>
@@ -83,6 +90,8 @@
                             </div>
 
                             @textarea(['name' => 'text', 'label' => 'Описание', 'entity' => $furniture])
+                            @textarea(['name' => 'guarantee', 'label' => 'Гарантии', 'entity' => $furniture, 'id' => 'editor-full2'])
+                            @textarea(['name' => 'timing', 'label' => 'Сроки', 'entity' => $furniture, 'id' => 'editor-full3'])
 
                             <div class="row">
                                 <div class="col-md-4 image__box-a">

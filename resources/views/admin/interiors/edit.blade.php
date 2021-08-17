@@ -31,6 +31,9 @@
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $interior])
 
                             @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке', 'entity' => $interior])
+
+                            @checkbox(['name' => 'is_favorite', 'label' => 'Выводить в слайдере Исполнение премиум класса?', 'entity' => $interior])
+
                             <div class="row">
                                 <div class="col-md-6 image__box-a">
                                     @if ($interior->image)

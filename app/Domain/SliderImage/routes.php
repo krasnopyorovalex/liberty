@@ -12,5 +12,5 @@ Route::group(['prefix' => 'slider-images', 'as' => 'slider_images.'], static fun
     Route::put('{id}', [SliderImageController::class, 'update'])->name('update');
     Route::delete('{id}', [SliderImageController::class, 'destroy'])->name('destroy');
 
-    Route::post('update-positions', [SliderImageController::class, 'update_positions'])->name('update_positions');
+    Route::post('update-positions', [SliderImageController::class, 'updatePositions'])->name('update_positions');
 });

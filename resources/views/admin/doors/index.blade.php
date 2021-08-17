@@ -18,7 +18,8 @@
                 <th>#</th>
                 <th>Название</th>
                 <th>Автор</th>
-                <th>Обновлена</th>
+                <th>Цена</th>
+                <th>Слайдер в интерьере</th>
                 <th></th>
             </tr>
             </thead>
@@ -28,10 +29,16 @@
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $door->name }}</td>
                     <td>{{ $door->author->name }}</td>
-                    <td><span class="label label-primary">{{ $door->updated_at->diffForHumans() }}</span></td>
+                    <td>{!! $door->getPrice() !!}</td>
+                    <td>
+                        <a href="{{ route('admin.door_interior_sliders.edit', ['id' => $door->doorInteriorSlider->id, 'doorId' => $door->id]) }}">
+                            [Слайдер "В интерьере"]
+                        </a>
+                    </td>
                     <td>
                         <div>
                             <a href="{{ route('admin.doors.edit', $door) }}"><i class="icon-pencil7"></i></a>
+                            <a href="{{ route('admin.door_modifications.index', $door) }}" data-popup="tooltip" title="" data-original-title="Модификации"><i class="icon-tree5"></i></a>
                             <form method="POST" action="{{ route('admin.doors.destroy', $door) }}" class="form__delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

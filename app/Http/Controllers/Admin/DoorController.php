@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Domain\Door\Requests\CreateDoorRequest;
 use Domain\Door\Requests\UpdateDoorRequest;
 use Domain\DoorAttribute\Queries\GetAllDoorAttributesQuery;
+use Domain\Slider\Queries\GetAllSlidersQuery;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -49,10 +50,12 @@ class DoorController extends Controller
     {
         $doorAttributes = $this->dispatch(new GetAllDoorAttributesQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.doors.create', [
             'doorAttributes' => $doorAttributes,
-            'authors' => $authors
+            'authors' => $authors,
+            'sliders' => $sliders
         ]);
     }
 
@@ -80,11 +83,13 @@ class DoorController extends Controller
         $door = $this->dispatch(new GetDoorByIdQuery($id));
         $doorAttributes = $this->dispatch(new GetAllDoorAttributesQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.doors.edit', [
             'door' => $door,
             'doorAttributes' => $doorAttributes,
-            'authors' => $authors
+            'authors' => $authors,
+            'sliders' => $sliders
         ]);
     }
 

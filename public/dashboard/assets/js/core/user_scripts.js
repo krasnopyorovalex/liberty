@@ -55,8 +55,8 @@ $(function() {
     */
     const editImageBox = jQuery('#edit-image'),
         imagesBox = jQuery('#_images_box, #_images_box-mob');
-    imagesBox.on('click', '.icon-pencil', function () {
-        $.get(jQuery(this).closest('a').attr('href'), function(data){
+    imagesBox.on('click', 'span a:first-child', function () {
+        $.get(jQuery(this).attr('href'), function(data){
             return editImageBox.html(data) && $(".control-primary").uniform({
                 radioClass: 'choice',
                 wrapperClass: 'border-primary-600 text-primary-800'
@@ -82,23 +82,23 @@ $(function() {
             },
             success: function(data) {
                 editImageBox.modal('hide');
-                new PNotify({
+                return new PNotify({
                     title: 'Уведомление от сервера',
                     text: data.message,
                     icon: 'icon-checkmark3',
                     type: 'success'
                 });
-                return imagesBox.html(data.images) && startDnDImages();
+                //return imagesBox.html(data.images) && startDnDImages();
             }
         });
     });
 
-    imagesBox.on('click', '.icon-trash', function (e) {
+    imagesBox.on('click', 'span a:last-child', function (e) {
         e.preventDefault();
         if(confirm('Вы уверены, что хотите удалить изображение?')) {
             const _this = jQuery(this);
             return $.ajax({
-                url: _this.parent('a').attr('href'),
+                url: _this.attr('href'),
                 type: "POST",
                 data: {'_method': 'DELETE'},
                 success: function (data) {
@@ -130,7 +130,21 @@ $(function() {
 
     if($('#editor-full2').length) {
         CKEDITOR.replace( 'editor-full2', {
-            height: '120px',
+            //height: '120px',
+            toolbarGroups: [
+                { name: 'links' },
+                { name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
+                { name: 'others' },
+                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                { name: 'paragraph',   groups: [ 'blocks', 'align', 'bidi' ] },
+                { name: 'colors' }
+            ]
+        });
+    }
+
+    if($('#editor-full3').length) {
+        CKEDITOR.replace( 'editor-full3', {
+            //height: '120px',
             toolbarGroups: [
                 { name: 'links' },
                 { name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },

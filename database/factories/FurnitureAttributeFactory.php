@@ -22,7 +22,7 @@ class FurnitureAttributeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Артикул'
+            'name' => 'Изготовление'
         ];
     }
 }

@@ -35,6 +35,16 @@
                     <div class="tab-pane" id="images">
                         <form action="#" enctype="multipart/form-data" method="post">
                             <div class="form-group">
+                                <div class="type-select-box">
+                                    <label for="type-select">Выберите для каких устройств загружаем изображения</label>
+                                    <select name="type" id="type-select" class="form-control border-blue border-xs select-search">
+                                        <option value="0">Компьютеры</option>
+                                        <option value="1">Мобильные</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-lg-12">
                                     <input type="hidden" name="sliderId" value="{{ $slider->id }}">
                                     <input type="hidden" name="uploadUrl" value="{{ route('admin.slider_images.store', $slider) }}">
@@ -45,9 +55,16 @@
                         </form>
                         <div class="clearfix"></div>
                         @if ($slider->images)
-                        <div id="_images_box">
-                            @include('admin.sliders._images_box')
-                        </div>
+                            <h4 class="text-center">Для компьютеров</h4>
+                            <div id="_images_box">
+                                @include('admin.sliders._images_box')
+                            </div>
+                        @endif
+                        @if ($slider->imagesForMobile)
+                            <h4 class="text-center">Для мобильных устройств</h4>
+                            <div id="_images_box-mob">
+                                @include('admin.sliders._images_box_mob')
+                            </div>
                         @endif
                     </div>
                 </div>

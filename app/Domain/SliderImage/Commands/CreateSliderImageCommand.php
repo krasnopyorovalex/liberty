@@ -33,6 +33,7 @@ class CreateSliderImageCommand
         $sliderImage->basename = $this->uploadImage->getImageHashName();
         $sliderImage->ext = $this->uploadImage->getExt();
         $sliderImage->slider_id = $this->uploadImage->getEntityId();
+        $sliderImage->is_mobile = $this->uploadImage->getIsMobile();
 
         return $sliderImage->save();
     }

@@ -34,6 +34,8 @@
                 </div>
 
                 @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке'])
+
+                @checkbox(['name' => 'is_favorite', 'label' => 'Выводить в слайдере Исполнение премиум класса?'])
                 @submit_btn()
             </form>
 

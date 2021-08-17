@@ -100,13 +100,15 @@
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
                             <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
                             <li><a href="{{ route('admin.for_clients.index') }}"><i class="icon-users4"></i> <span>Клиентам</span></a></li>
-                            <li><a href="{{ route('admin.authors.index') }}"><i class="icon-pencil-ruler"></i> <span>Авторы</span></a></li>
+                            <li><a href="{{ route('admin.authors.index') }}"><i class="icon-user-tie"></i> <span>Авторы</span></a></li>
+                            <li><a href="{{ route('admin.employees.index') }}"><i class="icon-users"></i> <span>Сотрудники</span></a></li>
                             <li><a href="{{ route('admin.menus.index') }}"><i class="icon-lan2"></i> <span>Навигация</span></a></li>
                             <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
 
                             <li class="navigation-header"><span>Двери</span></li>
                             <li><a href="{{ route('admin.door_attributes.index') }}"><i class="icon-list"></i> <span>Атрибуты</span></a></li>
                             <li><a href="{{ route('admin.doors.index') }}"><i class="icon-stack"></i> <span>Двери</span></a></li>
+{{--                            <li><a href="{{ route('admin.door_interior_sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер Двери в интерьере</span></a></li>--}}
 
                             <li class="navigation-header"><span>Мебель</span></li>
                             <li><a href="{{ route('admin.collections.index') }}"><i class="icon-stack4"></i> <span>Коллекции</span></a></li>
@@ -121,6 +123,7 @@
                             <li class="navigation-header"><span>Сквозные элементы</span></li>
                             <li><a href="{{ route('admin.why_choose_us.index') }}"><i class="icon-question3"></i> <span>Почему выбирают нас</span></a></li>
                             <li><a href="{{ route('admin.how_we_works.index') }}"><i class="icon-yin-yang"></i> <span>Как мы работаем</span></a></li>
+                            <li><a href="{{ route('admin.about_blocks.index') }}"><i class="icon-list2"></i> <span>Блоки О нас</span></a></li>
 
 {{--                            <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Услуги</span></a></li>--}}
 {{--                            <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>--}}

@@ -18,6 +18,7 @@ class CreateFurnitureTable extends Migration
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('collection_id')->nullable();
             $table->unsignedBigInteger('furniture_type_id')->nullable();
+            $table->unsignedBigInteger('price')->default(0);
             $table->string('name', 512);
             $table->string('title', 512);
             $table->string('description', 512);
@@ -26,8 +27,8 @@ class CreateFurnitureTable extends Migration
             $table->string('image_mob', 128)->nullable();
             $table->string('file', 128)->nullable();
             $table->text('text')->nullable();
-//            $table->text('guarantee')->nullable();
-//            $table->text('timing')->nullable();
+            $table->text('guarantee')->nullable();
+            $table->text('timing')->nullable();
             $table->json('finishing_options')->nullable();
 
             $table->timestamps();

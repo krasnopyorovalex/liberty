@@ -58,7 +58,7 @@ class DoorImageController extends Controller
             ->withThumb()
             ->setWidthThumb(173)
             ->setHeightThumb(157)
-            ->upload($request, 'Door', $doorImage);
+            ->upload($request, 'doors', $doorImage);
 
         $this->dispatch(new CreateDoorImageCommand($image));
 
@@ -94,7 +94,7 @@ class DoorImageController extends Controller
 
         return [
             'images' => view('admin.doors._images_box', [
-                'Door' => $door
+                'door' => $door
             ])->render(),
             'message' => 'Данные сохранены успешно'
         ];

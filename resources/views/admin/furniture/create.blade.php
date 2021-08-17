@@ -23,6 +23,13 @@
                 @input(['name' => 'alias', 'label' => 'Alias'])
 
                 <div class="row">
+                    <div class="col-md-3">
+                        @priceInput(['name' => 'price', 'label' => 'Цена'])
+                    </div>
+                    <div class="col-md-9"></div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-4">
                         @select(['name' => 'collection_id', 'label' => 'Коллекция', 'items' => $collections])
                     </div>
@@ -86,6 +93,8 @@
                 </div>
 
                 @textarea(['name' => 'text', 'label' => 'Описание'])
+                @textarea(['name' => 'guarantee', 'label' => 'Гарантии', 'id' => 'editor-full2'])
+                @textarea(['name' => 'timing', 'label' => 'Сроки', 'id' => 'editor-full3'])
                 @submit_btn()
             </form>
 

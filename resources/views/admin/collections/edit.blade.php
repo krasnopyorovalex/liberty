@@ -33,7 +33,7 @@
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $salesLeader])
 
 {{--                            @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $salesLeader])--}}
-                            @checkbox(['name' => 'is_sales_leader', 'label' => 'Лидер продаж?', 'entity' => $salesLeader])
+{{--                            @checkbox(['name' => 'is_sales_leader', 'label' => 'Лидер продаж?', 'entity' => $salesLeader])--}}
 
                             @submit_btn()
                         </div>

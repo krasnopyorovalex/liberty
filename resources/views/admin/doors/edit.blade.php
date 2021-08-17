@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumb')
-    <li><a href="{{ route('admin.doors.index') }}">.door.</a></li>
+    <li><a href="{{ route('admin.doors.index') }}">Двери</a></li>
     <li class="active">Форма редактирования</li>
 @endsection
 
@@ -14,7 +14,7 @@
             <div class="tabbable">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
-                    <li><a href="#images" data-toggle="tab">Слайдер</a></li>
+                    <li><a href="#images" data-toggle="tab">Галерея</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -28,10 +28,19 @@
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $door])
 
                             <div class="row">
+                                <div class="col-md-3">
+                                    @priceInput(['name' => 'price', 'label' => 'Цена', 'entity' => $door])
+                                </div>
+                                <div class="col-md-9"></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @select(['name' => 'slider_id', 'label' => 'Верхний слайдер', 'items' => $sliders, 'entity' => $door])
+                                </div>
                                 <div class="col-md-4">
                                     @select(['name' => 'author_id', 'label' => 'Автор мебели', 'items' => $authors, 'entity' => $door])
                                 </div>
-                                <div class="col-md-4"></div>
                                 <div class="col-md-4"></div>
                             </div>
 
@@ -65,14 +74,9 @@
                                             @foreach($door->finishing_options as $key => $value)
                                                 <div class="finishing-options-item form-group">
                                                 <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="{{ $value }}" data-preferred-format="hex" data-fouc />
-                                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs" value="{{ $door->finishing_option_names[$key] ?? '' }}" placeholder="метка" />
+                                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs finishing-option-names" value="{{ $door->finishing_option_names[$key] ?? '' }}" placeholder="метка" />
                                                 </div>
                                             @endforeach
-                                        @else
-                                            <div class="finishing-options-item form-group">
-                                                <input type="text" name="finishing_options[]" class="form-control colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
-                                                <input type="text" name="finishing_option_names[]" class="form-control border-blue border-xs" placeholder="метка" />
-                                            </div>
                                         @endif
                                         <div class="btn-box">
                                             <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>
@@ -83,6 +87,8 @@
                             </div>
 
                             @textarea(['name' => 'text', 'label' => 'Описание', 'entity' => $door])
+                            @textarea(['name' => 'guarantee', 'label' => 'Гарантии', 'entity' => $door, 'id' => 'editor-full2'])
+                            @textarea(['name' => 'timing', 'label' => 'Сроки', 'entity' => $door, 'id' => 'editor-full3'])
 
                             <div class="row">
                                 <div class="col-md-4 image__box-a">

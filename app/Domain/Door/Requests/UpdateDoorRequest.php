@@ -21,6 +21,9 @@ class UpdateDoorRequest extends Request
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
             'text' => 'string|nullable',
+            'guarantee' => 'string|nullable',
+            'timing' => 'string|nullable',
+            'price' => 'integer|required',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
             'doorAttributes.*' => 'string|nullable',
@@ -30,6 +33,7 @@ class UpdateDoorRequest extends Request
             'finishing_options' => 'array|nullable',
             'finishing_option_names.*' => 'string|nullable',
             'finishing_option_names' => 'array|nullable',
+            'slider_id' => 'nullable|integer|exists:sliders,id',
             'alias' => [
                 'required',
                 'max:64',

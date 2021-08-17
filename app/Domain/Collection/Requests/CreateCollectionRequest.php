@@ -23,7 +23,7 @@ class CreateCollectionRequest extends Request
             'alias' => 'required|max:64|unique:collections',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
-            'is_sales_leader' => 'digits_between:0,1',
+            //'is_sales_leader' => 'digits_between:0,1',
         ];
     }
 

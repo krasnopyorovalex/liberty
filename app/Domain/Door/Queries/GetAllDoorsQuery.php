@@ -12,12 +12,13 @@ use App\Models\Door;
  */
 class GetAllDoorsQuery
 {
-
     /**
      * Execute the job.
      */
     public function handle()
     {
-        return Door::with(['author'])->get();
+        return Door::with(['author', 'doorInteriorSlider'])
+            ->where('parent_id', null)
+            ->get();
     }
 }

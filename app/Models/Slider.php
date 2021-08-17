@@ -27,6 +27,14 @@ class Slider extends Model
      */
     public function images(): HasMany
     {
-        return $this->hasMany(SliderImage::class)->orderBy('pos');
+        return $this->hasMany(SliderImage::class)->where('is_mobile', '0')->orderBy('pos');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function imagesForMobile(): HasMany
+    {
+        return $this->hasMany(SliderImage::class)->where('is_mobile', '1')->orderBy('pos');
     }
 }

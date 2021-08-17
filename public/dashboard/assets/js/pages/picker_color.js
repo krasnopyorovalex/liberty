@@ -167,6 +167,10 @@ $(function() {
             let inputHtml = finishingOptions.find('.finishing-options-item:first-child()').clone();
             inputHtml.find('.sp-replacer').remove();
 
+            if (inputHtml.find('input.finishing-option-names').length) {
+                inputHtml.find('input.finishing-option-names').val('');
+            }
+
             $(this).closest('.btn-box').before(inputHtml);
 
             return $(".colorpicker-palette").spectrum({

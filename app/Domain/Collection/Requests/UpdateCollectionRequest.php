@@ -21,7 +21,7 @@ class UpdateCollectionRequest extends Request
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
             'text' => 'string|nullable',
-            'is_sales_leader' => 'digits_between:0,1',
+            //'is_sales_leader' => 'digits_between:0,1',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
             'alias' => [

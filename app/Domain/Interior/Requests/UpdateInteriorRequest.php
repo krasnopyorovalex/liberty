@@ -24,6 +24,7 @@ class UpdateInteriorRequest extends Request
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
             'interior_type_id' => 'required|integer|exists:interior_types,id',
+            'is_favorite' => 'digits_between:0,1',
             'alias' => [
                 'required',
                 'max:64',

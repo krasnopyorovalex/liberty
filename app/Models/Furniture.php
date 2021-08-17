@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @property int $id
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $image_mob
  * @property string $alias
  * @property string $file
+ * @property int $price
  * @property \Illuminate\Database\Eloquent\Collection $furnitureAttributes
  */
 class Furniture extends Model
@@ -32,6 +34,22 @@ class Furniture extends Model
 
     protected $guarded = ['image', 'image_mob', 'furnitureAttribute.*', 'file'];
 
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::created(static function ($model) {
+            FurnitureInteriorSlider::create([
+                'name' => $model->name,
+                'furniture_id' => $model->id
+            ]);
+        });
+
+        static::deleting(static function ($model) {
+            FurnitureInteriorSlider::whereDoorId($model->id)->delete();
+        });
+    }
+
     public function images(): HasMany
     {
         return $this->hasMany(FurnitureImage::class)->where('is_mobile', '0')->orderBy('pos');
@@ -40,6 +58,11 @@ class Furniture extends Model
     public function imagesForMobile(): HasMany
     {
         return $this->hasMany(FurnitureImage::class)->where('is_mobile', '1')->orderBy('pos');
+    }
+
+    public function furnitureInteriorSlider(): HasOne
+    {
+        return $this->hasOne(FurnitureInteriorSlider::class, 'furniture_id');
     }
 
     public function furnitureType(): BelongsTo
@@ -90,5 +113,13 @@ class Furniture extends Model
                 ]);
             }
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrice(): string
+    {
+        return sprintf('%s &#8381;', number_format($this->price, 0, '.', ' '));
     }
 }

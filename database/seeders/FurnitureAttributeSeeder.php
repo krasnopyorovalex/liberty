@@ -21,15 +21,23 @@ class FurnitureAttributeSeeder extends Seeder
             ->create();
 
         FurnitureAttribute::factory()->create([
-            'name' => 'Отделка'
-        ]);
-
-        FurnitureAttribute::factory()->create([
             'name' => 'Материалы'
         ]);
 
         FurnitureAttribute::factory()->create([
-            'name' => 'Полотно'
+            'name' => 'Отделка'
+        ]);
+
+        FurnitureAttribute::factory()->create([
+            'name' => 'Высота'
+        ]);
+
+        FurnitureAttribute::factory()->create([
+            'name' => 'Ширина'
+        ]);
+
+        FurnitureAttribute::factory()->create([
+            'name' => 'Глубина'
         ]);
     }
 }

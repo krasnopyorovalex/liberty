@@ -14,7 +14,7 @@ $(function() {
     const fileInputAjax = jQuery(".file-input-ajax"),
         uploadUrl = jQuery('#images form input[name=uploadUrl]').val(),
         _images_box = jQuery("#_images_box");
-    _images_box_mob = jQuery("#_images_box-mob");
+    let _images_box_mob = jQuery("#_images_box-mob");
 
     fileInputAjax.fileinput({
         uploadUrl: uploadUrl,
@@ -43,9 +43,7 @@ $(function() {
                 isMobile: $('#images form').find('select').val()
             };
         }
-    });
-
-    fileInputAjax.on('fileuploaded', function() {
+    }).on('fileuploaded', function() {
         return jQuery.ajax({
             url: uploadUrl,
             type: "GET",
@@ -56,7 +54,7 @@ $(function() {
                 $('#images form').find('select').val() === '1'
                     ? _images_box_mob.html(data.images)
                     : _images_box.html(data.images);
-
+                $('.file-input .file-preview .kv-file-remove').trigger('click');
                 return startDnDImages();
             }
         });

@@ -16,7 +16,8 @@ class CreateSliderImageRequest extends Request
     {
         return [
             'upload' => 'image',
-            'sliderId' => 'integer'
+            'sliderId' => 'integer',
+            'is_mobile' => 'digits_between:0,1',
         ];
     }
 

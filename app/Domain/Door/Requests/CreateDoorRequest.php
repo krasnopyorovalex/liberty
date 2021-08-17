@@ -20,6 +20,9 @@ class CreateDoorRequest extends Request
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
             'text' => 'string|nullable',
+            'price' => 'integer|required',
+            'guarantee' => 'string|nullable',
+            'timing' => 'string|nullable',
             'alias' => 'required|max:64|unique:doors',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
@@ -32,6 +35,7 @@ class CreateDoorRequest extends Request
             'finishing_options' => 'array|nullable',
             'finishing_option_names.*' => 'string|nullable',
             'finishing_option_names' => 'array|nullable',
+            'slider_id' => 'nullable|integer|exists:sliders,id',
         ];
     }
 

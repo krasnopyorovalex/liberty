@@ -19,8 +19,9 @@
                 <th>Название</th>
                 <th>Коллекция</th>
                 <th>Автор</th>
+                <th>Цена</th>
                 <th>Тип</th>
-                <th>Обновлена</th>
+                <th>Слайдер в интерьере</th>
                 <th></th>
             </tr>
             </thead>
@@ -31,8 +32,13 @@
                     <td>{{ $furniture->name }}</td>
                     <td>{{ $furniture->collection->name }}</td>
                     <td>{{ $furniture->author->name }}</td>
+                    <td>{!! $furniture->getPrice() !!}</td>
                     <td>{{ $furniture->furnitureType->name }}</td>
-                    <td><span class="label label-primary">{{ $furniture->updated_at->diffForHumans() }}</span></td>
+                    <td>
+                        <a href="{{ route('admin.furniture_interior_sliders.edit', ['id' => $furniture->furnitureInteriorSlider->id, 'furnitureId' => $furniture->id]) }}">
+                            [Слайдер "В интерьере"]
+                        </a>
+                    </td>
                     <td>
                         <div>
                             <a href="{{ route('admin.furniture.edit', $furniture) }}"><i class="icon-pencil7"></i></a>

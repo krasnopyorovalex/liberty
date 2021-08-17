@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $ext
  * @property string $is_published
  * @property int $pos
+ * @property string $is_mobile
  * @mixin \Eloquent
  */
 class SliderImage extends Model
