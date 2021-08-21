@@ -18,6 +18,7 @@ class UpdateFurnitureImageRequest extends Request
             'name' => 'string|max:255|nullable',
             'alt' => 'string|max:255|nullable',
             'title' => 'string|max:255|nullable',
+            'link' => 'string|nullable',
             'text' => 'string|nullable'
         ];
     }

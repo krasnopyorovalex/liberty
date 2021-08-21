@@ -28,7 +28,7 @@ class SliderImage extends Model
     /**
      * @var array
      */
-    protected $fillable = ['slider_id', 'sub', 'name', 'desc', 'link', 'alt', 'title', 'text', 'is_published', 'pos'];
+    protected $guarded = [];
 
     /**
      * @return BelongsTo

@@ -19,7 +19,7 @@
                 <th>Название</th>
                 <th>Тип</th>
                 <th>Alias</th>
-                <th>Обновлена</th>
+                <th>Автор</th>
                 <th></th>
             </tr>
             </thead>
@@ -30,7 +30,7 @@
                     <td>{{ $interior->name }}</td>
                     <td>{{ $interior->interiorType->name }}</td>
                     <td>{{ $interior->alias }}</td>
-                    <td><span class="label label-primary">{{ $interior->updated_at->diffForHumans() }}</span></td>
+                    <td>{{ $interior->author ? $interior->author->name : '' }}</td>
                     <td>
                         <div>
                             <a href="{{ route('admin.interiors.edit', $interior) }}"><i class="icon-pencil7"></i></a>

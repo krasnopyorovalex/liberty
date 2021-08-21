@@ -17,7 +17,7 @@ class UpdatePageRequest extends Request
     {
         return [
             'name' => 'bail|required|max:512',
-            'slogan' => 'string|max:255|nullable',
+            'sub_title' => 'string|max:255|nullable',
             'template' => 'required|string|max:24',
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
@@ -26,6 +26,8 @@ class UpdatePageRequest extends Request
             'image' => 'image',
             'imageAlt' => 'string|max:255',
             'imageTitle' => 'string|max:255',
+            'slider_id' => 'nullable|integer|exists:sliders,id',
+            'image_mob' => 'image|nullable',
             'alias' => [
                 'required',
                 'max:64',

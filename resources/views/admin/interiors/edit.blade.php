@@ -22,13 +22,22 @@
                         <form action="{{ route('admin.interiors.update', ['id' => $interior->id]) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
-                            @select(['name' => 'interior_type_id', 'label' => 'Тип портфолио', 'items' => $interiorTypes, 'entity' => $interior])
 
                             @input(['name' => 'name', 'label' => 'Название', 'entity' => $interior])
                             @input(['name' => 'title', 'label' => 'Title', 'entity' => $interior])
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $interior])
 
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $interior])
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @select(['name' => 'interior_type_id', 'label' => 'Тип портфолио', 'items' => $interiorTypes, 'entity' => $interior])
+                                </div>
+                                <div class="col-md-4">
+                                    @select(['name' => 'author_id', 'label' => 'Автор портфолио', 'items' => $authors, 'entity' => $interior])
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
 
                             @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке', 'entity' => $interior])
 

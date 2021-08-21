@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Traits\AutoAliasTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
@@ -17,11 +18,14 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * @property string $alias
  * @property string $text
  * @property string $template
+ * @property string $image_mob
  */
 class Page extends Model
 {
     use HasFactory;
     use AutoAliasTrait;
+
+    public const STORE_PATH = 'public/pages';
 
     private const TEMPLATES = [
         'page.index' => 'Главная',
@@ -36,7 +40,7 @@ class Page extends Model
     /**
      * @var array
      */
-    protected $guarded = ['image'];
+    protected $guarded = ['image', 'image_mob'];
 
     /**
      * @return MorphOne
@@ -44,6 +48,11 @@ class Page extends Model
     public function image(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function slider(): BelongsTo
+    {
+        return $this->belongsTo(Slider::class);
     }
 
     /**

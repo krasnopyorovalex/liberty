@@ -34,9 +34,7 @@ class MenuController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -44,10 +42,8 @@ class MenuController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param CreateMenuRequest $request
-     * @return RedirectResponse|Redirector
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(CreateMenuRequest $request)
     {
@@ -57,12 +53,10 @@ class MenuController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $menu = $this->dispatch(new GetMenuByIdQuery($id));
 
@@ -72,11 +66,11 @@ class MenuController extends Controller
     }
 
     /**
-     * @param $id
+     * @param int $id
      * @param UpdateMenuRequest $request
-     * @return RedirectResponse
+     * @return Application|RedirectResponse|Redirector
      */
-    public function update($id, UpdateMenuRequest $request)
+    public function update(int $id, UpdateMenuRequest $request)
     {
         $this->dispatch(new UpdateMenuCommand($id, $request));
 
@@ -84,12 +78,10 @@ class MenuController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return Application|RedirectResponse|Redirector
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $this->dispatch(new DeleteMenuCommand($id));
 

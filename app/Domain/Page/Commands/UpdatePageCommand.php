@@ -11,6 +11,7 @@ use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
 use App\Models\Page;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class UpdatePageCommand
@@ -23,6 +24,7 @@ class UpdatePageCommand
 
     private Request $request;
     private int $id;
+    private \Closure $deleter;
 
     /**
      * UpdatePageCommand constructor.
@@ -33,6 +35,8 @@ class UpdatePageCommand
     {
         $this->id = $id;
         $this->request = $request;
+
+        $this->deleter = static fn (string $path) => Storage::delete($path);
     }
 
     /**
@@ -52,6 +56,15 @@ class UpdatePageCommand
                 $this->dispatch(new DeleteImageCommand($page->image));
             }
             $this->dispatch(new UploadImageCommand($this->request, $page->id, Page::class));
+        }
+
+        if ($this->request->has('image_mob')) {
+            if ($page->image_mob) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $page->image_mob));
+            }
+
+            $path = $this->request->file('image_mob')->store(Page::STORE_PATH);
+            $page->image_mob = Storage::url($path);
         }
 
         return $page->update($this->request->validated());

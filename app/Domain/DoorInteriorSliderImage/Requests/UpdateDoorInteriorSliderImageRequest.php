@@ -19,6 +19,7 @@ class UpdateDoorInteriorSliderImageRequest extends Request
             'alt' => 'string|max:255|nullable',
             'title' => 'string|max:255|nullable',
             'text' => 'string|nullable',
+            'link' => 'string|nullable',
         ];
     }
 }

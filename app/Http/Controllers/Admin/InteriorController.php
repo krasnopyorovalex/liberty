@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use Domain\Author\Queries\GetAllAuthorsQuery;
 use Domain\Interior\Commands\CreateInteriorCommand;
 use Domain\Interior\Commands\DeleteInteriorCommand;
 use Domain\Interior\Commands\UpdateInteriorCommand;
@@ -47,9 +48,11 @@ class InteriorController extends Controller
     public function create()
     {
         $interiorTypes = $this->dispatch(new GetAllInteriorTypesQuery());
+        $authors = $this->dispatch(new GetAllAuthorsQuery());
 
         return view('admin.interiors.create', [
-            'interiorTypes' => $interiorTypes
+            'interiorTypes' => $interiorTypes,
+            'authors' => $authors
         ]);
     }
 
@@ -76,10 +79,12 @@ class InteriorController extends Controller
     {
         $interior = $this->dispatch(new GetInteriorByIdQuery($id));
         $interiorTypes = $this->dispatch(new GetAllInteriorTypesQuery());
+        $authors = $this->dispatch(new GetAllAuthorsQuery());
 
         return view('admin.interiors.edit', [
             'interior' => $interior,
-            'interiorTypes' => $interiorTypes
+            'interiorTypes' => $interiorTypes,
+            'authors' => $authors
         ]);
     }
 

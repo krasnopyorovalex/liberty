@@ -40,7 +40,7 @@ class MenuItem extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'link', 'menu_id', 'parent_id', 'pos'];
+    protected $fillable = ['name', 'link', 'menu_id', 'parent_id', 'pos', 'has_submenu'];
 
     /**
      * @return HasOne

@@ -21,7 +21,7 @@
                 <div class="tabbable">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
-                        <li><a href="#image" data-toggle="tab">Изображение</a></li>
+                        <li><a href="#image" data-toggle="tab">Изображения</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -51,20 +51,42 @@
                         </div>
 
                         <div class="tab-pane" id="image">
-                            @if ($page->image)
-                                <div class="panel panel-flat border-blue border-xs" id="image__box">
-                                    <div class="panel-body">
-                                        <img src="{{ asset($page->image->path) }}" alt="" class="upload__image">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @if ($page->image)
+                                        <div class="panel panel-flat border-blue border-xs" id="image__box">
+                                            <div class="panel-body">
+                                                <img src="{{ asset($page->image->path) }}" alt="" class="upload__image">
 
-                                        <div class="btn-group btn__actions">
-                                            <button data-toggle="modal" data-target="#modal_info" type="button" class="btn btn-primary btn-labeled btn-sm"><b><i class="icon-pencil4"></i></b> Атрибуты</button>
-
-                                            <button type="button" data-href="{{ route('admin.images.destroy', ['id' => $page->image->id]) }}" class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">Удалить <b><i class="icon-trash"></i></b></button>
+                                                <div class="btn-group btn__actions">
+                                                    <button type="button" data-href="{{ route('admin.images.destroy', ['id' => $page->image->id]) }}" class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">Удалить <b><i class="icon-trash"></i></b></button>
+                                                </div>
+                                            </div>
                                         </div>
+                                    @endif
+                                    @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $page, 'label' => 'Выберите изображение на компьютере'])
+                                </div>
+                                <div class="col-md-6 image__box-a">
+                                    @if ($page->image_mob)
+                                        <div class="panel panel-flat border-blue border-xs">
+                                            <div class="panel-body">
+                                                <img src="{{ asset($page->image_mob) }}" alt="" class="upload__image">
+
+                                                <div class="btn-group btn__actions">
+                                                    <button type="button"
+                                                            data-href="{{ route('admin.pages.destroy.img.mob', ['id' => $page->id]) }}"
+                                                            class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">
+                                                        Удалить <b><i class="icon-trash"></i></b></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <div class="text-left">
+                                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $page, 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
                                     </div>
                                 </div>
-                            @endif
-                            @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $page, 'label' => 'Выберите изображение на компьютере'])
+                            </div>
+
                             @submit_btn()
                         </div>
                     </div>

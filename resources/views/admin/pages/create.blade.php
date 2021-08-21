@@ -34,7 +34,14 @@
                 @input(['name' => 'alias', 'label' => 'Alias'])
                 @input(['name' => 'sub_title', 'label' => 'Подзаголовок'])
 
-                @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
+                <div class="row">
+                    <div class="col-md-6">
+                        @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
+                    </div>
+                    <div class="col-md-6">
+                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
+                    </div>
+                </div>
 
                 @textarea(['name' => 'text', 'label' => 'Текст'])
                 @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])

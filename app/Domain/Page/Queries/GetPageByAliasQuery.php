@@ -31,6 +31,9 @@ class GetPageByAliasQuery
      */
     public function handle()
     {
-        return Page::where('alias', $this->alias)->where('is_published', '1')->firstOrFail();
+        return Page::with(['slider', 'image'])
+            ->where('alias', $this->alias)
+            ->where('is_published', '1')
+            ->firstOrFail();
     }
 }

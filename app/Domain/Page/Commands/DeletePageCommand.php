@@ -7,6 +7,7 @@ namespace Domain\Page\Commands;
 use Domain\Image\Commands\DeleteImageCommand;
 use Domain\Page\Queries\GetPageByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class DeletePageCommand
@@ -41,6 +42,10 @@ class DeletePageCommand
 
         if ($page->image) {
             $this->dispatch(new DeleteImageCommand($page->image));
+        }
+
+        if ($page->image_mob) {
+            Storage::delete(str_replace('/storage/', '/public/', $page->image_mob));
         }
 
         return $page->delete();

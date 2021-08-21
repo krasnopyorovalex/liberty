@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\HtmlString;
+
 if (! function_exists('str_template')) {
     /**
      *
      * @param string $string
      * @param array $params
-     * @return mixed
+     * @return array|string|string[]
      */
     function str_template(string $string, array $params = [])
     {
@@ -22,7 +24,7 @@ if (! function_exists('build_root_child_select')) {
      * @param null $selected
      * @return string
      */
-    function build_root_child_select($collection, $selected = null)
+    function build_root_child_select($collection, $selected = null): string
     {
         $returnedArray = [];
 
@@ -47,7 +49,7 @@ if (! function_exists('build_options')) {
      * @param array $helpArray
      * @return string
      */
-    function build_options(array $array, $selected, $html = '', $step = '', $helpArray = [])
+    function build_options(array $array, $selected, string $html = '', string $step = '', array $helpArray = []): string
     {
         $originArray = count($helpArray) ? $helpArray : $array;
         foreach ($array as $item) {
@@ -70,7 +72,7 @@ if (! function_exists('get_ids_from_array')) {
      * @param array $array
      * @return array
      */
-    function get_ids_from_array(array $array)
+    function get_ids_from_array(array $array): array
     {
         return array_map(function ($item) {
             return $item['id'];
@@ -83,9 +85,9 @@ if (! function_exists('is_main_page')) {
     /**
      * @return bool
      */
-    function is_main_page()
+    function is_main_page(): bool
     {
-        return in_array(request()->path(), ['/']);
+        return request()->path() === '/';
     }
 }
 
@@ -94,7 +96,7 @@ if (! function_exists('add_css_class')) {
      * @param $item
      * @return string
      */
-    function add_css_class($item)
+    function add_css_class($item): string
     {
         $classes = [];
         if ($item->is_service) {
@@ -115,5 +117,16 @@ if (! function_exists('check_equal_path')) {
     function check_equal_path(string $alias): bool
     {
         return request()->getPathInfo() == '/' . $alias;
+    }
+}
+
+if (! function_exists('svg')) {
+    function svg($symbol): HtmlString
+    {
+        return new HtmlString(
+            '<svg class="icon icon-'.$symbol.'">
+                <use xlink:href="' . asset("img/sprites/sprite.svg#{$symbol}") . '"></use>
+            </svg>'
+        );
     }
 }

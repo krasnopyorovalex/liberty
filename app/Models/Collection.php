@@ -41,4 +41,14 @@ class Collection extends Model
     {
         return route("collection.show", $this->alias);
     }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(CollectionImage::class)->where('is_mobile', '0')->orderBy('pos');
+    }
+
+    public function imagesForMobile(): HasMany
+    {
+        return $this->hasMany(CollectionImage::class)->where('is_mobile', '1')->orderBy('pos');
+    }
 }

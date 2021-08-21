@@ -23,9 +23,9 @@ final class TextParserService
     {
         return preg_replace_callback_array(
             [
-//                '#(<p(.*)>)?{faq}(<\/p>)?#' => static function () use ($entity) {
-//                    return view('layouts.shortcodes.faqs', ['faqs' => $entity->relatedFaqs]);
-//                }
+                '#(<p(.*)>)?{faq}(<\/p>)?#' => static function () use ($entity) {
+                    return view('layouts.shortcodes.faqs', ['faqs' => $entity->relatedFaqs]);
+                }
             ],
             $entity->text
         );

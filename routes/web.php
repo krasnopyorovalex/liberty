@@ -5,7 +5,10 @@ declare(strict_types=1);
 use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,9 @@ Route::group(['prefix' => '_root', 'middleware' => 'auth', 'as' => 'admin.'], fu
 });
 
 Route::group(['middleware' => ['redirector']], static function () {
+    Route::get('search', SearchController::class)->name('search');
     Route::get('{alias?}', PageController::class)->name('page.show');
     Route::get('author/{alias}', AuthorController::class)->name('author.show');
+    Route::get('collection/{alias}', CollectionController::class)->name('collection.show');
+    Route::get('interior/{alias}', InteriorController::class)->name('interior.show');
 });

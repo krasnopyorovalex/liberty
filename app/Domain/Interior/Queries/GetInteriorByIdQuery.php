@@ -34,6 +34,6 @@ class GetInteriorByIdQuery
      */
     public function handle()
     {
-        return Interior::with(['images'])->findOrFail($this->id);
+        return Interior::with(['images', 'author'])->findOrFail($this->id);
     }
 }

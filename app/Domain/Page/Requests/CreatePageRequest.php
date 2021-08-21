@@ -17,13 +17,15 @@ class CreatePageRequest extends Request
         return [
             'name' => 'bail|required|max:512',
             'template' => 'required|string|max:24',
-            'slogan' => 'string|max:255|nullable',
+            'sub_title' => 'string|max:255|nullable',
             'title' => 'required|string|max:512',
             'description' => 'string|max:512',
             'text' => 'string|nullable',
             'alias' => 'required|max:64|unique:pages',
             'is_published' => 'digits_between:0,1',
-            'image' => 'image'
+            'image' => 'image',
+            'image_mob' => 'image|nullable',
+            'slider_id' => 'nullable|integer|exists:sliders,id',
         ];
     }
 

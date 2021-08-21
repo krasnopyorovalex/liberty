@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $text
  * @property string $image
  * @property string $image_mob
+ * @property string $image_premium_slider
+ * @property string $image_premium_slider_mob
  */
 class Interior extends Model
 {
@@ -34,7 +36,7 @@ class Interior extends Model
      */
     public function getUrlAttribute(): string
     {
-        return route("interiors.show", $this->alias);
+        return route("interior.show", $this->alias);
     }
 
     public function images(): HasMany
@@ -50,5 +52,10 @@ class Interior extends Model
     public function interiorType(): BelongsTo
     {
         return $this->belongsTo(InteriorType::class);
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(Author::class);
     }
 }

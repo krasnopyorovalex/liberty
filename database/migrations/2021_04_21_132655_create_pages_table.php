@@ -23,6 +23,7 @@ class CreatePagesTable extends Migration
             $table->text('text')->nullable();
             $table->string('sub_title', 512)->nullable();
             $table->string('alias', 64)->unique();
+            $table->string('image_mob', 128)->nullable();
             $table->enum('is_published',[0,1])->default(1);
             $table->timestamps();
 

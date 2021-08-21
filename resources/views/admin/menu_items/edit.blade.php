@@ -41,6 +41,7 @@
 
                 @input(['name' => 'name', 'entity' => $menuItem, 'label' => 'Название'])
                 @selectLink(['name' => 'link', 'entity' => $menuItem, 'label' => 'Ссылка'])
+                @checkbox(['name' => 'has_submenu', 'label' => 'Прикрепить к пункту выпадающий список?', 'entity' => $menuItem])
                 @submit_btn()
 
             </form>

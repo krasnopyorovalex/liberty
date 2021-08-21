@@ -42,31 +42,31 @@ class UpdateInteriorCommand
      */
     public function handle(): bool
     {
-        $Interior = $this->dispatch(new GetInteriorByIdQuery($this->id));
+        $interior = $this->dispatch(new GetInteriorByIdQuery($this->id));
         $urlNew = $this->request->post('alias');
 
-        if ($Interior->getOriginal('alias') != $urlNew) {
-            event(new RedirectDetected($Interior->getOriginal('alias'), $urlNew));
+        if ($interior->getOriginal('alias') != $urlNew) {
+            event(new RedirectDetected($interior->getOriginal('alias'), $urlNew));
         }
 
         if ($this->request->has('image')) {
-            if ($Interior->image) {
-                ($this->deleter)(str_replace('/storage/', '/public/', $Interior->image));
+            if ($interior->image) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $interior->image));
             }
 
             $path = $this->request->file('image')->store(Interior::STORE_PATH);
-            $Interior->image = Storage::url($path);
+            $interior->image = Storage::url($path);
         }
 
         if ($this->request->has('image_mob')) {
-            if ($Interior->image_mob) {
-                ($this->deleter)(str_replace('/storage/', '/public/', $Interior->image_mob));
+            if ($interior->image_mob) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $interior->image_mob));
             }
 
             $path = $this->request->file('image_mob')->store(Interior::STORE_PATH);
-            $Interior->image_mob = Storage::url($path);
+            $interior->image_mob = Storage::url($path);
         }
 
-        return $Interior->update($this->request->validated());
+        return $interior->update($this->request->validated());
     }
 }

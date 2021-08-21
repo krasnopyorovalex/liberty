@@ -14,4 +14,6 @@ Route::group(['prefix' => 'pages', 'as' => 'pages.'], function () {
     Route::get('{id}/edit', [PageController::class, 'edit'])->name('edit');
     Route::put('{id}', [PageController::class, 'update'])->name('update');
     Route::delete('{id}', [PageController::class, 'destroy'])->name('destroy');
+
+    Route::delete('destroy-image-mob/{id}', [PageController::class, 'destroyImageMob'])->name('destroy.img.mob');
 });

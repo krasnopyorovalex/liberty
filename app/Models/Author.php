@@ -44,6 +44,16 @@ class Author extends Model
         return $this->hasMany(Furniture::class);
     }
 
+    public function interiors(): HasMany
+    {
+        return $this->hasMany(Interior::class);
+    }
+
+    public function doors(): HasMany
+    {
+        return $this->hasMany(Door::class);
+    }
+
     /**
      * @return string
      */

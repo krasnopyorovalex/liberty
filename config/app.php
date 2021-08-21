@@ -167,6 +167,9 @@ return [
          */
         App\Providers\FortifyServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
+        App\Providers\HowWeWorkServiceProvider::class,
+        App\Providers\WhyChooseUsServiceProvider::class,
+        App\Providers\PremiumSliderServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -176,6 +179,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\CollectionServiceProvider::class,
+        App\Providers\FurnitureTypeServiceProvider::class,
+        App\Providers\AuthorServiceProvider::class,
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class
 
     ],
 
@@ -229,7 +236,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'MobileDetect' => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class
     ],
 
 ];

@@ -8,6 +8,7 @@ use Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
 use App\Models\Page;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class CreatePageCommand
@@ -39,6 +40,11 @@ class CreatePageCommand
 
         if ($this->request->has('image')) {
             return $this->dispatch(new UploadImageCommand($this->request, $page->id, Page::class));
+        }
+
+        if ($this->request->has('image_mob')) {
+            $path = $this->request->file('image_mob')->store(Page::STORE_PATH);
+            $page->image_mob = Storage::url($path);
         }
 
         return true;

@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             WhyChooseUsSeeder::class,
             FurnitureTypeSeeder::class,
             DoorAttributeSeeder::class,
+            AboutBlockSeeder::class,
         ]);
     }
 }

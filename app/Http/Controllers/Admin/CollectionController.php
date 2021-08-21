@@ -69,10 +69,10 @@ class CollectionController extends Controller
      */
     public function edit(int $id)
     {
-        $salesLeader = $this->dispatch(new GetCollectionByIdQuery($id));
+        $collection = $this->dispatch(new GetCollectionByIdQuery($id));
 
         return view('admin.collections.edit', [
-            'salesLeader' => $salesLeader
+            'collection' => $collection
         ]);
     }
 

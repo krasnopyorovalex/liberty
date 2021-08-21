@@ -110,4 +110,21 @@ class PageController extends Controller
 
         return redirect(route('admin.pages.index'));
     }
+
+    /**
+     * @param int $id
+     * @return string[]
+     */
+    public function destroyImageMob(int $id): array
+    {
+        $page = $this->dispatch(new GetPageByIdQuery($id));
+
+        if (\Storage::delete(str_replace('/storage/', '/public/', $page->image_mob))) {
+            $page->update(['image_mob' => '']);
+        }
+
+        return [
+            'message' => 'Изображение удалено'
+        ];
+    }
 }

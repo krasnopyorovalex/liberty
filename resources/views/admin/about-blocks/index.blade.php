@@ -26,7 +26,7 @@
             @foreach($aboutBlocks as $aboutBlock)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $aboutBlock->name }}</td>
+                    <td>{!! $aboutBlock->name !!}</td>
                     <td>{!! $aboutBlock->image ? sprintf('<img src="%s" width="80px" />', $aboutBlock->image) : '' !!}</td>
                     <td>{!! $aboutBlock->image_mob ? sprintf('<img src="%s" width="80px" />', $aboutBlock->image_mob) : '' !!}</td>
                     <td>

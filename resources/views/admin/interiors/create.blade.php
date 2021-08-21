@@ -25,6 +25,16 @@
                 @input(['name' => 'alias', 'label' => 'Alias'])
 
                 <div class="row">
+                    <div class="col-md-4">
+                        @select(['name' => 'interior_type_id', 'label' => 'Тип портфолио', 'items' => $interiorTypes])
+                    </div>
+                    <div class="col-md-4">
+                        @select(['name' => 'author_id', 'label' => 'Автор портфолио', 'items' => $authors])
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
                         @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
                     </div>

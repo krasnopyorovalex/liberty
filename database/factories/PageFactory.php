@@ -22,10 +22,10 @@ class PageFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Главная страница',
+            'name' => 'Главная',
             'alias' => 'index',
-            'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(10),
+            'title' => 'Фабрика дверей и мебели',
+            'description' => 'Фабрика дверей и мебели',
             'template' => 'page.index'
         ];
     }

@@ -25,7 +25,7 @@ class PageSeeder extends Seeder
             'alias' => 'o-kompanii',
             'title' => 'О компании',
             'description' => 'О компании',
-            'template' => 'about.index'
+            'template' => 'page.about'
         ]);
 
         Page::factory()->create([
@@ -33,7 +33,7 @@ class PageSeeder extends Seeder
             'alias' => 'doors',
             'title' => 'Двери',
             'description' => 'Двери',
-            'template' => 'page.index'
+            'template' => 'page.doors'
         ]);
 
         Page::factory()->create([
