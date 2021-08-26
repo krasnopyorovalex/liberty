@@ -170,6 +170,7 @@ return [
         App\Providers\HowWeWorkServiceProvider::class,
         App\Providers\WhyChooseUsServiceProvider::class,
         App\Providers\PremiumSliderServiceProvider::class,
+        App\Providers\AboutBlocksServiceProvider::class,
 
         /*
          * Application Service Providers...

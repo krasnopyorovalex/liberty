@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\HtmlString;
+use Riverskies\Laravel\MobileDetect\Facades\MobileDetect;
 
 if (! function_exists('str_template')) {
     /**
@@ -128,5 +129,19 @@ if (! function_exists('svg')) {
                 <use xlink:href="' . asset("img/sprites/sprite.svg#{$symbol}") . '"></use>
             </svg>'
         );
+    }
+}
+
+if (! function_exists('change_image_desktop_mob')) {
+    function change_image_desktop_mob($entity): string
+    {
+        return (string) (MobileDetect::isMobile() ? $entity->image_mob : $entity->image);
+    }
+}
+
+if (! function_exists('is_mobile')) {
+    function is_mobile(): bool
+    {
+        return MobileDetect::isMobile();
     }
 }
