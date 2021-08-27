@@ -26,18 +26,26 @@
                     <div class="col-md-3">
                         @priceInput(['name' => 'price', 'label' => 'Цена'])
                     </div>
-                    <div class="col-md-9"></div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        @input(['name' => 'articul', 'label' => 'Артикул'])
+                    </div>
+                    <div class="col-md-3">
                         @select(['name' => 'slider_id', 'label' => 'Верхний слайдер', 'items' => $sliders])
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @select(['name' => 'author_id', 'label' => 'Автор двери', 'items' => $authors])
                     </div>
-                    <div class="col-md-4"></div>
                 </div>
+
+                <div class="form-group">
+                    <label for="products">Выберите похожие товары</label>
+                    <select class="form-control border-blue border-xs select-search" multiple="multiple" id="products" name="related_doors[]" data-width="100%">
+                        @foreach($doors as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 @if(count($doorAttributes))
                     <div class="panel panel-flat border-blue border-xs">
                         <div class="panel-heading">

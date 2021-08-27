@@ -21,10 +21,6 @@ class DoorAttributeSeeder extends Seeder
             ->create();
 
         DoorAttribute::factory()->create([
-            'name' => 'Отделка'
-        ]);
-
-        DoorAttribute::factory()->create([
             'name' => 'Материалы'
         ]);
 

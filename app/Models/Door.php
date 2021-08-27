@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
  * @property string $alias
  * @property string $file
  * @property int $price
+ * @property array $related_doors
  * @property \Illuminate\Database\Eloquent\Collection $doorAttributes
  */
 class Door extends Model
@@ -34,7 +35,8 @@ class Door extends Model
 
     protected $casts = [
         'finishing_options' => 'array',
-        'finishing_option_names' => 'array'
+        'finishing_option_names' => 'array',
+        'related_doors' => 'array'
     ];
 
     public static function boot(): void
@@ -63,6 +65,11 @@ class Door extends Model
         return $this->belongsTo(Door::class, 'parent_id');
     }
 
+    public function modifications()
+    {
+        return $this->hasMany(Door::class, 'parent_id');
+    }
+
     public function doorAttributes(): BelongsToMany
     {
         return $this->belongsToMany(DoorAttribute::class, 'door_has_attributes')
@@ -83,6 +90,11 @@ class Door extends Model
     public function doorInteriorSlider(): HasOne
     {
         return $this->hasOne(DoorInteriorSlider::class, 'door_id');
+    }
+
+    public function slider(): BelongsTo
+    {
+        return $this->belongsTo(Slider::class);
     }
 
     /**

@@ -9,12 +9,12 @@
                 @csrf
                 @method('put')
 
-                @selectLink(['name' => 'link', 'entity' => $image, 'label' => 'Ссылка'])
+{{--                @selectLink(['name' => 'link', 'entity' => $image, 'label' => 'Ссылка'])--}}
 
                 @input(['name' => 'name', 'label' => 'Название', 'entity' => $image])
                 @input(['name' => 'alt', 'label' => 'alt', 'entity' => $image])
                 @input(['name' => 'title', 'label' => 'title', 'entity' => $image])
-                @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $image, 'rows' => 8])
+{{--                @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $image, 'rows' => 8])--}}
             </div>
             <div class="modal-footer">
                 @submit_btn()

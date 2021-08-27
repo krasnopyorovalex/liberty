@@ -31,7 +31,7 @@
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
 </head>
 <body>
-<section class="{{ $className ?? '' }}">
+<section class="{{ $className ?? '' }}" @isset($bgImg) style="background-image: url({{ $bgImg }})"@endisset>
     <header class="flex" id="sticky">
         <div class="col-logo flex">
             <span>Фабрика дверей и мебели</span>

@@ -51,11 +51,13 @@ class DoorController extends Controller
         $doorAttributes = $this->dispatch(new GetAllDoorAttributesQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
         $sliders = $this->dispatch(new GetAllSlidersQuery());
+        $doors = $this->dispatch(new GetAllDoorsQuery());
 
         return view('admin.doors.create', [
             'doorAttributes' => $doorAttributes,
             'authors' => $authors,
-            'sliders' => $sliders
+            'sliders' => $sliders,
+            'doors' => $doors
         ]);
     }
 
@@ -84,12 +86,14 @@ class DoorController extends Controller
         $doorAttributes = $this->dispatch(new GetAllDoorAttributesQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
         $sliders = $this->dispatch(new GetAllSlidersQuery());
+        $doors = $this->dispatch(new GetAllDoorsQuery());
 
         return view('admin.doors.edit', [
             'door' => $door,
             'doorAttributes' => $doorAttributes,
             'authors' => $authors,
-            'sliders' => $sliders
+            'sliders' => $sliders,
+            'doors' => $doors
         ]);
     }
 

@@ -171,6 +171,7 @@ return [
         App\Providers\WhyChooseUsServiceProvider::class,
         App\Providers\PremiumSliderServiceProvider::class,
         App\Providers\AboutBlocksServiceProvider::class,
+        App\Providers\DoorsServiceProvider::class,
 
         /*
          * Application Service Providers...

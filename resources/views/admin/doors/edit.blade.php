@@ -31,17 +31,24 @@
                                 <div class="col-md-3">
                                     @priceInput(['name' => 'price', 'label' => 'Цена', 'entity' => $door])
                                 </div>
-                                <div class="col-md-9"></div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
+                                    @input(['name' => 'articul', 'label' => 'Артикул', 'entity' => $door])
+                                </div>
+                                <div class="col-md-3">
                                     @select(['name' => 'slider_id', 'label' => 'Верхний слайдер', 'items' => $sliders, 'entity' => $door])
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     @select(['name' => 'author_id', 'label' => 'Автор мебели', 'items' => $authors, 'entity' => $door])
                                 </div>
-                                <div class="col-md-4"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="products">Выберите похожие товары</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="products" name="related_doors[]" data-width="100%">
+                                    @foreach($doors->whereNotIn('id', [$door->id]) as $item)
+                                        <option value="{{ $item->id }}" {{ in_array($item->id, $doors->toArray()) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             @if(count($doorAttributes))

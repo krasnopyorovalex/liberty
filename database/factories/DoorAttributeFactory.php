@@ -22,7 +22,7 @@ class DoorAttributeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Артикул',
+            'name' => 'Отделка',
             'pos' => 0
         ];
     }

@@ -28,14 +28,20 @@
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $door])
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $door])
 
+
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
+                                    @priceInput(['name' => 'price', 'label' => 'Цена', 'entity' => $door])
+                                </div>
+                                <div class="col-md-3">
+                                    @input(['name' => 'articul', 'label' => 'Артикул', 'entity' => $door])
+                                </div>
+                                <div class="col-md-3">
                                     @select(['name' => 'slider_id', 'label' => 'Верхний слайдер', 'items' => $sliders, 'entity' => $door])
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     @select(['name' => 'author_id', 'label' => 'Автор мебели', 'items' => $authors, 'entity' => $door])
                                 </div>
-                                <div class="col-md-4"></div>
                             </div>
 
                             @if(count($doorAttributes))
@@ -81,6 +87,8 @@
                             </div>
 
                             @textarea(['name' => 'text', 'label' => 'Описание', 'entity' => $door])
+                            @textarea(['name' => 'guarantee', 'label' => 'Гарантии', 'entity' => $door, 'id' => 'editor-full2'])
+                            @textarea(['name' => 'timing', 'label' => 'Сроки', 'entity' => $door, 'id' => 'editor-full3'])
 
                             <div class="row">
                                 <div class="col-md-4 image__box-a">

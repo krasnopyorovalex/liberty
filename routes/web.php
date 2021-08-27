@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\DoorController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['redirector']], static function () {
     Route::get('search', SearchController::class)->name('search');
     Route::get('{alias?}', PageController::class)->name('page.show');
     Route::get('author/{alias}', AuthorController::class)->name('author.show');
-    Route::get('collection/{alias}', CollectionController::class)->name('collection.show');
-    Route::get('interior/{alias}', InteriorController::class)->name('interior.show');
+    Route::get('collections/{alias}', CollectionController::class)->name('collection.show');
+    Route::get('interiors/{alias}', InteriorController::class)->name('interior.show');
+    Route::get('doors/{alias}', DoorController::class)->name('door.show');
 });

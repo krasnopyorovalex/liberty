@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Slider;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 use Riverskies\Laravel\MobileDetect\Facades\MobileDetect;
 
@@ -143,5 +145,12 @@ if (! function_exists('is_mobile')) {
     function is_mobile(): bool
     {
         return MobileDetect::isMobile();
+    }
+}
+
+if (! function_exists('change_images_slider')) {
+    function change_images_slider(Model $slider)
+    {
+        return MobileDetect::isMobile() ? $slider->imagesForMobile : $slider->images;
     }
 }

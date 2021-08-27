@@ -23,6 +23,7 @@ class CreateDoorsTable extends Migration
             $table->string('title', 512);
             $table->string('description', 512);
             $table->string('alias', 64)->unique();
+            $table->string('articul', 128);
             $table->string('image', 128)->nullable();
             $table->string('image_mob', 128)->nullable();
             $table->string('file', 128)->nullable();
@@ -31,6 +32,7 @@ class CreateDoorsTable extends Migration
             $table->text('timing')->nullable();
             $table->json('finishing_options')->nullable();
             $table->json('finishing_option_names')->nullable();
+            $table->json('related_doors')->nullable();
             $table->timestamps();
 
             $table->index(['parent_id', 'author_id', 'slider_id']);

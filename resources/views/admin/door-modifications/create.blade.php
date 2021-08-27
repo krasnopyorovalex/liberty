@@ -25,13 +25,18 @@
                 @input(['name' => 'alias', 'label' => 'Alias'])
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        @priceInput(['name' => 'price', 'label' => 'Цена'])
+                    </div>
+                    <div class="col-md-3">
+                        @input(['name' => 'articul', 'label' => 'Артикул'])
+                    </div>
+                    <div class="col-md-3">
                         @select(['name' => 'slider_id', 'label' => 'Верхний слайдер', 'items' => $sliders])
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @select(['name' => 'author_id', 'label' => 'Автор двери', 'items' => $authors])
                     </div>
-                    <div class="col-md-4"></div>
                 </div>
                 @if(count($doorAttributes))
                     <div class="panel panel-flat border-blue border-xs">
@@ -87,6 +92,8 @@
                 </div>
 
                 @textarea(['name' => 'text', 'label' => 'Описание'])
+                @textarea(['name' => 'guarantee', 'label' => 'Гарантии', 'id' => 'editor-full2'])
+                @textarea(['name' => 'timing', 'label' => 'Сроки', 'id' => 'editor-full3'])
                 @submit_btn()
             </form>
 

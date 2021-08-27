@@ -31,6 +31,8 @@ class GetDoorByAliasQuery
      */
     public function handle()
     {
-        return Door::where('alias', $this->alias)->firstOrFail();
+        return Door::where('alias', $this->alias)
+            ->with(['slider', 'imagesForMobile', 'images', 'doorAttributes', 'modifications', 'doorInteriorSlider'])
+            ->firstOrFail();
     }
 }

@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property string $is_published
  * @property int $pos
+ * @property \Illuminate\Database\Eloquent\Collection $images
+ * @property \Illuminate\Database\Eloquent\Collection $imagesForMobile
  */
 class Slider extends Model
 {
