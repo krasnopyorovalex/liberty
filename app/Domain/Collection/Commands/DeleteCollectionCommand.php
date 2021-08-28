@@ -47,6 +47,10 @@ class DeleteCollectionCommand
             Storage::delete(str_replace('/storage/', '/public/', $collection->image_mob));
         }
 
+        if ($collection->catalog_file) {
+            Storage::delete(str_replace('/storage/', '/public/', $collection->catalog_file));
+        }
+
         return $collection->delete();
     }
 }

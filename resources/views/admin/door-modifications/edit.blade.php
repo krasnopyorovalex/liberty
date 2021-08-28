@@ -28,6 +28,14 @@
                             @input(['name' => 'description', 'label' => 'Description', 'entity' => $door])
                             @input(['name' => 'alias', 'label' => 'Alias', 'entity' => $door])
 
+                            <div class="form-group">
+                                <label for="products">Выберите похожие товары</label>
+                                <select class="form-control border-blue border-xs select-search" multiple="multiple" id="products" name="related_doors[]" data-width="100%">
+                                    @foreach($doors->whereNotIn('id', [$door->id]) as $item)
+                                        <option value="{{ $item->id }}" {{ is_array($door->related_doors) && in_array($item->id, $door->related_doors) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-3">

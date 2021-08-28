@@ -15,4 +15,5 @@ Route::group(['prefix' => 'collections', 'as' => 'collections.'], function () {
 
     Route::delete('destroy-image/{id}', [CollectionController::class, 'destroyImage'])->name('destroy.img');
     Route::delete('destroy-image-mob/{id}', [CollectionController::class, 'destroyImageMob'])->name('destroy.img.mob');
+    Route::delete('destroy-file/{id}', [CollectionController::class, 'destroyFile'])->name('destroy.file');
 });

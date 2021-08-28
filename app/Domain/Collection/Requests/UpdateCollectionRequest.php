@@ -24,6 +24,7 @@ class UpdateCollectionRequest extends Request
             //'is_sales_leader' => 'digits_between:0,1',
             'image' => 'image|nullable',
             'image_mob' => 'image|nullable',
+            'catalog_file' => 'file|nullable',
             'alias' => [
                 'required',
                 'max:64',

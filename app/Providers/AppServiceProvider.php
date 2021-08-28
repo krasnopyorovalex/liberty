@@ -36,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('includes.selectLink', 'selectLink');
         Blade::include('includes.select', 'select');
         Blade::include('includes.priceInput', 'priceInput');
+        Blade::include('includes.fileInput', 'fileInput');
 
         setlocale(LC_TIME, 'ru_RU.UTF-8');
     }

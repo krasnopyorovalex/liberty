@@ -46,7 +46,7 @@
                                 <label for="products">Выберите похожие товары</label>
                                 <select class="form-control border-blue border-xs select-search" multiple="multiple" id="products" name="related_doors[]" data-width="100%">
                                     @foreach($doors->whereNotIn('id', [$door->id]) as $item)
-                                        <option value="{{ $item->id }}" {{ in_array($item->id, $doors->toArray()) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" {{ is_array($door->related_doors) && in_array($item->id, $door->related_doors) ? 'selected' : '' }}>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

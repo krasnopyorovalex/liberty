@@ -38,6 +38,16 @@
                         @select(['name' => 'author_id', 'label' => 'Автор двери', 'items' => $authors])
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="products">Выберите похожие товары</label>
+                    <select class="form-control border-blue border-xs select-search" multiple="multiple" id="products" name="related_doors[]" data-width="100%">
+                        @foreach($doors as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 @if(count($doorAttributes))
                     <div class="panel panel-flat border-blue border-xs">
                         <div class="panel-heading">

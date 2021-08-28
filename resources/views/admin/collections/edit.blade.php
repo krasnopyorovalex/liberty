@@ -59,6 +59,24 @@
                                         @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $collection, 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @if ($collection->catalog_file)
+                                            <div class="panel panel-flat border-blue border-xs">
+                                                <div class="panel-body">
+                                                    <p>{{ $collection->catalog_file }}</p>
+                                                    <div class="btn-group btn__actions">
+                                                        <button type="button" data-href="{{ route('admin.collections.destroy.file', ['id' => $collection->id]) }}" class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">Удалить <b><i class="icon-trash"></i></b></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @fileInput(['name' => 'catalog_file', 'type' => 'file', 'label' => 'Выберите каталог на компьютере'])
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+
     {{--                            @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $collection])--}}
     {{--                            @checkbox(['name' => 'is_sales_leader', 'label' => 'Лидер продаж?', 'entity' => $collection])--}}
 

@@ -67,6 +67,15 @@ class UpdateCollectionCommand
             $collection->image_mob = Storage::url($path);
         }
 
+        if ($this->request->has('catalog_file')) {
+            if ($collection->catalog_file) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $collection->catalog_file));
+            }
+
+            $path = $this->request->file('catalog_file')->store(Collection::STORE_PATH);
+            $collection->catalog_file = Storage::url($path);
+        }
+
         return $collection->update($this->request->validated());
     }
 }

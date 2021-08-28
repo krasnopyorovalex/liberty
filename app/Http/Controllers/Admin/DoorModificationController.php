@@ -9,6 +9,7 @@ use Domain\Door\Commands\CreateDoorCommand;
 use Domain\Door\Commands\DeleteDoorCommand;
 use Domain\Door\Commands\UpdateDoorCommand;
 use Domain\Door\Queries\GetAllDoorsByParentIdQuery;
+use Domain\Door\Queries\GetAllDoorsQuery;
 use Domain\Door\Queries\GetDoorByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Door\Requests\CreateDoorRequest;
@@ -26,6 +27,7 @@ class DoorModificationController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param int $door
      * @return Application|Factory|View
      */
     public function index(int $door)
@@ -42,6 +44,7 @@ class DoorModificationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param int $door
      * @return Application|Factory|View
      */
     public function create(int $door)
@@ -50,12 +53,14 @@ class DoorModificationController extends Controller
         $authors = $this->dispatch(new GetAllAuthorsQuery());
         $sliders = $this->dispatch(new GetAllSlidersQuery());
         $door = $this->dispatch(new GetDoorByIdQuery($door));
+        $doors = $this->dispatch(new GetAllDoorsQuery());
 
         return view('admin.door-modifications.create', [
             'doorAttributes' => $doorAttributes,
             'authors' => $authors,
             'sliders' => $sliders,
-            'door' => $door
+            'door' => $door,
+            'doors' => $doors
         ]);
     }
 
@@ -84,12 +89,14 @@ class DoorModificationController extends Controller
         $doorAttributes = $this->dispatch(new GetAllDoorAttributesQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
         $sliders = $this->dispatch(new GetAllSlidersQuery());
+        $doors = $this->dispatch(new GetAllDoorsQuery());
 
         return view('admin.door-modifications.edit', [
             'door' => $door,
             'doorAttributes' => $doorAttributes,
             'authors' => $authors,
-            'sliders' => $sliders
+            'sliders' => $sliders,
+            'doors' => $doors
         ]);
     }
 

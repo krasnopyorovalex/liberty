@@ -22,6 +22,7 @@ class CreateCollectionsTable extends Migration
             $table->string('alias', 64)->unique();
             $table->string('image', 128)->nullable();
             $table->string('image_mob', 128)->nullable();
+            $table->string('catalog_file', 128)->nullable();
             //$table->enum('is_sales_leader', [0,1])->default(0);
             $table->timestamps();
         });

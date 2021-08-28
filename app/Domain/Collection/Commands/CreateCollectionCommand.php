@@ -33,19 +33,24 @@ class CreateCollectionCommand
      */
     public function handle(): bool
     {
-        $salesLeader = new Collection();
-        $salesLeader->fill($this->request->validated());
+        $collection = new Collection();
+        $collection->fill($this->request->validated());
 
         if ($this->request->has('image')) {
             $path = $this->request->file('image')->store(Collection::STORE_PATH);
-            $salesLeader->image = Storage::url($path);
+            $collection->image = Storage::url($path);
         }
 
         if ($this->request->has('image_mob')) {
             $path = $this->request->file('image_mob')->store(Collection::STORE_PATH);
-            $salesLeader->image_mob = Storage::url($path);
+            $collection->image_mob = Storage::url($path);
         }
 
-        return $salesLeader->save();
+        if ($this->request->has('catalog_file')) {
+            $path = $this->request->file('catalog_file')->store(Collection::STORE_PATH);
+            $collection->catalog_file = Storage::url($path);
+        }
+
+        return $collection->save();
     }
 }

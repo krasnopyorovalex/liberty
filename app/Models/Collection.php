@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $text
  * @property string $image
  * @property string $image_mob
+ * @property string $catalog_file
  * @property \Illuminate\Database\Eloquent\Collection $furniture
  */
 class Collection extends Model
@@ -27,7 +28,7 @@ class Collection extends Model
 
     public const STORE_PATH = 'public/collections';
 
-    protected $guarded = ['image', 'image_mob'];
+    protected $guarded = ['image', 'image_mob', 'catalog_file'];
 
     public function furniture(): HasMany
     {

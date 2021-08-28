@@ -19,6 +19,7 @@
                 <th>#</th>
                 <th>Название</th>
                 <th>Автор</th>
+                <th>Цена</th>
                 <th>Слайдер в интерьере</th>
                 <th></th>
             </tr>
@@ -29,6 +30,7 @@
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $door->name }}</td>
                     <td>{{ $door->author->name }}</td>
+                    <td>{!! $door->getPrice() !!}</td>
                     <td>
                         <a href="{{ route('admin.door_interior_sliders.edit', ['id' => $door->doorInteriorSlider->id, 'doorId' => $door->id]) }}">
                             [Слайдер "В интерьере"]

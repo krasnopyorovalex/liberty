@@ -107,10 +107,10 @@ class CollectionController extends Controller
      */
     public function destroyImage(int $id): array
     {
-        $salesLeader = $this->dispatch(new GetCollectionByIdQuery($id));
+        $collection = $this->dispatch(new GetCollectionByIdQuery($id));
 
-        if (\Storage::delete(str_replace('/storage/', '/public/', $salesLeader->image))) {
-            $salesLeader->update(['image' => '']);
+        if (\Storage::delete(str_replace('/storage/', '/public/', $collection->image))) {
+            $collection->update(['image' => '']);
         }
 
         return [
@@ -124,14 +124,31 @@ class CollectionController extends Controller
      */
     public function destroyImageMob(int $id): array
     {
-        $salesLeader = $this->dispatch(new GetCollectionByIdQuery($id));
+        $collection = $this->dispatch(new GetCollectionByIdQuery($id));
 
-        if (\Storage::delete(str_replace('/storage/', '/public/', $salesLeader->image_mob))) {
-            $salesLeader->update(['image_mob' => '']);
+        if (\Storage::delete(str_replace('/storage/', '/public/', $collection->image_mob))) {
+            $collection->update(['image_mob' => '']);
         }
 
         return [
             'message' => 'Изображение удалено'
+        ];
+    }
+
+    /**
+     * @param int $id
+     * @return string[]
+     */
+    public function destroyFile(int $id): array
+    {
+        $collection = $this->dispatch(new GetCollectionByIdQuery($id));
+
+        if (\Storage::delete(str_replace('/storage/', '/public/', $collection->catalog_file))) {
+            $collection->update(['catalog_file' => '']);
+        }
+
+        return [
+            'message' => 'Файл удален'
         ];
     }
 }

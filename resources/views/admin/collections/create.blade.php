@@ -31,6 +31,13 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        @fileInput(['name' => 'catalog_file', 'type' => 'file', 'label' => 'Выберите каталог на компьютере'])
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+
 {{--                @textarea(['name' => 'text', 'label' => 'Текст'])--}}
 
 {{--                @checkbox(['name' => 'is_sales_leader', 'label' => 'Лидер продаж?'])--}}
