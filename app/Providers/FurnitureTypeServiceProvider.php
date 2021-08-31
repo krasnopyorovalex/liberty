@@ -15,6 +15,9 @@ class FurnitureTypeServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->make('view')->composer('layouts.app', FurnitureTypeComposer::class);
+        $this->app->make('view')->composer([
+            'layouts.app',
+            'layouts.sections.furniture'
+        ], FurnitureTypeComposer::class);
     }
 }

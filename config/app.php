@@ -172,6 +172,8 @@ return [
         App\Providers\PremiumSliderServiceProvider::class,
         App\Providers\AboutBlocksServiceProvider::class,
         App\Providers\DoorsServiceProvider::class,
+        App\Providers\EmployeeServiceProvider::class,
+        App\Providers\FurnitureListServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -52,7 +52,7 @@
 
                         <div class="tab-pane" id="image">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 image__box-a">
                                     @if ($page->image)
                                         <div class="panel panel-flat border-blue border-xs" id="image__box">
                                             <div class="panel-body">
@@ -64,7 +64,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $page, 'label' => 'Выберите изображение на компьютере'])
+                                    @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
                                 </div>
                                 <div class="col-md-6 image__box-a">
                                     @if ($page->image_mob)

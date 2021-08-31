@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Http\ViewComposers\CollectionComposer;
+use App\Http\ViewComposers\EmployeeComposer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container;
 
-class CollectionServiceProvider extends ServiceProvider
+class EmployeeServiceProvider extends ServiceProvider
 {
     /**
      * @throws Container\BindingResolutionException
      */
     public function register(): void
     {
-        $this->app->make('view')->composer([
-            'layouts.app',
-            'layouts.sections.furniture'
-        ], CollectionComposer::class);
+        $this->app->make('view')->composer('layouts.sections.employees', EmployeeComposer::class);
     }
 }

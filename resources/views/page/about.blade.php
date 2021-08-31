@@ -45,6 +45,21 @@
     </section>
 
     @include('layouts.sections.about-blocks')
+    @include('layouts.sections.employees')
 
-    @include('layouts.sections.authors')
+    <div class="section-header">
+        <div class="section-sub-title uppercase">
+            Авторы
+            <div class="decoration-line wow slideInLeft"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-about">
+                    @include('layouts.sections.authors')
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

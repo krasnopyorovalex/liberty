@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Http\ViewComposers\CollectionComposer;
+use App\Http\ViewComposers\FurnitureListComposer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container;
 
-class CollectionServiceProvider extends ServiceProvider
+class FurnitureListServiceProvider extends ServiceProvider
 {
     /**
      * @throws Container\BindingResolutionException
@@ -16,8 +16,7 @@ class CollectionServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->make('view')->composer([
-            'layouts.app',
             'layouts.sections.furniture'
-        ], CollectionComposer::class);
+        ], FurnitureListComposer::class);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DoorController;
+use App\Http\Controllers\FurnitureTypeController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
