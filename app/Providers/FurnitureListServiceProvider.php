@@ -16,7 +16,7 @@ class FurnitureListServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->make('view')->composer([
-            'layouts.sections.furniture'
+            'page.furniture'
         ], FurnitureListComposer::class);
     }
 }

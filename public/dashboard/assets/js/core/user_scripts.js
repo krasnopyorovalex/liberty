@@ -191,7 +191,7 @@ $(function() {
     });
 
     imageBox.on('click', '.delete__img', function () {
-        if(confirm('Вы уверены, что хотите удалить изображение?')) {
+        if(confirm('Вы уверены, что хотите удалить?')) {
             const _this = jQuery(this);
             return $.ajax({
                 url: _this.attr('data-href'),

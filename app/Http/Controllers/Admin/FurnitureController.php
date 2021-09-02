@@ -132,7 +132,8 @@ class FurnitureController extends Controller
         $furniture = $this->dispatch(new GetFurnitureByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $furniture->image))) {
-            $furniture->update(['image' => '']);
+            $furniture->image = '';
+            $furniture->update();
         }
 
         return [
@@ -149,7 +150,8 @@ class FurnitureController extends Controller
         $furniture = $this->dispatch(new GetFurnitureByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $furniture->image_mob))) {
-            $furniture->update(['image_mob' => '']);
+            $furniture->image_mob = '';
+            $furniture->update();
         }
 
         return [
@@ -166,7 +168,8 @@ class FurnitureController extends Controller
         $furniture = $this->dispatch(new GetFurnitureByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $furniture->file))) {
-            $furniture->update(['file' => '']);
+            $furniture->file = '';
+            $furniture->update();
         }
 
         return [

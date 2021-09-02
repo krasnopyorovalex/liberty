@@ -122,7 +122,8 @@ class InteriorController extends Controller
         $interior = $this->dispatch(new GetInteriorByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $interior->image))) {
-            $interior->update(['image' => '']);
+            $interior->image = '';
+            $interior->update();
         }
 
         return [
@@ -139,7 +140,8 @@ class InteriorController extends Controller
         $interior = $this->dispatch(new GetInteriorByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $interior->image_mob))) {
-            $interior->update(['image_mob' => '']);
+            $interior->image_mob = '';
+            $interior->update();
         }
 
         return [

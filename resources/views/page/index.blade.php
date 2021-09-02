@@ -14,11 +14,7 @@
 
 @section('first-screen')
     @if($page->slider)
-        @desktop
-            @include('layouts.first-screens.page-index', ['images' => $page->slider->images])
-        @elsedesktop
-            @include('layouts.first-screens.page-index', ['images' => $page->slider->imagesMob])
-        @enddesktop
+        @include('layouts.first-screens.page-index', ['images' => change_images_slider($page->slider)])
     @endif
 @endsection
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Traits\AutoAliasTrait;
+use App\Models\Traits\Images;
 use App\Scopes\WithUsersByMyGroupsScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +29,7 @@ class Door extends Model
 {
     use HasFactory;
     use AutoAliasTrait;
+    use Images;
 
     public const STORE_PATH = 'public/doors';
 

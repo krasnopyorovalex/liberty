@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 image__box-a">
                                         @if ($collection->catalog_file)
                                             <div class="panel panel-flat border-blue border-xs">
                                                 <div class="panel-body">
@@ -77,7 +77,7 @@
                                     <div class="col-md-6"></div>
                                 </div>
 
-    {{--                            @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $collection])--}}
+                                @textarea(['name' => 'text', 'label' => 'Превью для списка', 'entity' => $collection])
     {{--                            @checkbox(['name' => 'is_sales_leader', 'label' => 'Лидер продаж?', 'entity' => $collection])--}}
 
                                 @submit_btn()

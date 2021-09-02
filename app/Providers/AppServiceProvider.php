@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,5 +40,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('includes.fileInput', 'fileInput');
 
         setlocale(LC_TIME, 'ru_RU.UTF-8');
+
+        Paginator::defaultView('pagination::bootstrap-4');
     }
 }

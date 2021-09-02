@@ -128,10 +128,11 @@ class DoorController extends Controller
      */
     public function destroyImage(int $id): array
     {
-        $Door = $this->dispatch(new GetDoorByIdQuery($id));
+        $door = $this->dispatch(new GetDoorByIdQuery($id));
 
-        if (\Storage::delete(str_replace('/storage/', '/public/', $Door->image))) {
-            $Door->update(['image' => '']);
+        if (\Storage::delete(str_replace('/storage/', '/public/', $door->image))) {
+            $door->image = '';
+            $door->update();
         }
 
         return [
@@ -145,10 +146,11 @@ class DoorController extends Controller
      */
     public function destroyImageMob(int $id): array
     {
-        $Door = $this->dispatch(new GetDoorByIdQuery($id));
+        $door = $this->dispatch(new GetDoorByIdQuery($id));
 
-        if (\Storage::delete(str_replace('/storage/', '/public/', $Door->image_mob))) {
-            $Door->update(['image_mob' => '']);
+        if (\Storage::delete(str_replace('/storage/', '/public/', $door->image_mob))) {
+            $door->image_mob = '';
+            $door->update();
         }
 
         return [
@@ -162,10 +164,11 @@ class DoorController extends Controller
      */
     public function destroyFile(int $id): array
     {
-        $Door = $this->dispatch(new GetDoorByIdQuery($id));
+        $door = $this->dispatch(new GetDoorByIdQuery($id));
 
-        if (\Storage::delete(str_replace('/storage/', '/public/', $Door->file))) {
-            $Door->update(['file' => '']);
+        if (\Storage::delete(str_replace('/storage/', '/public/', $door->file))) {
+            $door->file = '';
+            $door->update();
         }
 
         return [

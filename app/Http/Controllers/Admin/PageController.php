@@ -120,7 +120,8 @@ class PageController extends Controller
         $page = $this->dispatch(new GetPageByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $page->image_mob))) {
-            $page->update(['image_mob' => '']);
+            $page->image_mob = '';
+            $page->update();
         }
 
         return [

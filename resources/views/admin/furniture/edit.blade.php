@@ -72,15 +72,17 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="finishing-options">
-                                        <div class="finishing-options-item">
                                         @if($furniture->finishing_options)
                                             @foreach($furniture->finishing_options as $value)
-                                                <input type="text" name="finishing_options[]" class="colorpicker-palette" value="{{ $value }}" data-preferred-format="hex" data-fouc />
+                                                <div class="finishing-options-item">
+                                                    <input type="text" name="finishing_options[]" class="colorpicker-palette" value="{{ $value }}" data-preferred-format="hex" data-fouc />
+                                                </div>
                                             @endforeach
                                         @else
-                                            <input type="text" name="finishing_options[]" class="colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                                            <div class="finishing-options-item">
+                                                <input type="text" name="finishing_options[]" class="colorpicker-palette" value="#e0d7c6" data-preferred-format="hex" data-fouc />
+                                            </div>
                                         @endif
-                                        </div>
                                         <div class="btn-box">
                                             <button class="btn btn-primary btn-add" type="button">Добавить вариант</button>
                                             <button class="btn btn-danger btn-remove" type="button">Удалить последний вариант</button>

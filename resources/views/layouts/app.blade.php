@@ -96,12 +96,12 @@
                                     <div class="submenu-box flex">
                                         <ul>
                                             @foreach($furnitureTypes as $furnitureType)
-                                                <li><a href="#">{{ $furnitureType->name }}</a></li>
+                                                <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}?type={{ $furnitureType->id }}">{{ $furnitureType->name }}</a></li>
                                             @endforeach
                                         </ul>
                                         <ul>
                                             @foreach($collections as $collection)
-                                            <li><a href="{{ $collection->url }}">{{ $collection->name }}</a></li>
+                                            <li><a href="{{ $collection->url }}">{{ strip_tags($collection->name) }}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>

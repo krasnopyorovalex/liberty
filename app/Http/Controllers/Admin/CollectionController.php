@@ -110,7 +110,8 @@ class CollectionController extends Controller
         $collection = $this->dispatch(new GetCollectionByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $collection->image))) {
-            $collection->update(['image' => '']);
+            $collection->image = '';
+            $collection->update();
         }
 
         return [
@@ -127,7 +128,8 @@ class CollectionController extends Controller
         $collection = $this->dispatch(new GetCollectionByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $collection->image_mob))) {
-            $collection->update(['image_mob' => '']);
+            $collection->image_mob = '';
+            $collection->update();
         }
 
         return [
@@ -144,7 +146,8 @@ class CollectionController extends Controller
         $collection = $this->dispatch(new GetCollectionByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $collection->catalog_file))) {
-            $collection->update(['catalog_file' => '']);
+            $collection->catalog_file = '';
+            $collection->update();
         }
 
         return [

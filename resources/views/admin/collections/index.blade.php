@@ -26,7 +26,7 @@
             @foreach($collections as $collection)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $collection->name }}</td>
+                    <td>{{ strip_tags($collection->name) }}</td>
                     <td>{{ $collection->alias }}</td>
                     <td><span class="label label-primary">{{ $collection->updated_at->diffForHumans() }}</span></td>
                     <td>

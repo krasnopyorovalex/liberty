@@ -72,7 +72,8 @@ class UpdateCollectionCommand
                 ($this->deleter)(str_replace('/storage/', '/public/', $collection->catalog_file));
             }
 
-            $path = $this->request->file('catalog_file')->store(Collection::STORE_PATH);
+            $path = $this->request->file('catalog_file')
+                ->storeAs(Collection::STORE_PATH, $this->request->file('catalog_file')->getClientOriginalName());
             $collection->catalog_file = Storage::url($path);
         }
 

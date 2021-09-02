@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DoorController;
+use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\FurnitureTypeController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PageController;
@@ -44,4 +45,5 @@ Route::group(['middleware' => ['redirector']], static function () {
     Route::get('collections/{alias}', CollectionController::class)->name('collection.show');
     Route::get('interiors/{alias}', InteriorController::class)->name('interior.show');
     Route::get('doors/{alias}', DoorController::class)->name('door.show');
+    Route::get('furniture/{alias}', FurnitureController::class)->name('furniture.show');
 });

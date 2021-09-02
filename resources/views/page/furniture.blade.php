@@ -50,5 +50,8 @@
             </div>
         </div>
     </div>
-    @include('layouts.sections.furniture')
+    @include('layouts.sections.furniture', ['furnitureList' => $furnitureList])
+    @include('layouts.sections.collections', ['collections' => $collections])
+    @include('layouts.sections.why-choose-us')
+    @include('layouts.sections.for-customers')
 @endsection

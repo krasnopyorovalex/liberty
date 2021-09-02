@@ -7,7 +7,7 @@
                     <div class="row category-list-items flex">
                         @foreach($collections as $collection)
                             <div class="col-4">
-                                <a href="{{ $collection->url }}" class="title hovered">{{ $collection->name }}</a>
+                                <a href="{{ $collection->url }}" class="title hovered{{ request()->url() === $collection->url ? ' active' : '' }}">{{ strip_tags($collection->name) }}</a>
                             </div>
                         @endforeach
                     </div>
@@ -22,8 +22,8 @@
                     <div class="col-2">
                         <ul class="types-list">
                             @foreach($furnitureTypes as $furnitureType)
-                                <li class="types-list-item active">
-                                    <a href="{{ request()->fullUrlWithQuery(['type' => $furnitureType->id]) }}">{{ $furnitureType->name }}</a>
+                                <li class="types-list-item{{ request()->get('type') == $furnitureType->id ? ' active' : '' }}">
+                                    <a href="{{ request()->url() }}?type={{ $furnitureType->id }}">{{ $furnitureType->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -32,18 +32,20 @@
                         <div class="row">
                             @foreach($furnitureList as $furniture)
                             <div class="col-4">
-                                <div class="category-products-item">
-                                    <div class="img hovered">
-                                        <picture>
-                                            <source media="(max-width: 670px)" srcset="../img/product-img-1-mob.jpg">
-                                            <img src="../img/product-img-1.jpg">
-                                        </picture>
+                                <a href="{{ $furniture->url }}">
+                                    <div class="category-products-item">
+                                        <div class="img hovered">
+                                            <picture>
+                                                <source media="(max-width: 670px)" srcset="{{ $furniture->image_mob }}">
+                                                <img src="{{ asset($furniture->image) }}">
+                                            </picture>
+                                        </div>
+                                        <div class="info flex">
+                                            <div class="name">{{ $furniture->name }}</div>
+                                            <div class="price">{!! $furniture->getPrice() !!}</div>
+                                        </div>
                                     </div>
-                                    <div class="info flex">
-                                        <div class="name">{{ $furniture->name }}</div>
-                                        <div class="price">{!! $furniture->getPrice() !!}</div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             @endforeach
                         </div>

@@ -30,7 +30,7 @@
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
                     <td>{{ $furniture->name }}</td>
-                    <td>{{ $furniture->collection->name }}</td>
+                    <td>{{ strip_tags($furniture->collection->name )}}</td>
                     <td>{{ $furniture->author->name }}</td>
                     <td>{!! $furniture->getPrice() !!}</td>
                     <td>{{ $furniture->furnitureType->name }}</td>

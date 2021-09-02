@@ -71,34 +71,17 @@
                     <div class="col-6">
                         <div class="door-card-gallery-box">
                             <div class="door-card-gallery owl-carousel owl-theme">
-                                <div class="door-card-gallery-item">
-                                    <a href="../img/door-card-gallery.jpg" data-lightbox="gallery">
-                                        <picture>
-                                            <source media="(max-width: 670px)" srcset="../img/door-card-gallery-mob.jpg">
-                                            <img src="../img/door-card-gallery.jpg">
-                                        </picture>
-                                        <svg class="icon icon-zoom-in">
-                                            <use xlink:href="../img/sprites/sprite.svg#zoom-in"></use>
-                                        </svg>
-                                    </a>
-                                    <svg class="icon icon-favorite">
-                                        <use xlink:href="../img/sprites/sprite.svg#favorite"></use>
-                                    </svg>
-                                </div>
-                                <div class="door-card-gallery-item">
-                                    <a href="../img/door-card-gallery.jpg" data-lightbox="gallery">
-                                        <picture>
-                                            <source media="(max-width: 670px)" srcset="../img/door-card-gallery-mob.jpg">
-                                            <img src="../img/door-card-gallery.jpg">
-                                        </picture>
-                                        <svg class="icon icon-zoom-in">
-                                            <use xlink:href="../img/sprites/sprite.svg#zoom-in"></use>
-                                        </svg>
-                                    </a>
-                                    <svg class="icon icon-favorite">
-                                        <use xlink:href="../img/sprites/sprite.svg#favorite"></use>
-                                    </svg>
-                                </div>
+                                @foreach($door->getImages() as $image)
+                                    <div class="door-card-gallery-item">
+                                        <a href="{{ $image->getPath() }}" data-lightbox="gallery">
+                                            <picture>
+                                                <img src="{{ $image->getPath() }}">
+                                            </picture>
+                                            {{ svg('zoom-in') }}
+                                        </a>
+                                        {{ svg('favorite') }}
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="door-card-price-box flex">
                                 <div class="price-name-box flex">

@@ -17,7 +17,9 @@ class CollectionServiceProvider extends ServiceProvider
     {
         $this->app->make('view')->composer([
             'layouts.app',
-            'layouts.sections.furniture'
+            'layouts.sections.furniture',
+            'page.furniture',
+            'furniture.index'
         ], CollectionComposer::class);
     }
 }

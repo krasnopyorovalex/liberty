@@ -39,6 +39,12 @@ class CollectionController extends Controller
         /** @var $collection Collection */
         $collection = $this->dispatch(new GetCollectionByAliasQuery($alias));
 
+        $furnitureList = $collection->furniture();
+
+        if (request()->has('type')) {
+            $furnitureList->where('furniture_type_id', request()->get('type'));
+        }
+
         try {
             /** @var $collection Collection */
             $collection = $this->canonicalService->check($collection);
@@ -46,6 +52,9 @@ class CollectionController extends Controller
             $collection->text = $exception->getMessage();
         }
 
-        return view('collections.index', ['collection' => $collection]);
+        return view('collections.index', [
+            'collection' => $collection,
+            'furnitureList' => $furnitureList->paginate()->withQueryString()
+        ]);
     }
 }

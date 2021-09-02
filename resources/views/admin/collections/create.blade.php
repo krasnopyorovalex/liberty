@@ -38,7 +38,7 @@
                     <div class="col-md-6"></div>
                 </div>
 
-{{--                @textarea(['name' => 'text', 'label' => 'Текст'])--}}
+                @textarea(['name' => 'text', 'label' => 'Превью для списка'])
 
 {{--                @checkbox(['name' => 'is_sales_leader', 'label' => 'Лидер продаж?'])--}}
 
