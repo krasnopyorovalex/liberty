@@ -32,15 +32,15 @@ class InteriorController extends Controller
      */
     public function __invoke(string $alias)
     {
-        $interior = $this->dispatch(new GetInteriorByAliasQuery($alias));
+        $portfolio = $this->dispatch(new GetInteriorByAliasQuery($alias));
 
         try {
-            /** @var $interior Collection */
-            $interior = $this->canonicalService->check($interior);
+            /** @var $portfolio Collection */
+            $portfolio = $this->canonicalService->check($portfolio);
         } catch (Exception $exception) {
-            $interior->text = $exception->getMessage();
+            $portfolio->text = $exception->getMessage();
         }
 
-        return view('interior.index', ['interior' => $interior]);
+        return view('portfolio.index', ['portfolio' => $portfolio]);
     }
 }

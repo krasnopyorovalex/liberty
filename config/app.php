@@ -174,6 +174,9 @@ return [
         App\Providers\DoorsServiceProvider::class,
         App\Providers\EmployeeServiceProvider::class,
         App\Providers\FurnitureListServiceProvider::class,
+        App\Providers\PortfolioTypesServiceProvider::class,
+        App\Providers\PortfoliosServiceProvider::class,
+        App\Providers\ForClientsServiceProvider::class,
 
         /*
          * Application Service Providers...

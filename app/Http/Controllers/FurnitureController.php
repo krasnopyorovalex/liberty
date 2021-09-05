@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Furniture;
 use Domain\Furniture\Queries\GetFurnitureByAliasQuery;
+use Domain\Furniture\Queries\GetRandomFurnitureQuery;
 use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
 
@@ -20,6 +21,11 @@ class FurnitureController extends Controller
         /** @var $furniture Furniture */
         $furniture = $this->dispatch(new GetFurnitureByAliasQuery($alias));
 
-        return view('furniture.index', ['furniture' => $furniture]);
+        $anotherProjects = $this->dispatch(new GetRandomFurnitureQuery($furniture->id));
+
+        return view('furniture.index', [
+            'furniture' => $furniture,
+            'anotherProjects' => $anotherProjects
+        ]);
     }
 }

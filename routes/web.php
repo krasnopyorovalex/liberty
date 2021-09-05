@@ -7,8 +7,8 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DoorController;
+use App\Http\Controllers\Form\CalculateController;
 use App\Http\Controllers\FurnitureController;
-use App\Http\Controllers\FurnitureTypeController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
@@ -37,6 +37,9 @@ Route::group(['prefix' => '_root', 'middleware' => 'auth', 'as' => 'admin.'], fu
         require $item;
     }
 });
+
+Route::post('form/calculate', CalculateController::class)->name('form.calculate');
+//Route::post('form/recall', SearchController::class)->name('form.recall');
 
 Route::group(['middleware' => ['redirector']], static function () {
     Route::get('search', SearchController::class)->name('search');

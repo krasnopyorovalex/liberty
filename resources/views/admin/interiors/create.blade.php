@@ -17,8 +17,6 @@
             <form action="{{ route('admin.interiors.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                @select(['name' => 'interior_type_id', 'label' => 'Тип портфолио', 'items' => $interiorTypes])
-
                 @input(['name' => 'name', 'label' => 'Название'])
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])
@@ -34,6 +32,8 @@
                     <div class="col-md-4"></div>
                 </div>
 
+                @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке'])
+
                 <div class="row">
                     <div class="col-md-6">
                         @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
@@ -42,8 +42,6 @@
                         @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
                     </div>
                 </div>
-
-                @textarea(['name' => 'text', 'label' => 'Описание портфолио в списке'])
 
                 @checkbox(['name' => 'is_favorite', 'label' => 'Выводить в слайдере Исполнение премиум класса?'])
                 @submit_btn()

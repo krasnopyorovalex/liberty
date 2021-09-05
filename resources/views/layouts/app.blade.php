@@ -31,8 +31,8 @@
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
 </head>
 <body>
-<section class="{{ $className ?? '' }}" @isset($bgImg) style="background-image: url({{ $bgImg }})"@endisset>
-    <header class="flex" id="sticky">
+<main>
+    <header class="flex">
         <div class="col-logo flex">
             <span>Фабрика дверей и мебели</span>
             <a href="{{ route('page.show') }}">
@@ -87,29 +87,29 @@
             </div>
             <div class="menu-line flex">
                 @if($menu->get('menu_header'))
-                <ul class="flex">
-                    @foreach($menu->get('menu_header') as $item)
-                        <li>
-                            <a href="{{ $item->link }}">{{ $item->name }}</a>
-                            @if($item->has_submenu)
-                                <div class="submenu">
-                                    <div class="submenu-box flex">
-                                        <ul>
-                                            @foreach($furnitureTypes as $furnitureType)
-                                                <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}?type={{ $furnitureType->id }}">{{ $furnitureType->name }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                        <ul>
-                                            @foreach($collections as $collection)
-                                            <li><a href="{{ $collection->url }}">{{ strip_tags($collection->name) }}</a></li>
-                                            @endforeach
-                                        </ul>
+                    <ul class="flex">
+                        @foreach($menu->get('menu_header') as $item)
+                            <li>
+                                <a href="{{ $item->link }}">{{ $item->name }}</a>
+                                @if($item->has_submenu)
+                                    <div class="submenu">
+                                        <div class="submenu-box flex">
+                                            <ul>
+                                                @foreach($furnitureTypes as $furnitureType)
+                                                    <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}?type={{ $furnitureType->id }}">{{ $furnitureType->name }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            <ul>
+                                                @foreach($collections as $collection)
+                                                    <li><a href="{{ $collection->url }}">{{ strip_tags($collection->name) }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
-                        </li>
-                    @endforeach
-                </ul>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
                 @endif
                 <div class="btn btn-cost-calculation call-popup" data-target="popup-cost-calculation">
                     РАСЧЕТ ПРОЕКТА
@@ -121,101 +121,109 @@
             </div>
         </div>
     </header>
-    @yield('first-screen')
-</section>
 
-@yield('content')
+    <section class="{{ $className ?? '' }}" @isset($bgImg) style="background-image: url({{ $bgImg }})"@endisset>
+        @yield('first-screen')
+    </section>
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="footer-first-col">
-                    <div>
-                        <a href="/">
-                            <img src="{{ asset('img/logo.png') }}" alt="Фабрика дверей и мебели" />
-                        </a>
-                    </div>
-                    <div class="our-salons">
-                        <div class="our-salons-title">НАШИ САЛОНЫ:</div>
-                        <ul>
-                            <li>
-                                ВК «Росстройэкспо»<br/>
-                                Фрунзенская наб., 30, пав.2,<br/>
-                                место 22,<br/>
-                                8 (967) 053 75 28
-                            </li>
-                            <li>
-                                ТВК «Экспострой»<br/>
-                                г. Москва, Decor Expo,<br/>
-                                Нахимовский проспект, д. 24,<br/>
-                                Сектор З, Место Г - 9<br/>
-                                8 (966) 320 50 77
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="copyright">
-                        © «Либерти» 2006 - {{ date('Y') }} г.
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="center footer-middle-col">
-                    <div class="recall-me call-popup" data-target="popup-recall-me">Перезвоните мне</div>
-                    <div>
-                        <div class="btn call-popup" data-target="popup-cost-calculation">расчет проекта</div>
-                    </div>
-                    <div>
-                        <a href="#">Оставить отзыв</a>
-                    </div>
-                    <div class="info">
-                        Отправляя сообщение с данного сайта<br/>
-                        Вы соглашаетесь с<br/>
-                        <a href="#">Политикой конфиденциальности</a>
-                    </div>
-                    <div class="socials">
-                        <a href="#" rel="noopener noreferrer">
-                            {{ svg('insta') }}
-                        </a>
-                        <a href="#" rel="noopener noreferrer">
-                            {{ svg('fb') }}
-                        </a>
-                        <a href="#" rel="noopener noreferrer">
-                            {{ svg('pinterest') }}
-                        </a>
-                        <a href="#" rel="noopener noreferrer">
-                            {{ svg('viber') }}
-                        </a>
-                        <a href="#" rel="noopener noreferrer">
-                            {{ svg('whatsapp') }}
-                        </a>
-                        <a href="#" rel="noopener noreferrer">
-                            {{ svg('telegram') }}
-                        </a>
-                    </div>
-                    <div class="developer">
-                        <div class="copyright-mob">
-                            © «Либерти» - с 2006 г.
+    @yield('content')
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="footer-first-col">
+                        <div>
+                            <a href="/">
+                                <img src="{{ asset('img/logo.png') }}" alt="Фабрика дверей и мебели" />
+                            </a>
                         </div>
-                        <a href="#">Разработка сайта Имтексео</a>
+                        <div class="our-salons">
+                            <div class="our-salons-title">НАШИ САЛОНЫ:</div>
+                            <ul>
+                                <li>
+                                    ВК «Росстройэкспо»<br/>
+                                    Фрунзенская наб., 30, пав.2,<br/>
+                                    место 22,<br/>
+                                    8 (967) 053 75 28
+                                </li>
+                                <li>
+                                    ТВК «Экспострой»<br/>
+                                    г. Москва, Decor Expo,<br/>
+                                    Нахимовский проспект, д. 24,<br/>
+                                    Сектор З, Место Г - 9<br/>
+                                    8 (966) 320 50 77
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="copyright">
+                            © «Либерти» 2006 - {{ date('Y') }} г.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                @if($menu->get('menu_header'))
-                    <ul class="footer-menu">
-                        @foreach($menu->get('menu_header') as $item)
-                            <li><a href="{{ $item->link }}">{{ $item->name }}</a></li>
-                        @endforeach
-                    </ul>
-                @endif
+                <div class="col-6">
+                    <div class="center footer-middle-col">
+                        <div class="recall-me call-popup" data-target="popup-recall-me">Перезвоните мне</div>
+                        <div>
+                            <div class="btn call-popup" data-target="popup-cost-calculation">расчет проекта</div>
+                        </div>
+                        <div>
+                            <a href="#">Оставить отзыв</a>
+                        </div>
+                        <div class="info">
+                            Отправляя сообщение с данного сайта<br/>
+                            Вы соглашаетесь с<br/>
+                            <a href="#">Политикой конфиденциальности</a>
+                        </div>
+                        <div class="socials">
+                            <a href="#" rel="noopener noreferrer">
+                                {{ svg('insta') }}
+                            </a>
+                            <a href="#" rel="noopener noreferrer">
+                                {{ svg('fb') }}
+                            </a>
+                            <a href="#" rel="noopener noreferrer">
+                                {{ svg('pinterest') }}
+                            </a>
+                            <a href="#" rel="noopener noreferrer">
+                                {{ svg('viber') }}
+                            </a>
+                            <a href="#" rel="noopener noreferrer">
+                                {{ svg('whatsapp') }}
+                            </a>
+                            <a href="#" rel="noopener noreferrer">
+                                {{ svg('telegram') }}
+                            </a>
+                        </div>
+                        <div class="developer">
+                            <div class="copyright-mob">
+                                © «Либерти» - с 2006 г.
+                            </div>
+                            <a href="#">Разработка сайта Имтексео</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    @if($menu->get('menu_header'))
+                        <ul class="footer-menu">
+                            @foreach($menu->get('menu_header') as $item)
+                                <li><a href="{{ $item->link }}">{{ $item->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-
+    </footer>
+</main>
 @include('layouts.forms.recall-me')
-@include('layouts.forms.cost-calculation')
+<div class="popup as-cost-calculation" id="popup-cost-calculation">
+    <div class="popup-title">Расчет проекта</div>
+    @include('layouts.forms.cost-calculation')
+    <div class="popup-close">
+        {{ svg('close') }}
+    </div>
+</div>
 
 <script src="{{ asset('js/main.min.js') }}"></script>
 <script src="{{ asset('js/vendor.min.js') }}"></script>

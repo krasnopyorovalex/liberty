@@ -32,7 +32,7 @@ class Page extends Model
         'page.about' => 'О нас',
         'page.doors' => 'Двери',
         'page.furniture' => 'Мебель',
-        'page.interiors' => 'Интерьер',
+        'page.portfolio' => 'Портфолио',
         'page.clients' => 'Клиентам',
         'page.contacts' => 'Контакты',
     ];

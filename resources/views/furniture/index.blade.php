@@ -164,58 +164,41 @@
     </div>
 </section>
 
-<section class="another-projects-in-collection">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div>
-                    <div class="title">
-                        Другие предметы коллекции
-                        <div class="decoration-line wow slideInLeft"></div>
-                    </div>
-                    <div class="doors-cards">
-                        <div class="doors-cards-item">
-                            <div class="doors-cards-item-img">
-                                <img src="../img/another-col-01.jpg" alt="alt">
-                                <div class="decoration-line wow slideInLeft"></div>
-                            </div>
-                            <div class="doors-cards-item-info flex">
-                                <div class="doors-cards-item-info-title">Комод  арт: НК12</div>
-                                <div class="doors-cards-item-info-cost">
-                                    <div class="cost-value">48 000 Р</div>
-                                </div>
-                            </div>
+@if($anotherProjects->count())
+    <section class="another-projects-in-collection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div class="title">
+                            Другие предметы коллекции
+                            <div class="decoration-line wow slideInLeft"></div>
                         </div>
-                        <div class="doors-cards-item">
-                            <div class="doors-cards-item-img">
-                                <img src="../img/another-col-02.jpg" alt="alt">
-                                <div class="decoration-line"></div>
-                            </div>
-                            <div class="doors-cards-item-info flex">
-                                <div class="doors-cards-item-info-title">Комод  арт: НК12</div>
-                                <div class="doors-cards-item-info-cost">
-                                    <div class="cost-value">60 000 Р</div>
+                        <div class="doors-cards">
+                            @foreach($anotherProjects as $anotherProject)
+                                <div class="doors-cards-item">
+                                    <div class="doors-cards-item-img">
+                                        <picture>
+                                            <source media="(max-width: 670px)" srcset="{{ $anotherProject->image_mob }}">
+                                            <img src="{{ asset($anotherProject->image) }}">
+                                        </picture>
+                                        <div class="decoration-line wow slideInLeft"></div>
+                                    </div>
+                                    <div class="doors-cards-item-info flex">
+                                        <div class="doors-cards-item-info-title">{{ $anotherProject->name }}</div>
+                                        <div class="doors-cards-item-info-cost">
+                                            <div class="cost-value">{!! $anotherProject->getPrice() !!}</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="doors-cards-item">
-                            <div class="doors-cards-item-img">
-                                <img src="../img/another-col-03.jpg" alt="alt">
-                                <div class="decoration-line"></div>
-                            </div>
-                            <div class="doors-cards-item-info flex">
-                                <div class="doors-cards-item-info-title">Комод  арт: НК12</div>
-                                <div class="doors-cards-item-info-cost">
-                                    <div class="cost-value">56 000 Р</div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 @include('layouts.sections.collections', ['collections' => $collections->whereNotIn('id', $furniture->collection->id)])
 @include('layouts.sections.why-choose-us')
 @include('layouts.sections.for-customers')
