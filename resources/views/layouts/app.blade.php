@@ -11,9 +11,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.ico" type="image/x-icon') }}">
-    <link rel="icon" sizes="16x16" href="{{ asset('img/favicons/favicon-16x16.png" type="image/png') }}">
-    <link rel="icon" sizes="32x32" href="{{ asset('img/favicons/favicon-32x32.png" type="image/png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="{{ asset('img/favicons/favicon-16x16.png') }}" type="image/png">
+    <link rel="icon" sizes="32x32" href="{{ asset('img/favicons/favicon-32x32.png') }}" type="image/png">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('img/favicons/apple-touch-icon-precomposed.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/favicons/apple-touch-icon-57x57.png') }}">
@@ -168,7 +168,7 @@
                             <div class="btn call-popup" data-target="popup-cost-calculation">расчет проекта</div>
                         </div>
                         <div>
-                            <a href="#">Оставить отзыв</a>
+                            <div class="btn-guestbook call-popup" data-target="popup-guestbook">Оставить отзыв</div>
                         </div>
                         <div class="info">
                             Отправляя сообщение с данного сайта<br/>
@@ -217,6 +217,7 @@
     </footer>
 </main>
 @include('layouts.forms.recall-me')
+@include('layouts.forms.guestbook')
 <div class="popup as-cost-calculation" id="popup-cost-calculation">
     <div class="popup-title">Расчет проекта</div>
     @include('layouts.forms.cost-calculation')

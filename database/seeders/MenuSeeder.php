@@ -23,7 +23,7 @@ class MenuSeeder extends Seeder
         foreach (Page::all() as $page) {
             MenuItem::factory()->create([
                 'name' => $page->name,
-                'link' => '/'.$page->alias,
+                'link' => $page->alias === 'index' ? '/' : '/' . $page->alias,
                 'pos' => 0,
                 'menu_id' => $menu->id
             ]);

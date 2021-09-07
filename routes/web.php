@@ -5,9 +5,12 @@ declare(strict_types=1);
 use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\Form\CalculateController;
+use App\Http\Controllers\Form\GuestbookController;
+use App\Http\Controllers\Form\RecallController;
 use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PageController;
@@ -38,11 +41,16 @@ Route::group(['prefix' => '_root', 'middleware' => 'auth', 'as' => 'admin.'], fu
     }
 });
 
-Route::post('form/calculate', CalculateController::class)->name('form.calculate');
-//Route::post('form/recall', SearchController::class)->name('form.recall');
+Route::group(['prefix' => 'form', 'as' => 'form.'], function () {
+    Route::post('calculate', CalculateController::class)->name('calculate');
+    Route::post('recall', RecallController::class)->name('recall');
+    Route::post('guestbook', GuestbookController::class)->name('guestbook');
+});
 
 Route::group(['middleware' => ['redirector']], static function () {
     Route::get('search', SearchController::class)->name('search');
+    Route::get('autocomplete', FavoriteController::class)->name('autocomplete');
+
     Route::get('{alias?}', PageController::class)->name('page.show');
     Route::get('author/{alias}', AuthorController::class)->name('author.show');
     Route::get('collections/{alias}', CollectionController::class)->name('collection.show');

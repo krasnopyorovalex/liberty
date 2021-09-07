@@ -4,25 +4,24 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Services\CanonicalService;
+use App\Contracts\Search;
+use App\Http\Requests\Forms\SearchRequest;
 
 class SearchController extends Controller
 {
-    /**
-     * @var CanonicalService
-     */
-    protected CanonicalService $canonicalService;
+    private Search $searchService;
 
-    /**
-     * @param CanonicalService $canonicalService
-     */
-    public function __construct(CanonicalService $canonicalService)
+    public function __construct(Search $searchService)
     {
-        $this->canonicalService = $canonicalService;
+        $this->searchService = $searchService;
     }
 
-    public function __invoke()
+    public function __invoke(SearchRequest $request)
     {
-       return [new \stdClass()];
+        $searchResult = $this->searchService->search($request);
+
+        return view('search.index', [
+            'searchResult' => $searchResult
+        ]);
     }
 }

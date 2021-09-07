@@ -378,6 +378,35 @@ template {
   display: none;
 }
 
+.autocompleter-result {
+  display: none;
+  position: absolute;
+  z-index: 99999;
+  max-height: 300px;
+  border-bottom: 1px solid #c6c3bc;
+  border-left: 1px solid #c6c3bc;
+  border-right: 1px solid #c6c3bc;
+  background: #fff;
+  overflow-y: auto;
+  border-top-left-radius: 6px;
+}
+
+.autocompleter-item {
+  z-index: 99999;
+  padding: .5rem 1rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.autocompleter-item + .autocompleter-item {
+  border-top: 1px solid #c6c3bc;
+}
+
+.autocompleter-item.selected {
+  opacity: 1;
+  background: #e9dfd1;
+}
+
 /**
  * Owl Carousel v2.3.4
  * Copyright 2013-2018 David Deutsch
@@ -4010,6 +4039,15 @@ svg {
   border: 3px solid #b5a99d;
 }
 
+.btn-guestbook {
+  text-decoration: underline;
+}
+
+.btn-guestbook:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .section-title {
   color: #5a6e79;
   font-family: "Bukvarnaya Bold", serif;
@@ -4467,7 +4505,8 @@ form .success-message {
   margin: 0 0 1rem 0;
   border: 1px solid #c6c3bc;
   border-radius: 6px;
-  padding: 1rem 0;
+  padding: 1rem 1rem 1rem 4rem;
+  line-height: 20px;
 }
 
 .success-message .icon-mood-happy,
@@ -4482,6 +4521,15 @@ form .success-message {
   bottom: 0;
   left: 0;
   fill: #2f3130;
+}
+
+.success-message ol {
+  margin: 0;
+  padding: 0;
+}
+
+.success-message ol li {
+  font-size: 13px;
 }
 
 .is-sent {
@@ -4509,6 +4557,29 @@ form .success-message {
 
 button[type=submit].is-sent:hover {
   color: transparent;
+}
+
+.form-search {
+  margin: 0;
+}
+
+.form-search .form-group {
+  flex-wrap: nowrap;
+}
+
+.form-search .form-group input {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-search .form-group button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top: 1px solid #bdac9a;
+  border-right: 1px solid #bdac9a;
+  border-bottom: 1px solid #bdac9a;
+  border-left: 0;
+  padding: 20px 30px 16px;
 }
 
 @-webkit-keyframes load8 {
@@ -4701,6 +4772,18 @@ button[type=submit].is-sent:hover {
 .first-screen-text h1 {
   margin: 0;
   line-height: normal;
+}
+
+.search-content-box {
+  min-height: 50vh;
+}
+
+.search-content-box.height-reset {
+  min-height: auto;
+}
+
+.search-content-box .doors-cards {
+  margin: 0 8rem;
 }
 
 .accordion {
@@ -8025,7 +8108,7 @@ footer .footer-menu li + li {
   }
 
   header.is-sticky {
-    top: 0;
+    top: -45px;
   }
 
   header.is-sticky {

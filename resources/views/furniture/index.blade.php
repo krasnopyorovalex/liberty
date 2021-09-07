@@ -44,9 +44,13 @@
             <div class="col-1"></div>
             <div class="col-5">
                 <div class="next-prev-arrows flex">
-                    <a href="#"><span class="next-arrow"></span></a>
+                    @if($nextPrevDto->prev)
+                        <a href="{{ $nextPrevDto->prev->url }}"><span class="next-arrow"></span></a>
+                    @endif
                     <div>Следующая модель</div>
-                    <a href="#"><span class="prev-arrow"></span></a>
+                    @if($nextPrevDto->next)
+                        <a href="{{ $nextPrevDto->next->url }}"><span class="prev-arrow"></span></a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -138,7 +142,9 @@
                                 <div class="decoration-line wow slideInLeft"></div>
                             </div>
                             <div class="door-card-tabs-custom-item">
-                                ///
+                                @if($furniture)
+                                    <a href="{{ asset($furniture->file) }}" class="btn" target="_blank">Скачать</a>
+                                @endif
                                 <div class="decoration-line wow slideInLeft"></div>
                             </div>
                         </div>

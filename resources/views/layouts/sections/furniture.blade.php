@@ -31,22 +31,7 @@
                     <div class="col-8">
                         <div class="row">
                             @foreach($furnitureList as $furniture)
-                            <div class="col-4">
-                                <a href="{{ $furniture->url }}">
-                                    <div class="category-products-item">
-                                        <div class="img hovered">
-                                            <picture>
-                                                <source media="(max-width: 670px)" srcset="{{ $furniture->image_mob }}">
-                                                <img src="{{ asset($furniture->image) }}">
-                                            </picture>
-                                        </div>
-                                        <div class="info flex">
-                                            <div class="name">{{ $furniture->name }}</div>
-                                            <div class="price">{!! $furniture->getPrice() !!}</div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                @include('layouts.partials._furniture_item', ['entity' => $furniture])
                             @endforeach
                         </div>
                         {{ $furnitureList->links() }}

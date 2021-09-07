@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Author;
-use Domain\Page\Queries\GetPageByAliasQuery;
+use Domain\Author\Queries\GetAuthorByAliasQuery;
 use App\Services\CanonicalService;
 use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
@@ -34,10 +34,10 @@ class AuthorController extends Controller
      * @param string $alias
      * @return Factory|View
      */
-    public function __invoke(string $alias = 'index')
+    public function __invoke(string $alias)
     {
         /** @var $author Author*/
-        $author = $this->dispatch(new GetPageByAliasQuery($alias));
+        $author = $this->dispatch(new GetAuthorByAliasQuery($alias));
 
         try {
             /** @var $author Author*/

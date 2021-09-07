@@ -177,6 +177,7 @@ return [
         App\Providers\PortfolioTypesServiceProvider::class,
         App\Providers\PortfoliosServiceProvider::class,
         App\Providers\ForClientsServiceProvider::class,
+        App\Providers\SearchServiceProvider::class,
 
         /*
          * Application Service Providers...

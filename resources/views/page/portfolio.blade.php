@@ -77,27 +77,7 @@
     @if($portfolio->count())
         <section class="interior-projects">
             @foreach($portfolio as $portfolioItem)
-            <div class="interior-projects-item">
-                <div class="slider-projects owl-theme owl-carousel">
-                    @foreach($portfolioItem->getImages() as $image)
-                        <div class="slider-projects-item">
-                            <picture>
-                                <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
-                            </picture>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="decoration-line wow slideInLeft visible-sm"></div>
-                <div class="slider-projects-desc hidden-sm">
-                    {!! $portfolioItem->text !!}
-                </div>
-                <div class="btn-box">
-                    <a href="{{ $portfolioItem->url }}" class="btn">смотреть проект</a>
-                </div>
-                <div class="interior-projects-title uppercase">
-                    {{ $portfolioItem->name }}
-                </div>
-            </div>
+                @include('layouts.partials._portfolio_item', ['entity' => $portfolioItem])
             @endforeach
         </section>
     @endif
