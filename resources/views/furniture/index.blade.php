@@ -74,10 +74,18 @@
                                             </picture>
                                             {{ svg('zoom-in') }}
                                         </a>
-                                        {{ svg('favorite') }}
                                     </div>
                                 @endforeach
                             </div>
+                            @if($isFavorite)
+                                <div class="favorite-action" data-action="{{ route('favorite.remove', $furniture) }}" data-entity="{{ get_class($furniture) }}">
+                                    {{ svg('favorite-active') }}
+                                </div>
+                            @else
+                                <div class="favorite-action" data-action="{{ route('favorite.add', $furniture) }}" data-entity="{{ get_class($furniture) }}">
+                                    {{ svg('favorite') }}
+                                </div>
+                            @endif
                             <div class="door-card-price-box flex">
                                 <div class="price-name-box flex">
                                     <div class="price">{!! $furniture->getPrice() !!}</div>
@@ -86,7 +94,6 @@
                                 <div class="btn btn-buy call-popup" data-target="popup-recall-me">купить</div>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-6">
                         <div class="flex-column">

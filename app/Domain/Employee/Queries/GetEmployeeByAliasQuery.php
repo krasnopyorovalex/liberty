@@ -31,6 +31,6 @@ class GetEmployeeByAliasQuery
      */
     public function handle()
     {
-        return Employee::where('alias', $this->alias)->where('is_published', '1')->firstOrFail();
+        return Employee::where('alias', $this->alias)->firstOrFail();
     }
 }

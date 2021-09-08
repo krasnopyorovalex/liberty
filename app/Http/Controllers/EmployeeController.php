@@ -4,19 +4,15 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Traits\HasFavorites;
-use App\Models\Collection;
-use App\Models\Interior;
+use App\Models\Employee;
+use Domain\Employee\Queries\GetEmployeeByAliasQuery;
 use App\Services\CanonicalService;
-use Domain\Interior\Queries\GetInteriorByAliasQuery;
 use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
 use Exception;
 
-class InteriorController extends Controller
+class EmployeeController extends Controller
 {
-    use HasFavorites;
-
     /**
      * @var CanonicalService
      */
@@ -36,18 +32,17 @@ class InteriorController extends Controller
      */
     public function __invoke(string $alias)
     {
-        $portfolio = $this->dispatch(new GetInteriorByAliasQuery($alias));
+        /** @var $employee Employee*/
+        $employee = $this->dispatch(new GetEmployeeByAliasQuery($alias));
 
         try {
-            /** @var $portfolio Collection */
-            $portfolio = $this->canonicalService->check($portfolio);
+            /** @var $Employee Employee*/
+            $employee = $this->canonicalService->check($employee);
+
         } catch (Exception $exception) {
-            $portfolio->text = $exception->getMessage();
+            $employee->text = $exception->getMessage();
         }
 
-        return view('portfolio.index', [
-            'portfolio' => $portfolio,
-            'isFavorite' => $this->isFavorite($portfolio->id, Interior::class)
-        ]);
+        return view('employee.index', ['employee' => $employee]);
     }
 }

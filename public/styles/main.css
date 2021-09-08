@@ -3935,7 +3935,8 @@ button:active {
   height: 21px;
 }
 
-.icon-favorite {
+.icon-favorite,
+.icon-favorite-active {
   width: 20px;
   height: 19px;
 }
@@ -4606,6 +4607,22 @@ button[type=submit].is-sent:hover {
   }
 }
 
+.info-msg {
+  position: fixed;
+  z-index: 9000;
+  top: 17%;
+  right: 0;
+  background-color: rgba(88, 110, 120, 0.7);
+  color: #ffffff;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.info-msg .icon-mood-happy,
+.info-msg .icon-mood-sad {
+  fill: #5a6e79;
+}
+
 .first-screen {
   position: relative;
 }
@@ -4784,6 +4801,19 @@ button[type=submit].is-sent:hover {
 
 .search-content-box .doors-cards {
   margin: 0 8rem;
+}
+
+.favorite-list {
+  margin: 0 0 2rem 0;
+}
+
+.favorite-list .doors-cards-item {
+  width: 100%;
+  margin: 0;
+}
+
+.favorite-list .doors-cards-item:nth-child(2n) {
+  margin: 0;
 }
 
 .accordion {
@@ -6173,6 +6203,13 @@ footer .footer-menu li + li {
   padding: 24px 0 25px;
 }
 
+.interior-card-slider .favorite-action {
+  position: relative;
+  top: unset;
+  right: unset;
+  display: inline-block;
+}
+
 .sub-page.doors {
   padding: 0 0 165px 0;
   background-position: center top;
@@ -6676,6 +6713,14 @@ footer .footer-menu li + li {
   margin: 0 0 0 auto;
 }
 
+.employee-projects .doors-cards-item {
+  width: 100%;
+}
+
+.employee-projects .portfolio-box {
+  margin: 2rem 0 0 0;
+}
+
 .pagination {
   padding: 8px 0;
   background-color: #5a6e79;
@@ -6763,19 +6808,6 @@ footer .footer-menu li + li {
   cursor: pointer;
 }
 
-.door-card-gallery .icon-favorite {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 24px;
-  height: 22px;
-  fill: #5a6e79;
-}
-
-.door-card-gallery .icon-favorite:hover {
-  cursor: pointer;
-}
-
 .door-card-gallery-item > a {
   display: block;
 }
@@ -6793,6 +6825,25 @@ footer .footer-menu li + li {
   top: calc(50% - 12px);
 }
 
+.favorite-action {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 999;
+}
+
+.favorite-action .icon-favorite,
+.favorite-action .icon-favorite-active {
+  width: 24px;
+  height: 22px;
+  fill: #5a6e79;
+}
+
+.favorite-action .icon-favorite:hover,
+.favorite-action .icon-favorite-active:hover {
+  cursor: pointer;
+}
+
 .door-card-info {
   margin: 44px 3rem 0 0;
 }
@@ -6800,6 +6851,7 @@ footer .footer-menu li + li {
 .door-card-gallery-box {
   max-width: 639px;
   margin: 0 0 0 6rem;
+  position: relative;
 }
 
 .door-card-gallery-box .door-card-price-box {

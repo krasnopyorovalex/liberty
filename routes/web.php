@@ -5,6 +5,8 @@ declare(strict_types=1);
 use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\AutocompleteController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DoorController;
@@ -47,12 +49,19 @@ Route::group(['prefix' => 'form', 'as' => 'form.'], function () {
     Route::post('guestbook', GuestbookController::class)->name('guestbook');
 });
 
+Route::group(['prefix' => 'favorite', 'as' => 'favorite.'], function () {
+    Route::get('', [FavoriteController::class, 'index'])->name('index');
+    Route::post('add/{id}', [FavoriteController::class, 'add'])->name('add');
+    Route::post('remove/{id}', [FavoriteController::class, 'remove'])->name('remove');
+});
+
 Route::group(['middleware' => ['redirector']], static function () {
     Route::get('search', SearchController::class)->name('search');
-    Route::get('autocomplete', FavoriteController::class)->name('autocomplete');
+    Route::get('autocomplete', AutocompleteController::class)->name('autocomplete');
 
     Route::get('{alias?}', PageController::class)->name('page.show');
     Route::get('author/{alias}', AuthorController::class)->name('author.show');
+    Route::get('employee/{alias}', EmployeeController::class)->name('employee.show');
     Route::get('collections/{alias}', CollectionController::class)->name('collection.show');
     Route::get('interiors/{alias}', InteriorController::class)->name('interior.show');
     Route::get('doors/{alias}', DoorController::class)->name('door.show');

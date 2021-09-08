@@ -57,7 +57,7 @@
                 </div>
                 <div class="flex">
                     <div class="favorite-box">
-                        <a href="#" rel="noopener noreferrer">
+                        <a href="{{ route('favorite.index') }}" rel="noopener noreferrer">
                             {{ svg('favorite') }}
                         </a>
                         <span>Избранное</span>
@@ -76,7 +76,7 @@
                     <a href="tel:+79663205077" class="phone">+7 (966) 320-50-77</a>
                     <div class="recall-me call-popup" data-target="popup-recall-me">Перезвоните мне</div>
                     <div class="favorite-box favorite-box-mobile">
-                        <a href="#" rel="noopener noreferrer">
+                        <a href="{{ route('favorite.index') }}" rel="noopener noreferrer">
                             {{ svg('favorite') }}
                         </a>
                         <a href="#" rel="noopener noreferrer" class="icon-map-link">

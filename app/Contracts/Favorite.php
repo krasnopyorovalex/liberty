@@ -6,7 +6,11 @@ namespace App\Contracts;
 
 interface Favorite
 {
-    public function add();
+    public function add(int $id, string $entity): bool;
 
-    public function remove(int $id, string $entity);
+    public function remove(int $id, string $entity): bool;
+
+    public function exists(int $id, string $entity): bool;
+
+    public function list();
 }

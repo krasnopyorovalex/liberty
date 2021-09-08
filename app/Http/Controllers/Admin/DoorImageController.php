@@ -34,7 +34,7 @@ class DoorImageController extends Controller
      */
     public function index(int $id): array
     {
-        $doors = $this->dispatch(new GetDoorByIdQuery($id));
+        $door = $this->dispatch(new GetDoorByIdQuery($id));
 
         $viewFile = request()->get('isMobile') === 'true'
             ? 'admin.doors._images_box_mob'
@@ -42,7 +42,7 @@ class DoorImageController extends Controller
 
         return [
             'images' => view($viewFile, [
-                'doors' => $doors
+                'door' => $door
             ])->render()
         ];
     }

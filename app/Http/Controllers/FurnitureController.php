@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\HasFavorites;
 use App\Models\Furniture;
 use Domain\Furniture\Queries\GetFurnitureByAliasQuery;
 use Domain\Furniture\Queries\GetNextPrevFurnitureQuery;
@@ -13,6 +14,8 @@ use Illuminate\Contracts\View\Factory;
 
 class FurnitureController extends Controller
 {
+    use HasFavorites;
+
     /**
      * @param string $alias
      * @return Factory|View
@@ -28,7 +31,8 @@ class FurnitureController extends Controller
         return view('furniture.index', [
             'furniture' => $furniture,
             'anotherProjects' => $anotherProjects,
-            'nextPrevDto' => $nextPrevDto
+            'nextPrevDto' => $nextPrevDto,
+            'isFavorite' => $this->isFavorite($furniture->id, Furniture::class)
         ]);
     }
 }

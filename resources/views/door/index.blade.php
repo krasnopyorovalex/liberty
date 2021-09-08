@@ -79,10 +79,18 @@
                                             </picture>
                                             {{ svg('zoom-in') }}
                                         </a>
-                                        {{ svg('favorite') }}
                                     </div>
                                 @endforeach
                             </div>
+                            @if($isFavorite)
+                                <div class="favorite-action" data-action="{{ route('favorite.remove', $door) }}" data-entity="{{ get_class($door) }}">
+                                    {{ svg('favorite-active') }}
+                                </div>
+                            @else
+                                <div class="favorite-action" data-action="{{ route('favorite.add', $door) }}" data-entity="{{ get_class($door) }}">
+                                    {{ svg('favorite') }}
+                                </div>
+                            @endif
                             <div class="door-card-price-box flex">
                                 <div class="price-name-box flex">
                                     <div class="price">{!! $door->getPrice() !!}</div>

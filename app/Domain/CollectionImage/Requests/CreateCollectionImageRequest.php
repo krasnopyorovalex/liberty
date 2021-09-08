@@ -16,7 +16,7 @@ class CreateCollectionImageRequest extends Request
     {
         return [
             'upload' => 'image',
-            'CollectionImageId' => 'integer',
+            'collectionImageId' => 'integer',
             'text' => 'string|nullable',
             'is_mobile' => 'digits_between:0,1',
         ];

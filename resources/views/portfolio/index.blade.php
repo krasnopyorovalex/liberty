@@ -18,7 +18,7 @@
     <div class="breadcrumbs">
         <ul>
             <li><a href="{{ route('page.show') }}">Главная</a></li>
-            <li><a href="{{ route('page.show', ['alias' => 'interior']) }}">Портфолио</a></li>
+            <li><a href="{{ route('page.show', ['alias' => 'portfolio']) }}">Портфолио</a></li>
             <li>{{ $portfolio->name }}</li>
         </ul>
     </div>
@@ -39,7 +39,15 @@
         </div>
         <div class="digits">
             <span>1</span>/{{ $portfolio->getImages()->count() }}
-            {{ svg('favorite') }}
+            @if($isFavorite)
+                <div class="favorite-action" data-action="{{ route('favorite.remove', $portfolio) }}" data-entity="{{ get_class($portfolio) }}">
+                    {{ svg('favorite-active') }}
+                </div>
+            @else
+                <div class="favorite-action" data-action="{{ route('favorite.add', $portfolio) }}" data-entity="{{ get_class($portfolio) }}">
+                    {{ svg('favorite') }}
+                </div>
+            @endif
         </div>
     </div>
     <div class="container">

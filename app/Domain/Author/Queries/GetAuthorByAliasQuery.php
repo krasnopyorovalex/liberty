@@ -15,7 +15,7 @@ class GetAuthorByAliasQuery
     /**
      * @var string
      */
-    private $alias;
+    private string $alias;
 
     /**
      * GetAuthorByAliasQuery constructor.
@@ -31,6 +31,8 @@ class GetAuthorByAliasQuery
      */
     public function handle()
     {
-        return Author::where('alias', $this->alias)->where('is_published', '1')->firstOrFail();
+        return Author::with(['furniture', 'interiors', 'doors'])
+            ->where('alias', $this->alias)
+            ->firstOrFail();
     }
 }

@@ -4,36 +4,61 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Forms\AutocompleteRequest;
-use App\Services\CanonicalService;
-use Domain\Autocomplete\Queries\AutocompleteQuery;
-use Illuminate\Http\JsonResponse;
-use Illuminate\View\View;
+use App\Contracts\Favorite;
+use Domain\Favorite\Requests\FavoriteRequest;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class FavoriteController extends Controller
 {
-    /**
-     * @var CanonicalService
-     */
-    protected CanonicalService $canonicalService;
+    private Favorite $favorite;
 
-    /**
-     * @param CanonicalService $canonicalService
-     */
-    public function __construct(CanonicalService $canonicalService)
+    public function __construct(Favorite $favorite)
     {
-        $this->canonicalService = $canonicalService;
+        $this->favorite = $favorite;
     }
 
     /**
-     * @param AutocompleteRequest $request
-     * @return JsonResponse
+     * @return Application|Factory|View
+     * @throws \ReflectionException
      */
-    public function __invoke(AutocompleteRequest $request): JsonResponse
+    public function index()
     {
-        $result = $this->dispatch(new AutocompleteQuery($request));
+        $collection = [];
+        foreach ($this->favorite->list() as $favorite) {
+            $instance = (new \ReflectionClass($favorite->entity_class))->newInstance();
 
-        return response()->json($result);
+            $collection[] = $instance::where('id', $favorite->entity_id)->first();
+        }
+
+        return view('favorite.index', ['collection' => $collection]);
+    }
+
+    public function add(int $id, FavoriteRequest $request): JsonResponse
+    {
+        $this->favorite->add($id, (string)$request->get('entity'));
+
+        return response()->json([
+            'message' => (string)view('layouts.partials.notify', [
+                'message' => 'Предмет добавлен в Избранное',
+                'cssClass' => 'info-msg',
+                'icon' => 'mood-happy'
+            ])
+        ]);
+    }
+
+    public function remove(int $id, FavoriteRequest $request): JsonResponse
+    {
+        $this->favorite->remove($id, (string)$request->get('entity'));
+
+        return response()->json([
+            'message' => (string)view('layouts.partials.notify', [
+                'message' => 'Предмет удалён их Избранного',
+                'cssClass' => 'info-msg',
+                'icon' => 'mood-happy'
+            ])
+        ]);
     }
 }

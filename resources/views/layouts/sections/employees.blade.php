@@ -15,7 +15,7 @@
                             @if($employee->image)
                                 <img src="{{ $employee->image->path }}" alt="{{ $employee->image->alt }}" title="{{ $employee->image->title }}" />
                             @endif
-                            <div class="author-name">{{ $employee->name }}</div>
+                            <a href="{{ $employee->url }}" class="author-name">{{ $employee->name }}</a>
                         </div>
                     @endforeach
                 </div>
