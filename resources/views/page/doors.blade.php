@@ -54,4 +54,6 @@
             </div>
         </div>
     </section>
+    @include('layouts.sections.why-choose-us')
+    @include('layouts.sections.for-customers')
 @endsection
