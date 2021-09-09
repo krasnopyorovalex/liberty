@@ -6556,6 +6556,10 @@ footer .footer-menu li + li {
   margin: 30px 0 21px 0;
 }
 
+.category-products a {
+  display: block;
+}
+
 .category-products-item {
   margin: 0 0 36px 0;
 }
