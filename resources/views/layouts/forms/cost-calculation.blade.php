@@ -1,4 +1,4 @@
-<form action="{{ route('form.guestbook') }}" method="post" class="form-cost-calculation" enctype="multipart/form-data">
+<form action="{{ route('form.calculate') }}" method="post" class="form-cost-calculation" enctype="multipart/form-data">
     @csrf
     <div class="form-group two-elements flex">
         <input type="text" placeholder="Ваше имя" name="name" required autocomplete="off"/>
