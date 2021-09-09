@@ -98,7 +98,7 @@
                     <div class="col-6">
                         <div class="flex-column">
                             <div class="btn-buy-box hidden-sm">
-                                <div class="btn">Купить</div>
+                                <div class="btn call-popup" data-target="popup-recall-me">Купить</div>
                             </div>
                             @if($furniture->furnitureAttributes)
                                 <div class="options">
