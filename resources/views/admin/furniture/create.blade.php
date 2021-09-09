@@ -79,7 +79,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере(393x388px)'])
+                        @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
                     </div>
                     <div class="col-md-4">
                         @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
