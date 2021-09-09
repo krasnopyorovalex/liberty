@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\Door;
+use App\Models\Furniture;
+use App\Models\Interior;
 use App\Models\Page;
 use Illuminate\Support\Str;
 
@@ -17,7 +20,10 @@ final class LinkGeneratorService
      * @var array
      */
     private array $models = [
-        Page::class => 'Страницы'
+        Page::class => 'Страницы',
+        Door::class => 'Двери',
+        Furniture::class => 'Мебель',
+        Interior::class => 'Портфолио'
     ];
 
     /**
