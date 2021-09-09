@@ -31,6 +31,6 @@ class GetSliderByIdQuery
      */
     public function handle()
     {
-        return Slider::with(['images'])->findOrFail($this->id);
+        return Slider::with(['images', 'imagesForMobile'])->findOrFail($this->id);
     }
 }

@@ -179,6 +179,7 @@ return [
         App\Providers\ForClientsServiceProvider::class,
         App\Providers\SearchServiceProvider::class,
         App\Providers\FavoriteServiceProvider::class,
+        App\Providers\SalesLeadersServiceProvider::class,
 
         /*
          * Application Service Providers...
