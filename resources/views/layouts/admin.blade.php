@@ -99,7 +99,6 @@
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
                             <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
-                            <li><a href="{{ route('admin.for_clients.index') }}"><i class="icon-users4"></i> <span>Клиентам</span></a></li>
                             <li><a href="{{ route('admin.authors.index') }}"><i class="icon-user-tie"></i> <span>Авторы</span></a></li>
                             <li><a href="{{ route('admin.employees.index') }}"><i class="icon-users"></i> <span>Сотрудники</span></a></li>
                             <li><a href="{{ route('admin.menus.index') }}"><i class="icon-lan2"></i> <span>Навигация</span></a></li>
@@ -124,6 +123,7 @@
                             <li><a href="{{ route('admin.why_choose_us.index') }}"><i class="icon-question3"></i> <span>Почему выбирают нас</span></a></li>
                             <li><a href="{{ route('admin.how_we_works.index') }}"><i class="icon-yin-yang"></i> <span>Как мы работаем</span></a></li>
                             <li><a href="{{ route('admin.about_blocks.index') }}"><i class="icon-list2"></i> <span>Блоки О нас</span></a></li>
+                            <li><a href="{{ route('admin.for_clients.index') }}"><i class="icon-users4"></i> <span>Клиентам</span></a></li>
 
 {{--                            <li><a href="{{ route('admin.services.index') }}"><i class="icon-list"></i> <span>Услуги</span></a></li>--}}
 {{--                            <li><a href="{{ route('admin.articles.index') }}"><i class="icon-magazine"></i> <span>Статьи</span></a></li>--}}
@@ -138,21 +138,18 @@
                 </div>
                 <!-- /main navigation -->
 
-                <div class="info_btn">
-                    <button type="button" data-toggle="modal" data-target="#modal_info" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>
-                </div>
+{{--                <div class="info_btn">--}}
+{{--                    <button type="button" data-toggle="modal" data-target="#modal_info" class="btn btn-primary btn-labeled btn-xlg"><b><i class="icon-info3"></i></b> Информация</button>--}}
+{{--                </div>--}}
 
             </div>
         </div>
         <!-- /main sidebar -->
 
-
         <!-- Main content -->
         <div class="content-wrapper">
-
             <!-- Page header -->
             <div class="page-header page-header-default">
-
                 <div class="breadcrumb-line">
                     <ul class="breadcrumb">
                         <li><a href="{{ route('admin.home') }}"><i class="icon-home2 position-left"></i> Главная</a></li>
@@ -164,19 +161,15 @@
             </div>
             <!-- /page header -->
 
-
             <!-- Content area -->
             <div class="content">
                 @yield('content')
             </div>
             <!-- /content area -->
-
         </div>
         <!-- /main content -->
-
     </div>
     <!-- /page content -->
-
 </div>
 <!-- /page container -->
 
