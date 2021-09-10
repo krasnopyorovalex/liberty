@@ -4810,7 +4810,7 @@ button[type=submit].is-sent:hover {
 }
 
 .favorite-list .interior-projects {
-  margin: 0 0 1rem 0;
+  margin: 24px auto;
 }
 
 .favorite-list .doors-cards-item {
