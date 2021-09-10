@@ -4809,6 +4809,10 @@ button[type=submit].is-sent:hover {
   margin: 0 0 2rem 0;
 }
 
+.favorite-list .interior-projects {
+  margin: 0 0 1rem 0;
+}
+
 .favorite-list .doors-cards-item {
   width: 100%;
   margin: 0;
