@@ -34,7 +34,7 @@
                                 <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                                 <div class="decoration-line"></div>
                                 <div class="title flex">
-                                    <a href="{{ $image->link }}">{{ $image->link }}</a>
+                                    <a href="{{ $image->link }}">{{ $image->name }}</a>
                                 </div>
                             </div>
                             @if($loop->index === 2)
