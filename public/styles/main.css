@@ -4506,7 +4506,7 @@ form .success-message {
   margin: 0 0 1rem 0;
   border: 1px solid #c6c3bc;
   border-radius: 6px;
-  padding: 1rem 1rem 1rem 4rem;
+  padding: 1rem 1rem 1rem 2rem;
   line-height: 20px;
   width: 100%;
 }
