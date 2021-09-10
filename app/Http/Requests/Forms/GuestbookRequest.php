@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Forms;
 
 use App\Http\Requests\Request;
+use App\Rules\NotUrl;
 use App\Rules\Recaptcha2;
 
 class GuestbookRequest extends Request
@@ -13,7 +14,7 @@ class GuestbookRequest extends Request
     {
         return [
             'name' => 'bail|required|max:20',
-            'text' => 'required|string',
+            'text' => ['required', 'string', new NotUrl],
             'agree' => 'accepted',
             //'g-recaptcha-response' => ['required', new Recaptcha2]
         ];
