@@ -87,41 +87,13 @@
                     @endforeach
                 </div>
             @endif
-
-            @if($author->interiors)
-                <div class="row">
-                   <div class="col-12">
-                      <div class="portfolio-box">
-                          @foreach($author->interiors as $interior)
-                              @include('layouts.partials._portfolio_item', ['entity' => $interior])
-                          @endforeach
-                      </div>
-                   </div>
-                </div>
-            @endif
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="pagination flex">--}}
-{{--                        <a href="#" class="prev-link"></a>--}}
-{{--                        <ul>--}}
-{{--                            <li class="page-item active flex">--}}
-{{--                                <span class="page-link">1</span>--}}
-{{--                            </li>--}}
-{{--                            <li class="page-item">--}}
-{{--                                <a href="#" class="page-link">2</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="page-item">--}}
-{{--                                <a href="#" class="page-link">3</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="page-item">--}}
-{{--                                <a href="#" class="page-link">6</a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                        <a href="#" class="next-link"></a>--}}
-{{--                    </div>--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
     </section>
+    @if($author->interiors)
+        <div class="interior-projects">
+        @foreach($author->interiors as $interior)
+            @include('layouts.partials._portfolio_item', ['entity' => $interior])
+        @endforeach
+        </div>
+    @endif
 @endsection
