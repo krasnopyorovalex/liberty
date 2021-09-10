@@ -24,38 +24,23 @@
             </div>
         @else
             <div class="sales-leaders-slider owl-theme owl-carousel">
-                @foreach($salesLeaders->images as $image)
+                @foreach($salesLeaders->images->chunk(4) as $chunks)
                     <div class="sales-leaders-slider-item flex">
-                        <div class="sales-leaders-slider-item-img-single">
-                            <img src="img/sales-leaders-slider-img-01.jpg" alt="alt">
-                            <div class="decoration-line"></div>
-                            <div class="title flex">
-                                <a href="#">коллекция «нота»</a>
-                            </div>
-                        </div>
-                        <div class="sales-leaders-slider-item-img-double">
+                        @foreach($chunks as $image)
+                            @if($loop->index === 1)
+                                <div class="sales-leaders-slider-item-img-double">
+                            @endif
                             <div class="sales-leaders-slider-item-img-single">
-                                <img src="img/sales-leaders-slider-img-02.jpg" alt="alt">
+                                <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                                 <div class="decoration-line"></div>
                                 <div class="title flex">
-                                    <a href="#">Коллекция «Аккорд»</a>
+                                    <a href="{{ $image->link }}">{{ $image->link }}</a>
                                 </div>
                             </div>
-                            <div class="sales-leaders-slider-item-img-single">
-                                <img src="img/sales-leaders-slider-img-03.jpg" alt="alt">
-                                <div class="decoration-line"></div>
-                                <div class="title flex">
-                                    <a href="#">дверь межкомнатная «фламенко»</a>
+                            @if($loop->index === 2)
                                 </div>
-                            </div>
-                        </div>
-                        <div class="sales-leaders-slider-item-img-single">
-                            <img src="img/sales-leaders-slider-img-04.jpg" alt="alt">
-                            <div class="decoration-line"></div>
-                            <div class="title flex">
-                                <a href="#">дверь межкомнатная «фламенко»</a>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
                 @endforeach
             </div>
