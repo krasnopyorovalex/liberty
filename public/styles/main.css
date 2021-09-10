@@ -378,6 +378,35 @@ template {
   display: none;
 }
 
+.autocompleter-result {
+  display: none;
+  position: absolute;
+  z-index: 99999;
+  max-height: 300px;
+  border-bottom: 1px solid #c6c3bc;
+  border-left: 1px solid #c6c3bc;
+  border-right: 1px solid #c6c3bc;
+  background: #fff;
+  overflow-y: auto;
+  border-top-left-radius: 6px;
+}
+
+.autocompleter-item {
+  z-index: 99999;
+  padding: .5rem 1rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.autocompleter-item + .autocompleter-item {
+  border-top: 1px solid #c6c3bc;
+}
+
+.autocompleter-item.selected {
+  opacity: 1;
+  background: #e9dfd1;
+}
+
 /**
  * Owl Carousel v2.3.4
  * Copyright 2013-2018 David Deutsch
@@ -3906,7 +3935,8 @@ button:active {
   height: 21px;
 }
 
-.icon-favorite {
+.icon-favorite,
+.icon-favorite-active {
   width: 20px;
   height: 19px;
 }
@@ -4008,6 +4038,15 @@ svg {
   width: 255px;
   background-color: #ffffff;
   border: 3px solid #b5a99d;
+}
+
+.btn-guestbook {
+  text-decoration: underline;
+}
+
+.btn-guestbook:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .section-title {
@@ -4467,8 +4506,8 @@ form .success-message {
   margin: 0 0 1rem 0;
   border: 1px solid #c6c3bc;
   border-radius: 6px;
-  padding: 1rem 0;
-  width: 100%;
+  padding: 1rem 1rem 1rem 4rem;
+  line-height: 20px;
 }
 
 .success-message .icon-mood-happy,
@@ -4483,6 +4522,15 @@ form .success-message {
   bottom: 0;
   left: 0;
   fill: #2f3130;
+}
+
+.success-message ol {
+  margin: 0;
+  padding: 0;
+}
+
+.success-message ol li {
+  font-size: 13px;
 }
 
 .is-sent {
@@ -4512,6 +4560,29 @@ button[type=submit].is-sent:hover {
   color: transparent;
 }
 
+.form-search {
+  margin: 0;
+}
+
+.form-search .form-group {
+  flex-wrap: nowrap;
+}
+
+.form-search .form-group input {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-search .form-group button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top: 1px solid #bdac9a;
+  border-right: 1px solid #bdac9a;
+  border-bottom: 1px solid #bdac9a;
+  border-left: 0;
+  padding: 20px 30px 16px;
+}
+
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0);
@@ -4534,6 +4605,22 @@ button[type=submit].is-sent:hover {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.info-msg {
+  position: fixed;
+  z-index: 9000;
+  top: 17%;
+  right: 0;
+  background-color: rgba(88, 110, 120, 0.7);
+  color: #ffffff;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.info-msg .icon-mood-happy,
+.info-msg .icon-mood-sad {
+  fill: #5a6e79;
 }
 
 .first-screen {
@@ -4704,6 +4791,31 @@ button[type=submit].is-sent:hover {
   line-height: normal;
 }
 
+.search-content-box {
+  min-height: 50vh;
+}
+
+.search-content-box.height-reset {
+  min-height: auto;
+}
+
+.search-content-box .doors-cards {
+  margin: 0 8rem;
+}
+
+.favorite-list {
+  margin: 0 0 2rem 0;
+}
+
+.favorite-list .doors-cards-item {
+  width: 100%;
+  margin: 0;
+}
+
+.favorite-list .doors-cards-item:nth-child(2n) {
+  margin: 0;
+}
+
 .accordion {
   box-sizing: border-box;
   overflow: hidden;
@@ -4862,6 +4974,7 @@ header .col-socials-menu .socials-line .favorite-box {
 }
 
 header .col-socials-menu .socials-line .favorite-box > a {
+  display: inline-block;
   margin: 0 21px 0 0;
 }
 
@@ -6091,6 +6204,13 @@ footer .footer-menu li + li {
   padding: 24px 0 25px;
 }
 
+.interior-card-slider .favorite-action {
+  position: relative;
+  top: unset;
+  right: unset;
+  display: inline-block;
+}
+
 .sub-page.doors {
   padding: 0 0 165px 0;
   background-position: center top;
@@ -6150,7 +6270,6 @@ footer .footer-menu li + li {
 
 .doors-cards-item {
   box-sizing: border-box;
-  width: 48%;
   margin: 22px 0 0 0;
   border-radius: 0 0 30px 0;
   background-color: #5a6e79;
@@ -6438,6 +6557,10 @@ footer .footer-menu li + li {
   margin: 30px 0 21px 0;
 }
 
+.category-products a {
+  display: block;
+}
+
 .category-products-item {
   margin: 0 0 36px 0;
 }
@@ -6594,6 +6717,14 @@ footer .footer-menu li + li {
   margin: 0 0 0 auto;
 }
 
+.employee-projects .doors-cards-item {
+  width: 100%;
+}
+
+.employee-projects .portfolio-box {
+  margin: 2rem 0 0 0;
+}
+
 .pagination {
   padding: 8px 0;
   background-color: #5a6e79;
@@ -6681,19 +6812,6 @@ footer .footer-menu li + li {
   cursor: pointer;
 }
 
-.door-card-gallery .icon-favorite {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 24px;
-  height: 22px;
-  fill: #5a6e79;
-}
-
-.door-card-gallery .icon-favorite:hover {
-  cursor: pointer;
-}
-
 .door-card-gallery-item > a {
   display: block;
 }
@@ -6711,6 +6829,25 @@ footer .footer-menu li + li {
   top: calc(50% - 12px);
 }
 
+.favorite-action {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 999;
+}
+
+.favorite-action .icon-favorite,
+.favorite-action .icon-favorite-active {
+  width: 24px;
+  height: 22px;
+  fill: #5a6e79;
+}
+
+.favorite-action .icon-favorite:hover,
+.favorite-action .icon-favorite-active:hover {
+  cursor: pointer;
+}
+
 .door-card-info {
   margin: 44px 3rem 0 0;
 }
@@ -6718,6 +6855,7 @@ footer .footer-menu li + li {
 .door-card-gallery-box {
   max-width: 639px;
   margin: 0 0 0 6rem;
+  position: relative;
 }
 
 .door-card-gallery-box .door-card-price-box {
@@ -6908,7 +7046,7 @@ footer .footer-menu li + li {
 
 .options {
   margin: 38px 0 0 0;
-  padding: 39px 119px 39px 96px;
+  padding: 35px 119px 35px 96px;
   color: #3c3c3c;
   background-color: rgba(227, 227, 219, 0.5);
   font-size: 17px;
@@ -8026,7 +8164,7 @@ footer .footer-menu li + li {
   }
 
   header.is-sticky {
-    top: 0;
+    top: -45px;
   }
 
   header.is-sticky {
