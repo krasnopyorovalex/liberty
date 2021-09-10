@@ -90,10 +90,10 @@
         </div>
     </section>
     @if($author->interiors)
-        <div class="interior-projects">
+        <section class="interior-projects">
         @foreach($author->interiors as $interior)
             @include('layouts.partials._portfolio_item', ['entity' => $interior])
         @endforeach
-        </div>
+        </section>
     @endif
 @endsection
