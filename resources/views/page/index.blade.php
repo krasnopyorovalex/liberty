@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="about-us-box center">
-                        <a href="#" class="btn">узнать больше о нас</a>
+                        <a href="{{ route('page.show', ['alias' => 'o-kompanii']) }}" class="btn">узнать больше о нас</a>
                     </div>
                 </div>
             </div>
