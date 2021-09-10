@@ -22,7 +22,7 @@ class SalesLeadersComposer
         /** @var Collection $salesLeaders */
         $salesLeaders = $this->dispatch(new GetSliderByIdQuery(3));
 
-        dd($salesLeaders->images->pluck(4));
+//        dd($salesLeaders->images->pluck(4));
 
         $view->with('salesLeaders', $salesLeaders);
     }
