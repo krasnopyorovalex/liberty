@@ -24,73 +24,43 @@
             </div>
         @else
             <div class="sales-leaders-slider owl-theme owl-carousel">
-                <div class="sales-leaders-slider-item flex">
-                    <div class="sales-leaders-slider-item-img-single">
-                        <img src="img/sales-leaders-slider-img-01.jpg" alt="alt">
-                        <div class="decoration-line"></div>
-                        <div class="title flex">
-                            <a href="#">коллекция «нота»</a>
-                        </div>
-                    </div>
-                    <div class="sales-leaders-slider-item-img-double">
+                @foreach($salesLeaders->images as $image)
+                    <div class="sales-leaders-slider-item flex">
                         <div class="sales-leaders-slider-item-img-single">
-                            <img src="img/sales-leaders-slider-img-02.jpg" alt="alt">
+                            <img src="img/sales-leaders-slider-img-01.jpg" alt="alt">
                             <div class="decoration-line"></div>
                             <div class="title flex">
-                                <a href="#">Коллекция «Аккорд»</a>
+                                <a href="#">коллекция «нота»</a>
+                            </div>
+                        </div>
+                        <div class="sales-leaders-slider-item-img-double">
+                            <div class="sales-leaders-slider-item-img-single">
+                                <img src="img/sales-leaders-slider-img-02.jpg" alt="alt">
+                                <div class="decoration-line"></div>
+                                <div class="title flex">
+                                    <a href="#">Коллекция «Аккорд»</a>
+                                </div>
+                            </div>
+                            <div class="sales-leaders-slider-item-img-single">
+                                <img src="img/sales-leaders-slider-img-03.jpg" alt="alt">
+                                <div class="decoration-line"></div>
+                                <div class="title flex">
+                                    <a href="#">дверь межкомнатная «фламенко»</a>
+                                </div>
                             </div>
                         </div>
                         <div class="sales-leaders-slider-item-img-single">
-                            <img src="img/sales-leaders-slider-img-03.jpg" alt="alt">
-                            <div class="decoration-line"></div>
-                            <div class="title flex">
-                                <a href="#">дверь межкомнатная «фламенко»</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sales-leaders-slider-item-img-single">
-                        <img src="img/sales-leaders-slider-img-04.jpg" alt="alt">
-                        <div class="decoration-line"></div>
-                        <div class="title flex">
-                            <a href="#">дверь межкомнатная «фламенко»</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="sales-leaders-slider-item flex">
-                    <div class="sales-leaders-slider-item-img-single">
-                        <img src="img/sales-leaders-slider-img-01.jpg" alt="alt">
-                        <div class="decoration-line"></div>
-                        <div class="title flex">
-                            <a href="#">коллекция «нота»</a>
-                        </div>
-                    </div>
-                    <div class="sales-leaders-slider-item-img-double">
-                        <div class="sales-leaders-slider-item-img-single">
-                            <img src="img/sales-leaders-slider-img-02.jpg" alt="alt">
-                            <div class="decoration-line"></div>
-                            <div class="title flex">
-                                <a href="#">Коллекция «Аккорд»</a>
-                            </div>
-                        </div>
-                        <div class="sales-leaders-slider-item-img-single">
-                            <img src="img/sales-leaders-slider-img-03.jpg" alt="alt">
+                            <img src="img/sales-leaders-slider-img-04.jpg" alt="alt">
                             <div class="decoration-line"></div>
                             <div class="title flex">
                                 <a href="#">дверь межкомнатная «фламенко»</a>
                             </div>
                         </div>
                     </div>
-                    <div class="sales-leaders-slider-item-img-single">
-                        <img src="img/sales-leaders-slider-img-04.jpg" alt="alt">
-                        <div class="decoration-line"></div>
-                        <div class="title flex">
-                            <a href="#">дверь межкомнатная «фламенко»</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="center">
-                <a href="#" class="btn btn-more-leaders">больше проектов</a>
+                <a href="{{ route('page.show', ['alias' => 'furniture']) }}" class="btn btn-more-leaders">больше проектов</a>
             </div>
         @endif
     </section>
