@@ -25,27 +25,31 @@
         </div>
     </div>
     <section class="favorite-list">
-        <div class="container">
-            <div class="row flex-start">
-                @foreach($collection as $entity)
-                    @switch($entity->getTable())
-                        @case('furniture')
-                        @include('layouts.partials._furniture_item', ['entity' => $entity])
-                        @break
-
-                        @case('doors')
-                        <div class="col-4">
-                            @include('layouts.partials._door_item', ['entity' => $entity])
+        @foreach($collection as $entity)
+            @switch($entity->getTable())
+                @case('furniture')
+                    <div class="container">
+                        <div class="row flex-start">
+                            @include('layouts.partials._furniture_item', ['entity' => $entity])
                         </div>
-                        @break
+                    </div>
+                @break
 
-                        @default
-                        <div class="col-12">
-                            @include('layouts.partials._portfolio_item', ['entity' => $entity])
+                @case('doors')
+                    <div class="container">
+                        <div class="row flex-start">
+                            <div class="col-4">
+                                @include('layouts.partials._door_item', ['entity' => $entity])
+                            </div>
                         </div>
-                    @endswitch
-                @endforeach
-            </div>
-        </div>
+                    </div>
+                @break
+
+                @default
+                    <section class="interior-projects">
+                        @include('layouts.partials._portfolio_item', ['entity' => $entity])
+                    </section>
+            @endswitch
+        @endforeach
     </section>
 @endsection
