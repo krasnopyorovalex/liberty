@@ -4638,7 +4638,7 @@ button[type=submit].is-sent:hover {
 }
 
 .first-screen.rybrika {
-  margin: -145px 0 0 0;
+  margin: -150px 0 0 0;
   padding: 0;
 }
 
@@ -5164,7 +5164,7 @@ header.is-sticky .col-logo img {
 }
 
 .first-screen-about {
-  margin-top: -145px;
+  margin-top: -150px;
 }
 
 .burger-mob {
@@ -6092,7 +6092,7 @@ footer .footer-menu li + li {
 
 .sub-page.interior {
   padding: 145px 0 0 0;
-  margin-top: -145px;
+  margin-top: -150px;
   background-position: center center;
 }
 
@@ -6223,7 +6223,7 @@ footer .footer-menu li + li {
 }
 
 .sub-page.doors .first-screen-text .text {
-  margin: -145px 0 0 auto;
+  margin: -150px 0 0 auto;
   padding-top: 15%;
 }
 
@@ -8186,10 +8186,6 @@ footer .footer-menu li + li {
 
   header.is-sticky .col-logo img {
     margin: 0;
-  }
-
-  .first-screen-about {
-    margin-top: -150px;
   }
 
   footer {

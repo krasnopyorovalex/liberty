@@ -1,4 +1,4 @@
-@extends('layouts.app', ['className' => 'with-absolute-header sub-page about'])
+@extends('layouts.app', ['className' => 'with-absolute-header sub-page about first-screen-about'])
 
 @section('title', $page->title)
 @section('description', $page->description)
