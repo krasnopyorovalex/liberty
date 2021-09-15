@@ -6039,6 +6039,10 @@ footer .footer-menu li + li {
   cursor: pointer;
 }
 
+.popup-close .icon-close svg {
+  fill: #bdac9a;
+}
+
 .popup-background {
   position: fixed;
   z-index: 1001;
