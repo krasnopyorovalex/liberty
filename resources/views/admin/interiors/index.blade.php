@@ -27,7 +27,9 @@
             @foreach($interiors as $interior)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $interior->name }}</td>
+                    <td>
+                        <a href="{{ $interior->url }}" target="_blank">{{ $interior->name }} <i class="icon-new-tab "></i></a>
+                    </td>
                     <td>{{ $interior->interiorType->name }}</td>
                     <td>{{ $interior->alias }}</td>
                     <td>{{ $interior->author ? $interior->author->name : '' }}</td>

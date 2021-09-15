@@ -54,6 +54,9 @@
         <p class="navbar-text"><span class="label bg-success">Online</span></p>
 
         <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="https://{{ request()->getHost() }}" target="_blank">Просмотр сайта</a>
+            </li>
             <li class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ asset('dashboard/assets/images/placeholder.png') }}" alt="">

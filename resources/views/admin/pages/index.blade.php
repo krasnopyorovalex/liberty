@@ -26,7 +26,9 @@
             @foreach($pages as $page)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $page->name }}</td>
+                    <td>
+                        <a href="{{ $page->url }}" target="_blank">{{ $page->name }} <i class="icon-new-tab "></i></a>
+                    </td>
                     <td>{{ $page->alias }}</td>
                     <td><span class="label label-primary">{{ $page->updated_at->diffForHumans() }}</span></td>
                     <td>

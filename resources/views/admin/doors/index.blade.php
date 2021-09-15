@@ -27,7 +27,9 @@
             @foreach($doors as $door)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $door->name }}</td>
+                    <td>
+                        <a href="{{ $door->url }}" target="_blank">{{ $door->name }} <i class="icon-new-tab "></i></a>
+                    </td>
                     <td>{{ $door->author->name }}</td>
                     <td>{!! $door->getPrice() !!}</td>
                     <td>

@@ -29,7 +29,9 @@
             @foreach($furnitureList as $furniture)
                 <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $furniture->name }}</td>
+                    <td>
+                        <a href="{{ $furniture->url }}" target="_blank">{{ $furniture->name }} <i class="icon-new-tab "></i></a>
+                    </td>
                     <td>{{ strip_tags($furniture->collection->name )}}</td>
                     <td>{{ $furniture->author->name }}</td>
                     <td>{!! $furniture->getPrice() !!}</td>

@@ -29,7 +29,9 @@
                             <i class="icon-dots dragula-handle"></i>
                         </div>
                     </td>
-                    <td>{{ $author->name }}</td>
+                    <td>
+                        <a href="{{ $author->url }}" target="_blank">{{ $author->name }} <i class="icon-new-tab "></i></a>
+                    </td>
                     <td>{{ $author->alias }}</td>
                     <td>
                         <div>
