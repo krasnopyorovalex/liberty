@@ -42,46 +42,46 @@ class UpdateDoorCommand
      */
     public function handle(): bool
     {
-        /** @var Door $Door */
-        $Door = $this->dispatch(new GetDoorByIdQuery($this->id));
+        /** @var Door $door */
+        $door = $this->dispatch(new GetDoorByIdQuery($this->id));
         $urlNew = $this->request->post('alias');
 
-        if ($Door->getOriginal('alias') != $urlNew) {
-            event(new RedirectDetected($Door->getOriginal('alias'), $urlNew));
+        if ($door->getOriginal('alias') != $urlNew) {
+            event(new RedirectDetected($door->getOriginal('alias'), $urlNew));
         }
 
         if ($this->request->has('image')) {
-            if ($Door->image) {
-                ($this->deleter)(str_replace('/storage/', '/public/', $Door->image));
+            if ($door->image) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $door->image));
             }
 
             $path = $this->request->file('image')->store(Door::STORE_PATH);
-            $Door->image = Storage::url($path);
+            $door->image = Storage::url($path);
         }
 
         if ($this->request->has('image_mob')) {
-            if ($Door->image_mob) {
-                ($this->deleter)(str_replace('/storage/', '/public/', $Door->image_mob));
+            if ($door->image_mob) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $door->image_mob));
             }
 
             $path = $this->request->file('image_mob')->store(Door::STORE_PATH);
-            $Door->image_mob = Storage::url($path);
+            $door->image_mob = Storage::url($path);
         }
 
         if ($this->request->hasFile('file')) {
-            if ($Door->file) {
-                ($this->deleter)(str_replace('/storage/', '/public/', $Door->file));
+            if ($door->file) {
+                ($this->deleter)(str_replace('/storage/', '/public/', $door->file));
             }
 
             $path = $this->request->file('file')->store(Door::STORE_PATH);
-            $Door->file = Storage::url($path);
+            $door->file = Storage::url($path);
         }
 
-        if ($this->request->has('DoorAttributes')) {
-            $Door->DoorAttributes()->detach();
-            $Door->attachDoorAttributes($this->request->post('DoorAttributes'));
+        if ($this->request->has('doorAttributes')) {
+            $door->doorAttributes()->detach();
+            $door->attachDoorAttributes($this->request->post('doorAttributes'));
         }
 
-        return $Door->update($this->request->validated());
+        return $door->update($this->request->validated());
     }
 }
