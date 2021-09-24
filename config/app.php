@@ -180,6 +180,8 @@ return [
         App\Providers\SearchServiceProvider::class,
         App\Providers\FavoriteServiceProvider::class,
         App\Providers\SalesLeadersServiceProvider::class,
+        App\Providers\ContactServiceProvider::class,
+        App\Providers\BlockServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -53,39 +53,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    @foreach($contacts->whereIn('is_fabric', ['0']) as $contact)
                     <div class="contact-item">
                         <div class="contact-item-text">
-                            <div class="title uppercase">НАХИМ-ДЕКОР</div>
-                            <p>
-                                Адрес:<br/>
-                                г. Москва, Decor Expo, Нахимовский проспект, д. 24, Сектор З, Место Г - 9<br/>
-                                Телефон:<br/>
-                                <a href="tel:+74993488599">+7 499-348-85-99</a><br/>
-                                Email:<br/>
-                                <a href="mailto:liberti-decor_expo@mail.ru">liberti-decor_expo@mail.ru</a>
-                            </p>
+                            <div class="title uppercase">{{ $contact->name }}</div>
+                            {!! $contact->text !!}
                         </div>
                         <div class="map">
-                            <img src="../img/map.jpg" alt="map" />
+                            {!! $contact->map !!}
                         </div>
                     </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-text">
-                            <div class="title uppercase">соло</div>
-                            <p>
-                                Адрес:<br/>
-                                г. Москва, Decor Expo, Нахимовский проспект, д. 24, Сектор З, Место Г - 9<br/>
-                                Телефон:<br/>
-                                <a href="tel:+74993488599">+7 499-348-85-99</a><br/>
-                                Email:<br/>
-                                <a href="mailto:liberti-decor_expo@mail.ru">liberti-decor_expo@mail.ru</a>
-                            </p>
-                        </div>
-                        <div class="map">
-                            <img src="../img/map.jpg" alt="map" />
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -100,22 +78,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="contact-item">
-                        <div class="contact-item-text">
-                            <div class="title uppercase">ЛИБЕРТИ</div>
-                            <p>
-                                Адрес:<br/>
-                                г. Москва, Decor Expo, Нахимовский проспект, д. 24, Сектор З, Место Г - 9<br/>
-                                Телефон:<br/>
-                                <a href="tel:+74993488599">+7 499-348-85-99</a><br/>
-                                Email:<br/>
-                                <a href="mailto:liberti-decor_expo@mail.ru">liberti-decor_expo@mail.ru</a>
-                            </p>
+                    @foreach($contacts->whereIn('is_fabric', ['1']) as $contact)
+                        <div class="contact-item">
+                            <div class="contact-item-text">
+                                <div class="title uppercase">{{ $contact->name }}</div>
+                                {!! $contact->text !!}
+                            </div>
+                            <div class="map">
+                                {!! $contact->map !!}
+                            </div>
                         </div>
-                        <div class="map">
-                            <img src="../img/map.jpg" alt="map" />
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -123,6 +123,8 @@
                             <li><a href="{{ route('admin.interiors.index') }}"><i class="icon-design"></i> <span>Портфолио</span></a></li>
 
                             <li class="navigation-header"><span>Сквозные элементы</span></li>
+                            <li><a href="{{ route('admin.contacts.index') }}"><i class="icon-location4"></i> <span>Контакты</span></a></li>
+                            <li><a href="{{ route('admin.blocks.index') }}"><i class="icon-grid6"></i> <span>Блоки</span></a></li>
                             <li><a href="{{ route('admin.why_choose_us.index') }}"><i class="icon-question3"></i> <span>Почему выбирают нас</span></a></li>
                             <li><a href="{{ route('admin.how_we_works.index') }}"><i class="icon-yin-yang"></i> <span>Как мы работаем</span></a></li>
                             <li><a href="{{ route('admin.about_blocks.index') }}"><i class="icon-list2"></i> <span>Блоки О нас</span></a></li>
