@@ -8,6 +8,7 @@ use App\Models\Door;
 use App\Models\Furniture;
 use App\Models\Interior;
 use App\Models\Page;
+use App\Models\Collection;
 use Illuminate\Support\Str;
 
 /**
@@ -23,7 +24,8 @@ final class LinkGeneratorService
         Page::class => 'Страницы',
         Door::class => 'Двери',
         Furniture::class => 'Мебель',
-        Interior::class => 'Портфолио'
+        Interior::class => 'Портфолио',
+        Collection::class => 'Коллекции'
     ];
 
     /**
