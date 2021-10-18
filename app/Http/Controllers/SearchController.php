@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 
 use App\Contracts\Search;
 use App\Http\Requests\Forms\SearchRequest;
+use Domain\DoorAttribute\Queries\GetAllDoorAttributesQuery;
+use Domain\FurnitureAttribute\Queries\GetAllFurnitureAttributesQuery;
 
 class SearchController extends Controller
 {
@@ -20,8 +22,13 @@ class SearchController extends Controller
     {
         $searchResult = $this->searchService->search($request);
 
+        $doorAttributes = $this->dispatch(new GetAllDoorAttributesQuery());
+        $furnitureAttributes = $this->dispatch(new GetAllFurnitureAttributesQuery());
+
         return view('search.index', [
-            'searchResult' => $searchResult
+            'searchResult' => $searchResult,
+            'doorAttributes' => $doorAttributes,
+            'furnitureAttributes' => $furnitureAttributes
         ]);
     }
 }

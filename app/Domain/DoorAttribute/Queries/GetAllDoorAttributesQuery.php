@@ -17,6 +17,6 @@ class GetAllDoorAttributesQuery
      */
     public function handle()
     {
-        return DoorAttribute::all();
+        return DoorAttribute::with(['doorHasAttributes'])->get();
     }
 }

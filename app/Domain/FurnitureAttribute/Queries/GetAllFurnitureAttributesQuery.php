@@ -17,6 +17,6 @@ class GetAllFurnitureAttributesQuery
      */
     public function handle()
     {
-        return FurnitureAttribute::all();
+        return FurnitureAttribute::with(['furnitureHasAttributes'])->get();
     }
 }

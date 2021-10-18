@@ -28,6 +28,32 @@
                                    placeholder="Введите поисковую фразу" autocomplete="off"/>
                             <button class="btn" type="submit">Найти</button>
                         </div>
+                        <div class="form-search-params">
+                            <div class="row">
+                                <div class="col-6">
+                                    @foreach($doorAttributes as $doorAttribute)
+                                        <div class="form-search-params-name">{{ $doorAttribute->name }}</div>
+                                        @foreach($doorAttribute->doorHasAttributes as $doorHasAttribute)
+                                            <label>
+                                                {{ $doorHasAttribute->value }}
+                                                <input type="checkbox" name="[doorAttributes][{{ $doorAttribute->id }}][]" value="{{ $doorHasAttribute->value }}" />
+                                            </label>
+                                        @endforeach
+                                    @endforeach
+                                </div>
+                                <div class="col-6">
+                                    @foreach($furnitureAttributes as $furnitureAttribute)
+                                        <div class="form-search-params-name">{{ $furnitureAttribute->name }}</div>
+                                        @foreach($furnitureAttribute->furnitureHasAttributes as $furnitureHasAttribute)
+                                            <label>
+                                                {{ $furnitureHasAttribute->value }}
+                                                <input type="checkbox" name="[furnitureAttribute][{{ $furnitureAttribute->id }}][]" value="{{ $furnitureHasAttribute->value }}" />
+                                            </label>
+                                        @endforeach
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
