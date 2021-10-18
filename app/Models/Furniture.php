@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $alias
  * @property string $file
  * @property int $price
+ * @property int $collection_id
  * @property \Illuminate\Database\Eloquent\Collection $furnitureAttributes
  */
 class Furniture extends Model

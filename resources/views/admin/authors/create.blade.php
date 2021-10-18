@@ -22,7 +22,7 @@
                 @input(['name' => 'description', 'label' => 'Description'])
                 @input(['name' => 'alias', 'label' => 'Alias'])
 
-                @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
+                @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере(264x362px)'])
 
                 @textarea(['name' => 'text', 'label' => 'Текст'])
 

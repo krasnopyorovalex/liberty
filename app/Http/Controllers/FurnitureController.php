@@ -25,7 +25,7 @@ class FurnitureController extends Controller
         /** @var $furniture Furniture */
         $furniture = $this->dispatch(new GetFurnitureByAliasQuery($alias));
 
-        $anotherProjects = $this->dispatch(new GetRandomFurnitureQuery($furniture->id));
+        $anotherProjects = $this->dispatch(new GetRandomFurnitureQuery($furniture));
         $nextPrevDto = $this->dispatch(new GetNextPrevFurnitureQuery($furniture->id));
 
         return view('furniture.index', [

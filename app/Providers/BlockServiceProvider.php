@@ -16,7 +16,10 @@ class BlockServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->make('view')->composer(
-            ['layouts.app'],
+            [
+                'layouts.app',
+                'layouts.sections.for-customers'
+            ],
             BlockComposer::class
         );
     }

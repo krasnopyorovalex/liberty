@@ -9083,15 +9083,6 @@ footer .footer-menu li + li {
     padding: 0;
   }
 
-  .category-list .row {
-    margin: 0;
-  }
-
-  .category-list .row .col-4,
-  .category-list .row .col-8 {
-    margin: 0;
-  }
-
   .category-list-items {
     flex-wrap: wrap;
   }

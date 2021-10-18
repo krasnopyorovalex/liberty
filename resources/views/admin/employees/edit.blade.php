@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                             @endif
-                            @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $employee, 'label' => 'Выберите изображение на компьютере'])
+                            @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $employee, 'label' => 'Выберите изображение на компьютере(264x362px)'])
                             @submit_btn()
                         </div>
                     </div>

@@ -118,7 +118,9 @@
                                                     @foreach($door->modifications as $modification)
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
-                                                                <img src="{{ asset(is_mobile() ? $modification->image_mob : $modification->image) }}" alt="{{ $modification->name }}">
+                                                                <a href="{{ $modification->url }}">
+                                                                    <img src="{{ asset(is_mobile() ? $modification->image_mob : $modification->image) }}" alt="{{ $modification->name }}">
+                                                                </a>
                                                             </div>
                                                             <div class="name">
                                                                 {{ $modification->articul }}

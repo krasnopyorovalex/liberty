@@ -8,11 +8,11 @@ use App\Models\Furniture;
 
 class GetRandomFurnitureQuery
 {
-    private int $id;
+    private Furniture $furniture;
 
-    public function __construct(int $id)
+    public function __construct(Furniture $furniture)
     {
-        $this->id = $id;
+        $this->furniture = $furniture;
     }
 
     /**
@@ -20,6 +20,6 @@ class GetRandomFurnitureQuery
      */
     public function handle()
     {
-        return Furniture::whereNotIn('id', [$this->id])->get();
+        return Furniture::whereNotIn('id', [$this->furniture->id])->where('collection_id', $this->furniture->collection_id)->get();
     }
 }
