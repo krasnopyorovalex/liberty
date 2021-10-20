@@ -60,7 +60,7 @@
                                         </div>
                                     @endif
                                     <div class="text-left">
-                                        @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $interior, 'label' => 'Выберите изображение на компьютере'])
+                                        @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $interior, 'label' => 'Выберите изображение на компьютере(1460x400px)'])
                                     </div>
                                 </div>
                                 <div class="col-md-6 image__box-a">
@@ -79,7 +79,7 @@
                                         </div>
                                     @endif
                                     <div class="text-left">
-                                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $interior, 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
+                                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $interior, 'label' => 'Выберите изображение на компьютере для мобильных устройств(370x570px)'])
                                     </div>
                                 </div>
                             </div>

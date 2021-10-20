@@ -42,7 +42,7 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $collection, 'label' => 'Выберите изображение на компьютере'])
+                                        @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $collection, 'label' => 'Выберите изображение на компьютере(1920x600px)'])
                                     </div>
                                     <div class="col-md-6 image__box-a">
                                         @if ($collection->image_mob)
@@ -56,7 +56,7 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $collection, 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
+                                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $collection, 'label' => 'Выберите изображение на компьютере для мобильных устройств(400x565px)'])
                                     </div>
                                 </div>
 

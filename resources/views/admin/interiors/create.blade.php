@@ -36,10 +36,10 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
+                        @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере(1460x400px)'])
                     </div>
                     <div class="col-md-6">
-                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
+                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств(370x570px)'])
                     </div>
                 </div>
 

@@ -89,7 +89,7 @@
                         @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере(490x480px)'])
                     </div>
                     <div class="col-md-4">
-                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств(460x450px)'])
+                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств(340x450px)'])
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
