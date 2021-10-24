@@ -13,7 +13,7 @@ class GuestbookRequest extends Request
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|max:20',
+            'name' => 'bail|required|max:20|regex:/[А-Яа-яЁё]/u',
             'text' => ['required', 'string', new NotUrl],
             'agree' => 'accepted',
             //'g-recaptcha-response' => ['required', new Recaptcha2]

@@ -4584,6 +4584,35 @@ button[type=submit].is-sent:hover {
   padding: 20px 30px 16px;
 }
 
+.form-search-params {
+  border: 1px solid #c6c3bc;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.form-search-params-title {
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 18px;
+  margin: 0 0 2rem 0;
+}
+
+.form-search-params-name {
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+label + .form-search-params-name {
+  border-top: 1px dashed #c6c3bc;
+  margin: 1rem 0 .5rem 0;
+  padding: 1rem 0 0 0;
+}
+
+.form-search-params label + label {
+  margin: 0 0 0 .5rem;
+}
+
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0);
@@ -7913,6 +7942,10 @@ footer .footer-menu li + li {
 
   .first-screen-text h1 {
     font-size: 55px;
+  }
+
+  .search-content-box .doors-cards {
+    margin: 0;
   }
 
   .accordion-title {

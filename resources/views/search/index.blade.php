@@ -22,32 +22,41 @@
                             <li>Страница поиска</li>
                         </ul>
                     </div>
-                    <form action="{{ route('search') }}" class="form-search">
+                    <form action="{{ route('search') }}" class="form-search" method="get">
                         <div class="form-group flex">
-                            <input type="text" name="keyword" id="search-input" value="{{ request()->get('keyword')  }}"
-                                   placeholder="Введите поисковую фразу" autocomplete="off"/>
+                            <input type="text"
+                                   name="keyword"
+                                   id="search-input"
+                                   value="{{ request()->get('keyword')  }}"
+                                   minlength="3"
+                                   required
+                                   placeholder="Введите поисковую фразу"
+                                   autocomplete="off"
+                            />
                             <button class="btn" type="submit">Найти</button>
                         </div>
                         <div class="form-search-params">
-                            <div class="row">
+                            <div class="row flex-start">
                                 <div class="col-6">
+                                    <div class="form-search-params-title">Параметры для дверей</div>
                                     @foreach($doorAttributes as $doorAttribute)
                                         <div class="form-search-params-name">{{ $doorAttribute->name }}</div>
-                                        @foreach($doorAttribute->doorHasAttributes as $doorHasAttribute)
+                                        @foreach($doorAttribute->doorHasAttributes->unique() as $doorHasAttribute)
                                             <label>
                                                 {{ $doorHasAttribute->value }}
-                                                <input type="checkbox" name="[doorAttributes][{{ $doorAttribute->id }}][]" value="{{ $doorHasAttribute->value }}" />
+                                                <input type="checkbox" name="doorAttributes[]" value="{{ $doorHasAttribute->value }}" {{ in_array($doorHasAttribute->value, request('doorAttributes', [])) ? 'checked' : '' }} />
                                             </label>
                                         @endforeach
                                     @endforeach
                                 </div>
                                 <div class="col-6">
+                                    <div class="form-search-params-title">Параметры для мебели</div>
                                     @foreach($furnitureAttributes as $furnitureAttribute)
                                         <div class="form-search-params-name">{{ $furnitureAttribute->name }}</div>
-                                        @foreach($furnitureAttribute->furnitureHasAttributes as $furnitureHasAttribute)
+                                        @foreach($furnitureAttribute->furnitureHasAttributes->unique() as $furnitureHasAttribute)
                                             <label>
                                                 {{ $furnitureHasAttribute->value }}
-                                                <input type="checkbox" name="[furnitureAttribute][{{ $furnitureAttribute->id }}][]" value="{{ $furnitureHasAttribute->value }}" />
+                                                <input type="checkbox" name="furnitureAttributes[]" value="{{ $furnitureHasAttribute->value }}" {{ in_array($furnitureHasAttribute->value, request('furnitureAttributes', [])) ? 'checked' : '' }} />
                                             </label>
                                         @endforeach
                                     @endforeach

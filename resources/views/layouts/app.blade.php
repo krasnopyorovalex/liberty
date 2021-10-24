@@ -45,13 +45,13 @@
         <div class="col-socials-menu">
             <div class="socials-line flex">
                 <div>
-                    <a href="#" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/liberty.furniture/" rel="noopener noreferrer" target="_blank">
                         {{ svg('insta') }}
                     </a>
-                    <a href="#" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/liberty.furniture32" rel="noopener noreferrer" target="_blank">
                         {{ svg('fb') }}
                     </a>
-                    <a href="#" rel="noopener noreferrer">
+                    <a href="https://www.pinterest.ru/Liberty_furniture/" rel="noopener noreferrer" target="_blank">
                         {{ svg('pinterest') }}
                     </a>
                 </div>
@@ -62,24 +62,24 @@
                         </a>
                         <span>Избранное</span>
                     </div>
-                    <a href="#" rel="noopener noreferrer">
+                    <a href="viber://add?number=79663205077" rel="noopener noreferrer">
                         {{ svg('viber') }}
                     </a>
-                    <a href="#" rel="noopener noreferrer">
+                    <a href="https://wa.me/79663205077" rel="noopener noreferrer">
                         {{ svg('whatsapp') }}
                     </a>
-                    <a href="#" rel="noopener noreferrer">
+                    <a href="https://t.me/+7 (966) 320-50-77" rel="noopener noreferrer">
                         {{ svg('telegram') }}
                     </a>
                 </div>
                 <div class="flex">
-                    <a href="tel:+79663205077" class="phone">+7 (966) 320-50-77</a>
-                    <div class="recall-me call-popup" data-target="popup-recall-me">Перезвоните мне</div>
+                    <a href="tel:+74993488599" class="phone">+7 499-348-85-99</a>
+                    <div class="recall-me call-popup" data-target="popup-recall-me">Обратный звонок</div>
                     <div class="favorite-box favorite-box-mobile">
                         <a href="{{ route('favorite.index') }}" rel="noopener noreferrer">
                             {{ svg('favorite') }}
                         </a>
-                        <a href="#" rel="noopener noreferrer" class="icon-map-link">
+                        <a href="{{ route('page.show', ['alias' => 'contacts']) }}" rel="noopener noreferrer" class="icon-map-link">
                             {{ svg('map') }}
                         </a>
                     </div>
@@ -115,7 +115,7 @@
                     РАСЧЕТ ПРОЕКТА
                 </div>
                 <div class="burger-mob"><span></span></div>
-                <a href="{{ route('search') }}" rel="noopener noreferrer" class="search-box">
+                <a href="{{ route('search') }}" class="search-box">
                     {{ svg('search') }}
                 </a>
             </div>
@@ -162,22 +162,22 @@
                             <a href="#">Политикой конфиденциальности</a>
                         </div>
                         <div class="socials">
-                            <a href="#" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/liberty.furniture/" rel="noopener noreferrer" target="_blank">
                                 {{ svg('insta') }}
                             </a>
-                            <a href="#" rel="noopener noreferrer">
+                            <a href="https://www.facebook.com/liberty.furniture32" rel="noopener noreferrer" target="_blank">
                                 {{ svg('fb') }}
                             </a>
-                            <a href="#" rel="noopener noreferrer">
+                            <a href="https://www.pinterest.ru/Liberty_furniture/" rel="noopener noreferrer" target="_blank">
                                 {{ svg('pinterest') }}
                             </a>
-                            <a href="#" rel="noopener noreferrer">
+                            <a href="viber://add?number=79663205077" rel="noopener noreferrer">
                                 {{ svg('viber') }}
                             </a>
-                            <a href="#" rel="noopener noreferrer">
+                            <a href="https://wa.me/79663205077" rel="noopener noreferrer">
                                 {{ svg('whatsapp') }}
                             </a>
-                            <a href="#" rel="noopener noreferrer">
+                            <a href="https://t.me/+7 (966) 320-50-77" rel="noopener noreferrer">
                                 {{ svg('telegram') }}
                             </a>
                         </div>

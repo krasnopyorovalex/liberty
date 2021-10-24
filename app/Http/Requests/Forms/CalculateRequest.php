@@ -12,7 +12,7 @@ class CalculateRequest extends Request
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|max:20',
+            'name' => 'bail|required|max:20|regex:/[А-Яа-яЁё]/u',
             'email' => 'email|required',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11',
             'file' => 'file|required',

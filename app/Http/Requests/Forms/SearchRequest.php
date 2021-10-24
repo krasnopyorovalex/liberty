@@ -11,7 +11,11 @@ class SearchRequest extends Request
     public function rules(): array
     {
         return [
-            'name' => 'nullable|string|max:20'
+            'keyword' => 'nullable|string|min:3',
+            'doorAttributes' => 'nullable|array',
+            'furnitureAttributes' => 'nullable|array',
+            'doorAttributes.*' => 'nullable|string',
+            'furnitureAttributes.*' => 'nullable|string',
         ];
     }
 
@@ -23,7 +27,7 @@ class SearchRequest extends Request
     public function messages(): array
     {
         return [
-            'name.required' => 'Поле «Имя» обязательно для заполнения'
+            'keyword.required' => 'Поле «Имя» обязательно для заполнения'
         ];
     }
 }

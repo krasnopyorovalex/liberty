@@ -12,7 +12,7 @@ class RecallRequest extends Request
     public function rules(): array
     {
         return [
-            'name' => 'bail|required|max:20',
+            'name' => 'bail|required|max:20|regex:/[А-Яа-яЁё]/u',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11',
             'agree' => 'accepted',
             //'g-recaptcha-response' => ['required', new Recaptcha2]

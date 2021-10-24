@@ -8,7 +8,7 @@
 </picture>
 <div class="about-text-first-screen">
     <h1 class="uppercase">{{ $page->name }}</h1>
-    <div class="btn-box">
-        <div class="btn recall-me call-popup" data-target="popup-recall-me">Заказать звонок</div>
-    </div>
+{{--    <div class="btn-box">--}}
+{{--        <div class="btn recall-me call-popup" data-target="popup-recall-me">Заказать звонок</div>--}}
+{{--    </div>--}}
 </div>
