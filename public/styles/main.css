@@ -9149,6 +9149,10 @@ footer .footer-menu li + li {
   }
 
   .types-list {
+    justify-content: space-between;
+  }
+
+  .types-list {
     flex-wrap: wrap;
   }
 
