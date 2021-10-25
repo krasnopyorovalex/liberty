@@ -9164,7 +9164,7 @@ footer .footer-menu li + li {
     display: inline-block;
   }
 
-  .types-list-item + .types-list-item {
+  .types-list-item {
     margin: 0 2px;
   }
 
