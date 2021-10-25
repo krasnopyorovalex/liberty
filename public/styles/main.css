@@ -9149,6 +9149,10 @@ footer .footer-menu li + li {
   }
 
   .types-list {
+    flex-wrap: wrap;
+  }
+
+  .types-list {
     width: 100%;
   }
 
@@ -9160,12 +9164,8 @@ footer .footer-menu li + li {
     display: inline-block;
   }
 
-  .types-list-item {
-    width: 100%;
-  }
-
   .types-list-item + .types-list-item {
-    margin: 0 0 0 4px;
+    margin: 0 2px;
   }
 
   .types-list-item.active a {
