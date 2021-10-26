@@ -192,7 +192,9 @@
                                 <div class="decoration-line wow slideInLeft"></div>
                             </div>
                             <div class="door-card-tabs-custom-item">
-                                ///
+                                @if($door->file)
+                                    <a href="{{ asset($door->file) }}" class="btn" target="_blank">Скачать</a>
+                                @endif
                                 <div class="decoration-line wow slideInLeft"></div>
                             </div>
                         </div>

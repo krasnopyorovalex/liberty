@@ -1,5 +1,5 @@
 <div class="popup" id="popup-recall-me">
-    <div class="popup-title">Перезвоните мне</div>
+    <div class="popup-title">Обратный звонок</div>
     <form action="{{ route('form.recall') }}" class="flex form-recall-me">
         @csrf
         <div class="form-group">
