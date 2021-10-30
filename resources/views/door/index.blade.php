@@ -75,7 +75,7 @@
                                     <div class="door-card-gallery-item">
                                         <a href="{{ $image->getPath() }}" data-lightbox="gallery">
                                             <picture>
-                                                <img src="{{ $image->getPath() }}">
+                                                <img src="{{ $image->getPath() }}" />
                                             </picture>
                                             {{ svg('zoom-in') }}
                                         </a>
