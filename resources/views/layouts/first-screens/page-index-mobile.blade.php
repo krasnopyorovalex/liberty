@@ -1,22 +1,19 @@
 <div class="main-slider">
     <div class="owl-carousel owl-theme">
-        @foreach($images as $image)
+        @foreach($images->take(1) as $image)
         <div class="main-slider-item">
             <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
             <div class="main-slider-item-desc">
-                <p>{!! $image->text !!}</p>
-\                <div class="btn-main-slider-box">
-                    <a href="{{ $image->link }}" class="btn btn-main-slider-more">подробнее</a>
-                </div>
+                <div class="visible-sm main-slider-item-desc-mob uppercase">собственное производство</div>
             </div>
         </div>
         @endforeach
     </div>
     <div class="main-slider-nav flex">
         @foreach($images as $image)
-        <div class="main-slider-nav-control{{ $loop->index === 0 ? ' active' : '' }}">
+        <div class="main-slider-nav-control">
             <span>0{{ $loop->index + 1 }}.</span>
-            <span>{{ $image->name }}</span>
+            <span><a href="{{ $image->link }}">{{ $image->name }}</a></span>
         </div>
         @endforeach
     </div>

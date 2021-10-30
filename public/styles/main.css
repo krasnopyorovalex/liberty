@@ -3978,6 +3978,7 @@ button:active {
 
 svg {
   --primary: #a5b3bb;
+  fill: #ffffff;
 }
 
 .btn {
@@ -4505,10 +4506,8 @@ form .success-message {
   margin: 0 0 1rem 0;
   border: 1px solid #c6c3bc;
   border-radius: 6px;
-  padding: 1rem 1rem 1rem 2rem;
+  padding: 1rem 1rem 1rem 4rem;
   line-height: 20px;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .success-message .icon-mood-happy,
@@ -4584,35 +4583,6 @@ button[type=submit].is-sent:hover {
   padding: 20px 30px 16px;
 }
 
-.form-search-params {
-  border: 1px solid #c6c3bc;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 5px;
-}
-
-.form-search-params-title {
-  font-weight: 700;
-  text-decoration: underline;
-  font-size: 18px;
-  margin: 0 0 2rem 0;
-}
-
-.form-search-params-name {
-  font-weight: 700;
-  margin-bottom: .5rem;
-}
-
-label + .form-search-params-name {
-  border-top: 1px dashed #c6c3bc;
-  margin: 1rem 0 .5rem 0;
-  padding: 1rem 0 0 0;
-}
-
-.form-search-params label + label {
-  margin: 0 0 0 .5rem;
-}
-
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0);
@@ -4666,7 +4636,7 @@ label + .form-search-params-name {
 }
 
 .first-screen.rybrika {
-  margin: -150px 0 0 0;
+  margin: -145px 0 0 0;
   padding: 0;
 }
 
@@ -4835,10 +4805,6 @@ label + .form-search-params-name {
 
 .favorite-list {
   margin: 0 0 2rem 0;
-}
-
-.favorite-list .interior-projects {
-  margin: 24px auto;
 }
 
 .favorite-list .doors-cards-item {
@@ -5192,7 +5158,7 @@ header.is-sticky .col-logo img {
 }
 
 .first-screen-about {
-  margin-top: -150px;
+  margin-top: -145px;
 }
 
 .burger-mob {
@@ -6067,10 +6033,6 @@ footer .footer-menu li + li {
   cursor: pointer;
 }
 
-.popup-close .icon-close svg {
-  fill: #bdac9a;
-}
-
 .popup-background {
   position: fixed;
   z-index: 1001;
@@ -6124,7 +6086,7 @@ footer .footer-menu li + li {
 
 .sub-page.interior {
   padding: 145px 0 0 0;
-  margin-top: -150px;
+  margin-top: -145px;
   background-position: center center;
 }
 
@@ -6255,7 +6217,7 @@ footer .footer-menu li + li {
 }
 
 .sub-page.doors .first-screen-text .text {
-  margin: -150px 0 0 auto;
+  margin: -145px 0 0 auto;
   padding-top: 15%;
 }
 
@@ -6485,7 +6447,8 @@ footer .footer-menu li + li {
 }
 
 .contacts .first-screen-text .text {
-  margin: -150px 0 0 auto;
+  align-items: center;
+  margin: -145px 0 0 auto;
   padding-top: 20%;
 }
 
@@ -7944,10 +7907,6 @@ footer .footer-menu li + li {
     font-size: 55px;
   }
 
-  .search-content-box .doors-cards {
-    margin: 0;
-  }
-
   .accordion-title {
     margin: 35px 31px 0 0;
   }
@@ -8222,6 +8181,10 @@ footer .footer-menu li + li {
 
   header.is-sticky .col-logo img {
     margin: 0;
+  }
+
+  .first-screen-about {
+    margin-top: -150px;
   }
 
   footer {
@@ -9038,6 +9001,10 @@ footer .footer-menu li + li {
     bottom: -40px;
   }
 
+  .contacts.sub-page {
+    background-position: left -385px top -40px;
+  }
+
   .contacts .first-screen-text .text {
     margin: -150px 0 0 0;
   }
@@ -9112,6 +9079,15 @@ footer .footer-menu li + li {
     padding: 0;
   }
 
+  .category-list .row {
+    margin: 0;
+  }
+
+  .category-list .row .col-4,
+  .category-list .row .col-8 {
+    margin: 0;
+  }
+
   .category-list-items {
     flex-wrap: wrap;
   }
@@ -9149,14 +9125,6 @@ footer .footer-menu li + li {
   }
 
   .types-list {
-    justify-content: space-between;
-  }
-
-  .types-list {
-    flex-wrap: wrap;
-  }
-
-  .types-list {
     width: 100%;
   }
 
@@ -9169,7 +9137,11 @@ footer .footer-menu li + li {
   }
 
   .types-list-item {
-    margin: 2px;
+    width: 100%;
+  }
+
+  .types-list-item + .types-list-item {
+    margin: 0 0 0 4px;
   }
 
   .types-list-item.active a {

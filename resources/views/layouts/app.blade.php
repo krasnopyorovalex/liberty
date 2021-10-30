@@ -59,8 +59,8 @@
                     <div class="favorite-box">
                         <a href="{{ route('favorite.index') }}" rel="noopener noreferrer">
                             {{ svg('favorite') }}
+                            <span>Избранное</span>
                         </a>
-                        <span>Избранное</span>
                     </div>
                     <a href="viber://add?number=79663205077" rel="noopener noreferrer">
                         {{ svg('viber') }}
@@ -68,7 +68,7 @@
                     <a href="https://wa.me/79663205077" rel="noopener noreferrer">
                         {{ svg('whatsapp') }}
                     </a>
-                    <a href="https://t.me/+7 (966) 320-50-77" rel="noopener noreferrer">
+                    <a href="https://t.me/liberty_furniture" rel="noopener noreferrer">
                         {{ svg('telegram') }}
                     </a>
                 </div>
@@ -177,7 +177,7 @@
                             <a href="https://wa.me/79663205077" rel="noopener noreferrer">
                                 {{ svg('whatsapp') }}
                             </a>
-                            <a href="https://t.me/+7 (966) 320-50-77" rel="noopener noreferrer">
+                            <a href="https://t.me/liberty_furniture" rel="noopener noreferrer">
                                 {{ svg('telegram') }}
                             </a>
                         </div>

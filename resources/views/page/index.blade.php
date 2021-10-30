@@ -14,7 +14,11 @@
 
 @section('first-screen')
     @if($page->slider)
-        @include('layouts.first-screens.page-index', ['images' => change_images_slider($page->slider)])
+        @if(is_mobile())
+            @include('layouts.first-screens.page-index-mobile', ['images' => change_images_slider($page->slider)])
+        @else
+            @include('layouts.first-screens.page-index', ['images' => change_images_slider($page->slider)])
+        @endif
     @endif
 @endsection
 
