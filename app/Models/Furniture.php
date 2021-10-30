@@ -51,7 +51,7 @@ class Furniture extends Model
         });
 
         static::deleting(static function ($model) {
-            FurnitureInteriorSlider::whereDoorId($model->id)->delete();
+            FurnitureInteriorSlider::whereFurnitureId($model->id)->delete();
         });
     }
 
