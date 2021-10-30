@@ -4089,6 +4089,11 @@ section a {
   color: #ffffff;
 }
 
+section p a {
+  color: #0000CD;
+  text-decoration: underline;
+}
+
 section .owl-carousel .owl-dots button,
 .container .owl-carousel .owl-dots button {
   width: 12px;
