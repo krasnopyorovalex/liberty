@@ -5171,6 +5171,7 @@ header .col-socials-menu .menu-line > ul > li .submenu-box ul li + li {
 }
 
 header .col-socials-menu .menu-line > ul > li .submenu-box ul li a {
+  font-weight: 300;
   font-size: 16px;
 }
 
