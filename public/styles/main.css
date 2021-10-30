@@ -4732,6 +4732,8 @@ label + .form-search-params-name {
 }
 
 .step-item {
+  background-repeat: no-repeat;
+  background-size: 100% 715px;
   position: relative;
 }
 
@@ -7893,6 +7895,10 @@ footer .footer-menu li + li {
 
   .step-item {
     background-position: center;
+  }
+
+  .step-item {
+    background-size: auto;
   }
 
   .step-item-info {
