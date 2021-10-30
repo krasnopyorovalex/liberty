@@ -7144,13 +7144,17 @@ footer .footer-menu li + li {
   margin: 0 0 15px 0;
 }
 
-.finishing-options .flex {
-  justify-content: space-between;
+.finishing-options-item {
+  width: 95px;
+  height: 95px;
+  margin: 0 0 25px 0;
 }
 
-.finishing-options-item {
-  width: 100px;
-  height: 100px;
+.finishing-options-item + .finishing-options-item {
+  margin: 0 0 25px 25px;
+}
+
+.finishing-options-item:nth-child(7n) {
   margin: 0 0 25px 0;
 }
 
@@ -9581,6 +9585,18 @@ footer .footer-menu li + li {
 
   .finishing-options-item {
     height: 101px;
+  }
+
+  .finishing-options-item + .finishing-options-item {
+    margin: 0 0 12px 12px;
+  }
+
+  .finishing-options-item:nth-child(7n) {
+    margin: 0 0 12px 12px;
+  }
+
+  .finishing-options-item:nth-child(3n) + .finishing-options-item {
+    margin: 0 0 12px 0;
   }
 
   .another-projects-in-collection {
