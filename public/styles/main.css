@@ -7145,9 +7145,8 @@ footer .footer-menu li + li {
 }
 
 .finishing-options-item {
-  flex-basis: 15%;
-  width: 95px;
-  height: 140px;
+  min-width: 80px;
+  min-height: 80px;
   margin: 0 0 25px 0;
 }
 
@@ -7503,10 +7502,6 @@ footer .footer-menu li + li {
 @media screen and (max-width: 75rem) {
   .container {
     max-width: 69.375rem;
-  }
-
-  .finishing-options-item {
-    height: 95px;
   }
 }
 
@@ -9590,10 +9585,6 @@ footer .footer-menu li + li {
 
   .finishing-options-item {
     height: 100px;
-  }
-
-  .finishing-options-item {
-    flex-basis: auto;
   }
 
   .finishing-options-item + .finishing-options-item {
