@@ -7,10 +7,10 @@
                         <img src="{{ $image->getThumb() }}" alt="">
                         <div class="caption-overflow">
                         <span>
-                            <a href="{{ route('admin.furniture_images.edit', $image) }}" data-toggle="modal" data-target="#edit-image" class="btn btn-flat border-white text-white btn-rounded btn-icon">
+                            <a href="{{ route('admin.interior_images.edit', $image) }}" data-toggle="modal" data-target="#edit-image" class="btn btn-flat border-white text-white btn-rounded btn-icon">
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a class="btn btn-flat border-white text-white btn-rounded btn-icon" href="{{ route('admin.furniture_images.destroy', $image) }}">
+                            <a class="btn btn-flat border-white text-white btn-rounded btn-icon" href="{{ route('admin.interior_images.destroy', $image) }}">
                                 <i class="icon-trash"></i>
                             </a>
                         </span>
