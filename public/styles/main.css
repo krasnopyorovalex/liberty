@@ -7147,7 +7147,7 @@ footer .footer-menu li + li {
 .finishing-options-item {
   flex-basis: 15%;
   width: 95px;
-  height: 95px;
+  height: 140px;
   margin: 0 0 25px 0;
 }
 
@@ -7553,6 +7553,10 @@ footer .footer-menu li + li {
 
   .col-1 {
     width: calc(8.33333% - 1.875rem);
+  }
+
+  .finishing-options-item {
+    height: 95px;
   }
 }
 
