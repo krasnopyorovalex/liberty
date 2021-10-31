@@ -115,7 +115,7 @@
                                 <div class="finishing-options">
                                     <div class="title">Варианты отделок:</div>
                                     <div class="flex">
-                                        @foreach($furniture->finishing_options as $opt)
+                                        @foreach(collect($furniture->finishing_options)->chunk(6) as $opt)
                                             <div class="finishing-options-item" style="background-color: {{ $opt }}"></div>
                                         @endforeach
                                     </div>

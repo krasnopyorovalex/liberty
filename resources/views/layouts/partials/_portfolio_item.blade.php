@@ -9,9 +9,11 @@
         @endforeach
     </div>
     <div class="decoration-line wow slideInLeft visible-sm"></div>
+    @if($entity->text)
     <div class="slider-projects-desc hidden-sm">
         {!! $entity->text !!}
     </div>
+    @endif
     <div class="btn-box">
         <a href="{{ $entity->url }}" class="btn">смотреть проект</a>
     </div>
