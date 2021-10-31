@@ -6272,6 +6272,7 @@ footer .footer-menu li + li {
 .sub-page.doors {
   padding: 0 0 165px 0;
   background-position: center top;
+  background-size: cover;
 }
 
 .sub-page.doors .first-screen-text .text {
