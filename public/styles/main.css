@@ -7504,6 +7504,10 @@ footer .footer-menu li + li {
   .container {
     max-width: 69.375rem;
   }
+
+  .finishing-options-item {
+    height: 95px;
+  }
 }
 
 @media screen and (max-width: 62rem) {
@@ -7553,10 +7557,6 @@ footer .footer-menu li + li {
 
   .col-1 {
     width: calc(8.33333% - 1.875rem);
-  }
-
-  .finishing-options-item {
-    height: 95px;
   }
 }
 
@@ -9585,11 +9585,11 @@ footer .footer-menu li + li {
   }
 
   .finishing-options-item {
-    width: 105px;
+    width: 100px;
   }
 
   .finishing-options-item {
-    height: 101px;
+    height: 100px;
   }
 
   .finishing-options-item {
