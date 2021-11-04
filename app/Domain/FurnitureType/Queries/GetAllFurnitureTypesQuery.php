@@ -17,6 +17,6 @@ class GetAllFurnitureTypesQuery
      */
     public function handle()
     {
-        return FurnitureType::all();
+        return FurnitureType::orderBy('name')->get();
     }
 }

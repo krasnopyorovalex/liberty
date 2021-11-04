@@ -34,9 +34,9 @@ class GetAllCollectionsQuery
     {
 
         if ($this->isPublished) {
-            return Collection::publish()->get();
+            return Collection::orderBy('name')->publish()->get();
         }
 
-        return Collection::all();
+        return Collection::orderBy('name')->get();
     }
 }

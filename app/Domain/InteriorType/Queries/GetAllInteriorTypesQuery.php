@@ -17,6 +17,6 @@ class GetAllInteriorTypesQuery
      */
     public function handle()
     {
-        return InteriorType::all();
+        return InteriorType::orderBy('name')->get();
     }
 }
