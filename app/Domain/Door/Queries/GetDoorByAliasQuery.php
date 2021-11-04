@@ -32,7 +32,7 @@ class GetDoorByAliasQuery
     public function handle()
     {
         return Door::where('alias', $this->alias)
-            ->with(['slider', 'imagesForMobile', 'images', 'doorAttributes', 'modifications', 'doorInteriorSlider'])
+            ->with(['slider', 'imagesForMobile', 'images', 'doorAttributes', 'modifications', 'doorInteriorSlider', 'parent'])
             ->firstOrFail();
     }
 }

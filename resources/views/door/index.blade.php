@@ -115,6 +115,18 @@
                                         <div class="door-card-options">
                                             <div class="row">
                                                 <div class="col-3">
+                                                    @if($door->parent)
+                                                        <div class="door-card-options-item active">
+                                                            <div class="img">
+                                                                <a href="{{ $modification->url }}">
+                                                                    <img src="{{ asset(is_mobile() ? $modification->image_mob : $modification->image) }}" alt="{{ $modification->name }}">
+                                                                </a>
+                                                            </div>
+                                                            <div class="name">
+                                                                {{ $modification->articul }}
+                                                            </div>
+                                                        </div>
+                                                    @endif
                                                     @foreach($door->modifications as $modification)
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
