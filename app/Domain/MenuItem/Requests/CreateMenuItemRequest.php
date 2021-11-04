@@ -19,6 +19,7 @@ class CreateMenuItemRequest extends Request
             'parent_id' => 'integer|exists:menu_items,id|nullable',
             'pos' => 'integer|min:0|max:255',
             'has_submenu' => 'digits_between:0,1',
+            'has_submenu_doors' => 'digits_between:0,1',
         ];
     }
 

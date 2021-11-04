@@ -43,6 +43,7 @@
                 @selectLink(['name' => 'link', 'label' => 'Ссылка'])
 
                 @checkbox(['name' => 'has_submenu', 'label' => 'Прикрепить к пункту выпадающий список?'])
+                @checkbox(['name' => 'has_submenu_doors', 'label' => 'Вывести список названий коллекций дверей?'])
 
                 @submit_btn()
             </form>

@@ -5139,10 +5139,28 @@ header .col-socials-menu .menu-line > ul > li a {
   color: #fefefe;
   font-size: 20px;
   font-weight: 400;
+  position: relative;
 }
 
-header .col-socials-menu .menu-line > ul > li a:hover {
-  color: #a9b2b6;
+header .col-socials-menu .menu-line > ul > li a:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #fefefe;
+  opacity: 0;
+  transition: all 300ms ease;
+}
+
+header .col-socials-menu .menu-line > ul > li a:hover:after,
+header .col-socials-menu .menu-line > ul > li a.active:after {
+  opacity: 1;
+}
+
+header .col-socials-menu .menu-line > ul > li a.active {
+  font-size: 22px;
 }
 
 header .col-socials-menu .menu-line > ul > li .submenu {
@@ -5502,8 +5520,8 @@ footer .footer-menu li + li {
   margin: 0 0 0 20px;
 }
 
-.main-slider-nav-control.active {
-  color: #a9b2b6;
+.main-slider-nav-control.active span:last-child {
+  text-decoration: underline;
 }
 
 .main-slider-nav-control:hover {
@@ -6478,6 +6496,7 @@ footer .footer-menu li + li {
 
 .about-company .step-item-info-title {
   align-items: flex-start;
+  min-height: 95px;
 }
 
 .about-company .step-item:last-child {
@@ -6515,7 +6534,7 @@ footer .footer-menu li + li {
 
 .about-company-slider.with-arrows .owl-nav button.owl-next,
 .about-company-slider.with-arrows .owl-nav button.owl-prev {
-  top: calc(50% - 25px);
+  top: calc(50% - 6px);
 }
 
 .contacts.sub-page {
@@ -8231,6 +8250,10 @@ footer .footer-menu li + li {
     display: none;
   }
 
+  header .col-socials-menu .menu-line > ul > li a.active {
+    font-size: 20px;
+  }
+
   header .col-socials-menu .menu-line > ul > li .submenu {
     display: block;
   }
@@ -9066,6 +9089,10 @@ footer .footer-menu li + li {
     padding: 100px 31px 65px;
   }
 
+  .about-company .step-item-info-title {
+    min-height: 64px;
+  }
+
   .about-company .step-item-info-desc p {
     font-size: 13px;
   }
@@ -9107,6 +9134,29 @@ footer .footer-menu li + li {
 
   .page-about .authors-slider .owl-dots {
     bottom: -40px;
+  }
+
+  .about-company-slider.with-arrows .owl-nav button.owl-next {
+    right: 3%;
+  }
+
+  .about-company-slider.with-arrows .owl-nav button.owl-prev {
+    left: 3%;
+  }
+
+  .about-company-slider.with-arrows .owl-nav button.owl-next,
+  .about-company-slider.with-arrows .owl-nav button.owl-prev {
+    background-image: url("../img/slider-nav-authors-2-mob.png");
+  }
+
+  .about-company-slider.with-arrows .owl-nav button.owl-next,
+  .about-company-slider.with-arrows .owl-nav button.owl-prev {
+    width: 12px;
+  }
+
+  .about-company-slider.with-arrows .owl-nav button.owl-next,
+  .about-company-slider.with-arrows .owl-nav button.owl-prev {
+    height: 27px;
   }
 
   .contacts .first-screen-text .text {

@@ -21,6 +21,7 @@ class CreateMenuItemsTable extends Migration
             $table->string('link', 127);
             $table->unsignedTinyInteger('pos')->default(0);
             $table->enum('has_submenu', ['0', '1'])->default(0);
+            $table->enum('has_submenu_doors', ['0', '1'])->default(0);
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
             $table->foreign('parent_id')->references('id')->on('menu_items')->onDelete('set null');

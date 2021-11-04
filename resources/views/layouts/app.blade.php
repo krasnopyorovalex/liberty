@@ -90,7 +90,7 @@
                     <ul class="flex">
                         @foreach($menu->get('menu_header') as $item)
                             <li>
-                                <a href="{{ $item->link }}">{{ $item->name }}</a>
+                                <a href="{{ $item->link }}" {!! add_css_class($item) !!}>{{ $item->name }}</a>
                                 @if($item->has_submenu)
                                     <div class="submenu">
                                         <div class="submenu-box flex">
