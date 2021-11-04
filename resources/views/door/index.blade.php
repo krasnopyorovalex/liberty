@@ -118,12 +118,12 @@
                                                     @if($door->parent)
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
-                                                                <a href="{{ $modification->url }}">
-                                                                    <img src="{{ asset(is_mobile() ? $modification->image_mob : $modification->image) }}" alt="{{ $modification->name }}">
+                                                                <a href="{{ $door->parent->url }}">
+                                                                    <img src="{{ asset(is_mobile() ? $door->parent->image_mob : $door->parent->image) }}" alt="{{ $door->parent->name }}">
                                                                 </a>
                                                             </div>
                                                             <div class="name">
-                                                                {{ $modification->articul }}
+                                                                {{ $door->parent->articul }}
                                                             </div>
                                                         </div>
                                                     @endif
