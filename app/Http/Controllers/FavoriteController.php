@@ -55,7 +55,7 @@ class FavoriteController extends Controller
 
         return response()->json([
             'message' => (string)view('layouts.partials.notify', [
-                'message' => 'Предмет удалён их Избранного',
+                'message' => 'Предмет удалён из Избранного',
                 'cssClass' => 'info-msg',
                 'icon' => 'mood-happy'
             ])

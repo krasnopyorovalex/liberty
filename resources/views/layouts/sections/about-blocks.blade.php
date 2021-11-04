@@ -1,4 +1,4 @@
-<section class="about-company">
+<section class="about-company {{ !isset($css) ? '' : $css}}">
     @foreach($aboutBlocks as $aboutBlock)
     <div class="step-item" style="background-image: url('{{ change_image_desktop_mob($aboutBlock) }}')">
         <div class="step-item-info">

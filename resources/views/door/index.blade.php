@@ -180,7 +180,13 @@
                                     <li class="active" data-page="0">Описание</li>
                                     <li data-page="1">Гарантия</li>
                                     <li data-page="2">Сроки</li>
-                                    <li data-page="3">Скачать 3D</li>
+                                    @if($door->file)
+                                        <li>
+                                            <a href="{{ route('file.download', ['file' => $door->file]) }}">
+                                                Скачать 3D
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
 
@@ -201,12 +207,6 @@
                             </div>
                             <div class="door-card-tabs-custom-item">
                                 {!! $door->timing !!}
-                                <div class="decoration-line wow slideInLeft"></div>
-                            </div>
-                            <div class="door-card-tabs-custom-item">
-                                @if($door->file)
-                                    <a href="{{ asset($door->file) }}" class="btn" target="_blank">Скачать</a>
-                                @endif
                                 <div class="decoration-line wow slideInLeft"></div>
                             </div>
                         </div>

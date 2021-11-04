@@ -115,7 +115,7 @@
                                 <div class="finishing-options">
                                     <div class="title">Варианты отделок:</div>
                                     <div class="flex">
-                                        @foreach(collect($furniture->finishing_options) as $opt)
+                                        @foreach($furniture->finishing_options as $opt)
                                             <div class="finishing-options-item" style="background-color: {{ $opt }}"></div>
                                         @endforeach
                                     </div>
@@ -127,7 +127,13 @@
                                     <li class="active" data-page="0">Описание</li>
                                     <li data-page="1">Гарантия</li>
                                     <li data-page="2">Сроки</li>
-                                    <li data-page="3">Скачать 3D</li>
+                                    @if($furniture->file)
+                                        <li>
+                                            <a href="{{ route('file.download', ['file' => $furniture->file]) }}">
+                                                Скачать 3D
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>

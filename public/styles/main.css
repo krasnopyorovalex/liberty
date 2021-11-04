@@ -4651,6 +4651,7 @@ label + .form-search-params-name {
   color: #ffffff;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+  width: auto;
 }
 
 .info-msg .icon-mood-happy,
@@ -4845,6 +4846,10 @@ label + .form-search-params-name {
 
 .favorite-list .interior-projects {
   margin: 24px auto;
+}
+
+.favorite-list .col-4 {
+  position: relative;
 }
 
 .favorite-list .doors-cards-item {
@@ -6500,6 +6505,19 @@ footer .footer-menu li + li {
   transform: rotate(180deg);
 }
 
+.about-company-slider.with-arrows .owl-nav button.owl-next {
+  right: 5%;
+}
+
+.about-company-slider.with-arrows .owl-nav button.owl-prev {
+  left: 5%;
+}
+
+.about-company-slider.with-arrows .owl-nav button.owl-next,
+.about-company-slider.with-arrows .owl-nav button.owl-prev {
+  top: calc(50% - 25px);
+}
+
 .contacts.sub-page {
   background-position: center top;
   padding: 0 0 250px 0;
@@ -7023,6 +7041,10 @@ footer .footer-menu li + li {
   margin: 0;
 }
 
+.related-products .doors-cards-item {
+  position: relative;
+}
+
 .colors {
   margin: 51px 0;
 }
@@ -7239,6 +7261,22 @@ footer .footer-menu li + li {
 .tabs-custom > ul li:hover {
   color: #ffffff;
   background-color: #5a6e79;
+}
+
+.tabs > ul li.active a,
+.tabs > ul li:hover a,
+.tabs-custom > ul li.active a,
+.tabs-custom > ul li:hover a {
+  color: #ffffff;
+}
+
+.tabs-custom > ul > li:hover a {
+  color: #ffffff;
+}
+
+.tabs-custom > ul > li a {
+  transition: none;
+  color: #6e6c66;
 }
 
 .interior-card-slider {

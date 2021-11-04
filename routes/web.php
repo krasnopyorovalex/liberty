@@ -10,6 +10,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DoorController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\Form\CalculateController;
 use App\Http\Controllers\Form\GuestbookController;
 use App\Http\Controllers\Form\RecallController;
@@ -42,6 +43,8 @@ Route::group(['prefix' => '_root', 'middleware' => 'auth', 'as' => 'admin.'], fu
         require $item;
     }
 });
+
+Route::get('file/download', FileController::class)->name('file.download');
 
 Route::group(['prefix' => 'form', 'as' => 'form.'], function () {
     Route::post('calculate', CalculateController::class)->name('calculate');

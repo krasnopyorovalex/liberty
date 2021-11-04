@@ -1,4 +1,4 @@
-<div class="col-4">
+<div class="col-4" style="position: relative">
     <a href="{{ $entity->url }}">
         <div class="category-products-item">
             <div class="img hovered">
@@ -13,4 +13,9 @@
             </div>
         </div>
     </a>
+    @if(request()->path() === 'favorite')
+    <div class="favorite-action" data-action="{{ route('favorite.remove', $entity) }}" data-entity="{{ get_class($entity) }}">
+        {{ svg('favorite-active') }}
+    </div>
+    @endif
 </div>
