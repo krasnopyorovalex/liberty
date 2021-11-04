@@ -76,7 +76,7 @@
 
     @if($portfolio->count())
         <section class="interior-projects">
-            @foreach($portfolio->take(5) as $portfolioItem)
+            @foreach($portfolio as $portfolioItem)
                 @include('layouts.partials._portfolio_item', ['entity' => $portfolioItem])
             @endforeach
         </section>
