@@ -37,8 +37,8 @@
             <span>Фабрика дверей и мебели</span>
             <a href="{{ route('page.show') }}">
                 <picture>
-                    <source media="(max-width: 670px)" srcset="{{ asset('img/logo-mob.svg') }}">
-                    <img src="{{ asset('img/logo.svg') }}"/>
+                    <source media="(max-width: 670px)" srcset="{{ asset('img/logo-mob.png') }}">
+                    <img src="{{ asset('img/logo.png') }}"/>
                 </picture>
             </a>
         </div>
@@ -91,6 +91,17 @@
                         @foreach($menu->get('menu_header') as $item)
                             <li>
                                 <a href="{{ $item->link }}" {!! add_css_class($item) !!}>{{ $item->name }}</a>
+                                @if($item->has_submenu_doors)
+                                    <div class="submenu">
+                                        <div class="submenu-box flex">
+                                            <ul>
+                                                @foreach($doors as $door)
+                                                    <li><a href="{{ route('door.show', ['alias' => $door->alias]) }}">{{ $door->name }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @endif
                                 @if($item->has_submenu)
                                     <div class="submenu">
                                         <div class="submenu-box flex">

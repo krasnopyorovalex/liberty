@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\DoorTexture;
+use App\Services\UploadImagesService;
 use Domain\Author\Queries\GetAllAuthorsQuery;
 use Domain\Door\Commands\CreateDoorCommand;
 use Domain\Door\Commands\DeleteDoorCommand;
@@ -20,6 +22,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class DoorController
@@ -27,6 +30,16 @@ use Illuminate\Routing\Redirector;
  */
 class DoorController extends Controller
 {
+    private UploadImagesService $imagesService;
+
+    /**
+     * @param UploadImagesService $imagesService
+     */
+    public function __construct(UploadImagesService $imagesService)
+    {
+        $this->imagesService = $imagesService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -69,7 +82,7 @@ class DoorController extends Controller
      */
     public function store(CreateDoorRequest $request)
     {
-        $this->dispatch(new CreateDoorCommand($request));
+        $this->dispatch(new CreateDoorCommand($request, $this->imagesService));
 
         return redirect(route('admin.doors.index'));
     }
@@ -104,7 +117,7 @@ class DoorController extends Controller
      */
     public function update(int $id, UpdateDoorRequest $request): RedirectResponse
     {
-        $this->dispatch(new UpdateDoorCommand($id, $request));
+        $this->dispatch(new UpdateDoorCommand($id, $request, $this->imagesService));
 
         return redirect(route('admin.doors.index'));
     }
@@ -131,25 +144,10 @@ class DoorController extends Controller
         $door = $this->dispatch(new GetDoorByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $door->image))) {
+            \Storage::delete(str_replace('/storage/', '/public/', filename_replacer($door->image, UploadImagesService::DESKTOP_POSTFIX)));
+            \Storage::delete(str_replace('/storage/', '/public/', filename_replacer($door->image, UploadImagesService::MOBILE_POSTFIX)));
+
             $door->image = '';
-            $door->update();
-        }
-
-        return [
-            'message' => 'Изображение удалено'
-        ];
-    }
-
-    /**
-     * @param int $id
-     * @return string[]
-     */
-    public function destroyImageMob(int $id): array
-    {
-        $door = $this->dispatch(new GetDoorByIdQuery($id));
-
-        if (\Storage::delete(str_replace('/storage/', '/public/', $door->image_mob))) {
-            $door->image_mob = '';
             $door->update();
         }
 
@@ -173,6 +171,37 @@ class DoorController extends Controller
 
         return [
             'message' => 'Файл удалён'
+        ];
+    }
+
+    public function textures(int $doorId)
+    {
+        foreach (request()->file('textures') as $file) {
+            $path = Storage::putFile(sprintf('public/door-textures/%d', $doorId), $file);
+
+            if ($path) {
+                $doorTexture = new DoorTexture();
+                $doorTexture->door_id = $doorId;
+                $doorTexture->label = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $doorTexture->path = str_replace('public/', 'storage/', $path);
+
+                $doorTexture->save();
+            }
+        }
+
+        return redirect(route('admin.doors.edit', ['id' => $doorId, 'active' => 'textures']));
+    }
+
+    public function destroyTexture(int $id): array
+    {
+        $doorTexture = DoorTexture::findOrFail($id);
+
+        if (\Storage::delete(str_replace('storage/', 'public/', $doorTexture->path))) {
+            $doorTexture->delete();
+        }
+
+        return [
+            'message' => 'Текстура удалена'
         ];
     }
 }

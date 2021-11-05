@@ -6,6 +6,7 @@ namespace Domain\Furniture\Commands;
 
 use App\Http\Requests\Request;
 use App\Models\Furniture;
+use App\Services\UploadImagesService;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,14 +19,16 @@ class CreateFurnitureCommand
     use DispatchesJobs;
 
     private Request $request;
+    private UploadImagesService $imagesService;
 
     /**
-     * CreateFurnitureCommand constructor.
      * @param Request $request
+     * @param UploadImagesService $imagesService
      */
-    public function __construct(Request $request)
+    public function __construct(Request $request, UploadImagesService $imagesService)
     {
         $this->request = $request;
+        $this->imagesService = $imagesService;
     }
 
     /**
@@ -39,11 +42,9 @@ class CreateFurnitureCommand
         if ($this->request->hasFile('image')) {
             $path = $this->request->file('image')->store(Furniture::STORE_PATH);
             $furniture->image = Storage::url($path);
-        }
 
-        if ($this->request->hasFile('image_mob')) {
-            $path = $this->request->file('image_mob')->store(Furniture::STORE_PATH);
-            $furniture->image_mob = Storage::url($path);
+            $this->imagesService->createDesktopImage($furniture->image, Furniture::WIDTH, Furniture::HEIGHT);
+            $this->imagesService->createMobileImage($furniture->image, Furniture::WIDTH_MOBILE, Furniture::HEIGHT_MOBILE);
         }
 
         if ($this->request->hasFile('file')) {

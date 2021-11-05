@@ -34,7 +34,11 @@ class CreateFurnitureImageCommand
         $furnitureImage->basename = $this->uploadImage->getImageHashName();
         $furnitureImage->ext = $this->uploadImage->getExt();
         $furnitureImage->furniture_id = $this->uploadImage->getEntityId();
-        $furnitureImage->is_mobile = $this->uploadImage->getIsMobile();
+
+        $path = sprintf('storage/furniture/%d/%s.%s', $furnitureImage->furniture_id, $furnitureImage->basename, $furnitureImage->ext);
+
+        $this->uploadImage->createDesktopImage($path, FurnitureImage::WIDTH, FurnitureImage::HEIGHT);
+        $this->uploadImage->createMobileImage($path, FurnitureImage::WIDTH_MOBILE, FurnitureImage::HEIGHT_MOBILE);
 
         return $furnitureImage->save();
     }

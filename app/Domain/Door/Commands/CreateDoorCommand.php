@@ -6,6 +6,7 @@ namespace Domain\Door\Commands;
 
 use App\Http\Requests\Request;
 use App\Models\Door;
+use App\Services\UploadImagesService;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,14 +19,16 @@ class CreateDoorCommand
     use DispatchesJobs;
 
     private Request $request;
+    private UploadImagesService $imagesService;
 
     /**
-     * CreateDoorCommand constructor.
      * @param Request $request
+     * @param UploadImagesService $imagesService
      */
-    public function __construct(Request $request)
+    public function __construct(Request $request, UploadImagesService $imagesService)
     {
         $this->request = $request;
+        $this->imagesService = $imagesService;
     }
 
     /**
@@ -39,11 +42,9 @@ class CreateDoorCommand
         if ($this->request->hasFile('image')) {
             $path = $this->request->file('image')->store(Door::STORE_PATH);
             $door->image = Storage::url($path);
-        }
 
-        if ($this->request->hasFile('image_mob')) {
-            $path = $this->request->file('image_mob')->store(Door::STORE_PATH);
-            $door->image_mob = Storage::url($path);
+            $this->imagesService->createDesktopImage($door->image, Door::WIDTH, Door::HEIGHT);
+            $this->imagesService->createMobileImage($door->image, Door::WIDTH_MOBILE, Door::HEIGHT_MOBILE);
         }
 
         if ($this->request->hasFile('file')) {

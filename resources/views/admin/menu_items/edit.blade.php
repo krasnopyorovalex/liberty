@@ -42,6 +42,7 @@
                 @input(['name' => 'name', 'entity' => $menuItem, 'label' => 'Название'])
                 @selectLink(['name' => 'link', 'entity' => $menuItem, 'label' => 'Ссылка'])
                 @checkbox(['name' => 'has_submenu', 'label' => 'Прикрепить к пункту выпадающий список?', 'entity' => $menuItem])
+                @checkbox(['name' => 'has_submenu_doors', 'label' => 'Вывести список названий коллекций дверей?', 'entity' => $menuItem])
                 @submit_btn()
 
             </form>

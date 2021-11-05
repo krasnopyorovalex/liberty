@@ -15,6 +15,9 @@ class DoorsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->make('view')->composer('layouts.sections.doors', DoorsComposer::class);
+        $this->app->make('view')->composer([
+            'layouts.sections.doors',
+            'layouts.app'
+        ], DoorsComposer::class);
     }
 }

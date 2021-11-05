@@ -30,12 +30,16 @@ class CreateDoorImageCommand
      */
     public function handle(): bool
     {
-        $DoorImage = new DoorImage();
-        $DoorImage->basename = $this->uploadImage->getImageHashName();
-        $DoorImage->ext = $this->uploadImage->getExt();
-        $DoorImage->Door_id = $this->uploadImage->getEntityId();
-        $DoorImage->is_mobile = $this->uploadImage->getIsMobile();
+        $doorImage = new DoorImage();
+        $doorImage->basename = $this->uploadImage->getImageHashName();
+        $doorImage->ext = $this->uploadImage->getExt();
+        $doorImage->door_id = $this->uploadImage->getEntityId();
 
-        return $DoorImage->save();
+        $path = sprintf('storage/doors/%d/%s.%s', $doorImage->door_id, $doorImage->basename, $doorImage->ext);
+
+        $this->uploadImage->createDesktopImage($path, DoorImage::WIDTH, DoorImage::HEIGHT);
+        $this->uploadImage->createMobileImage($path, DoorImage::WIDTH_MOBILE, DoorImage::HEIGHT_MOBILE);
+
+        return $doorImage->save();
     }
 }

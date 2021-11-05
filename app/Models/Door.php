@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Traits\AutoAliasTrait;
 use App\Models\Traits\Images;
 use App\Scopes\WithUsersByMyGroupsScope;
+use App\Services\UploadImagesService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -33,6 +34,12 @@ class Door extends Model
 
     public const STORE_PATH = 'public/doors';
 
+    public const WIDTH = 484;
+    public const HEIGHT = 478;
+
+    public const WIDTH_MOBILE = 340;
+    public const HEIGHT_MOBILE = 450;
+
     protected $guarded = ['image', 'image_mob', 'doorAttribute.*', 'file'];
 
     protected $casts = [
@@ -40,6 +47,8 @@ class Door extends Model
         'finishing_option_names' => 'array',
         'related_doors' => 'array'
     ];
+
+    protected $with = ['textures'];
 
     public static function boot(): void
     {
@@ -67,9 +76,14 @@ class Door extends Model
         return $this->belongsTo(Door::class, 'parent_id');
     }
 
-    public function modifications()
+    public function modifications(): HasMany
     {
         return $this->hasMany(Door::class, 'parent_id');
+    }
+
+    public function textures(): HasMany
+    {
+        return $this->hasMany(DoorTexture::class, 'door_id');
     }
 
     public function doorAttributes(): BelongsToMany

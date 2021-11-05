@@ -14,6 +14,10 @@ use Intervention\Image\ImageManager;
  */
 final class UploadImagesService
 {
+
+    public const DESKTOP_POSTFIX = 'desktop';
+    public const MOBILE_POSTFIX = 'mobile';
+
     private int $widthThumb = 192;
     private int $heightThumb = 192;
 
@@ -119,6 +123,26 @@ final class UploadImagesService
             ->make($this->image)
             ->fit($this->widthThumb, $this->heightThumb)
             ->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));
+    }
+
+    public function createDesktopImage(string $path, int $width, int $height)
+    {
+        $desktopImageName = filename_replacer($path, self::DESKTOP_POSTFIX);
+
+        (new ImageManager())
+            ->make(public_path($path))
+            ->fit($width, $height)
+            ->save(public_path($desktopImageName));
+    }
+
+    public function createMobileImage(string $path, int $width, int $height)
+    {
+        $mobileImageName = filename_replacer($path, self::MOBILE_POSTFIX);
+
+        (new ImageManager())
+            ->make(public_path($path))
+            ->fit($width, $height)
+            ->save(public_path($mobileImageName));
     }
 
     /**

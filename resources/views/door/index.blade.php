@@ -71,11 +71,12 @@
                     <div class="col-6">
                         <div class="door-card-gallery-box">
                             <div class="door-card-gallery owl-carousel owl-theme">
-                                @foreach($door->getImages() as $image)
+                                @foreach($door->images as $image)
                                     <div class="door-card-gallery-item">
                                         <a href="{{ $image->getPath() }}" data-lightbox="gallery">
                                             <picture>
-                                                <img src="{{ $image->getPath() }}" />
+                                                <source media="(max-width: 670px)" srcset="{{ $image->getMobileImage() }}">
+                                                <img src="{{ $image->getDesktopImage() }}" alt="{{ $image->name }}">
                                             </picture>
                                             {{ svg('zoom-in') }}
                                         </a>
@@ -148,14 +149,21 @@
                                             <div class="col-12">
                                                 <div class="colors flex flex-start">
                                                     <div class="colors-col">
-                                                        @foreach($door->finishing_options as $idx => $opt)
-                                                            <div class="colors-col-item flex flex-end" style="background-color: {{ $opt }};">
-                                                                <div class="label">{{ $door->finishing_option_names[$idx] ?? '' }}</div>
+                                                        @foreach($door->textures->chunk(6) as $chunk)
+                                                            <div class="row">
+                                                                @foreach($chunk as $texture)
+                                                                    <div class="col-2">
+                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                    </div>
+                                                                @endforeach
+                                                                @if(count($chunk) < 6)
+                                                                    @for($i = 0; $i < 6 - count($chunk); $i++)
+                                                                        <div class="col-2">
+                                                                            <img src="{{ asset('img/placeholder-texture.jpg') }}" alt="">
+                                                                        </div>
+                                                                    @endfor
+                                                                @endif
                                                             </div>
-                                                            @if(($loop->index + 1) % 5 === 0)
-                                                            </div>
-                                                            <div class="colors-col">
-                                                            @endif
                                                         @endforeach
                                                     </div>
                                                 </div>

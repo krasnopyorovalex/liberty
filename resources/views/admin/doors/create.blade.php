@@ -66,7 +66,7 @@
                     </div>
                 @endif
 
-                <div class="panel panel-flat border-blue border-xs">
+                <div class="panel panel-flat border-blue border-xs hidden">
                     <div class="panel-heading">
                         <h5 class="panel-title">Варианты отделок:</h5>
                     </div>
@@ -88,10 +88,7 @@
                     <div class="col-md-4">
                         @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере(490x480px)'])
                     </div>
-                    <div class="col-md-4">
-                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'label' => 'Выберите изображение на компьютере для мобильных устройств(340x450px)'])
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label for="file-field">Выберите 3D файл:</label>
                             <input type="file" class="file-styled-primary file-3d border-blue border-xs" id="file-field" name="file" value="" autocomplete="off" />

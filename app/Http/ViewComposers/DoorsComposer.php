@@ -13,14 +13,18 @@ class DoorsComposer
 {
     use DispatchesJobs;
 
+    private static $doors = [];
+
     /**
      * @param View $view
      */
     public function compose(View $view)
     {
-        /** @var Collection $doors */
-        $doors = $this->dispatch(new GetAllDoorsQuery());
+        if (!self::$doors) {
+            /** @var Collection $doors */
+            self::$doors = $this->dispatch(new GetAllDoorsQuery());
+        }
 
-        $view->with('doors', $doors);
+        $view->with('doors', self::$doors);
     }
 }

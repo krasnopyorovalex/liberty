@@ -154,3 +154,13 @@ if (! function_exists('change_images_slider')) {
         return MobileDetect::isMobile() ? $slider->imagesForMobile : $slider->images;
     }
 }
+
+if (! function_exists('filename_replacer')) {
+    function filename_replacer(string $path, string $postfix): string
+    {
+        $fileName = pathinfo($path, PATHINFO_FILENAME);
+        $replaceName = sprintf('%s_%s', $fileName, $postfix);
+
+        return str_replace($fileName, $replaceName, $path);
+    }
+}

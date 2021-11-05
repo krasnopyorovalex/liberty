@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\FurnitureTexture;
+use App\Services\UploadImagesService;
 use Domain\Author\Queries\GetAllAuthorsQuery;
 use Domain\Collection\Queries\GetAllCollectionsQuery;
 use Domain\Furniture\Commands\CreateFurnitureCommand;
@@ -21,6 +23,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class FurnitureController
@@ -28,6 +31,16 @@ use Illuminate\Routing\Redirector;
  */
 class FurnitureController extends Controller
 {
+    private UploadImagesService $imagesService;
+
+    /**
+     * @param UploadImagesService $imagesService
+     */
+    public function __construct(UploadImagesService $imagesService)
+    {
+        $this->imagesService = $imagesService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -70,7 +83,7 @@ class FurnitureController extends Controller
      */
     public function store(CreateFurnitureRequest $request)
     {
-        $this->dispatch(new CreateFurnitureCommand($request));
+        $this->dispatch(new CreateFurnitureCommand($request, $this->imagesService));
 
         return redirect(route('admin.furniture.index'));
     }
@@ -105,7 +118,7 @@ class FurnitureController extends Controller
      */
     public function update(int $id, UpdateFurnitureRequest $request): RedirectResponse
     {
-        $this->dispatch(new UpdateFurnitureCommand($id, $request));
+        $this->dispatch(new UpdateFurnitureCommand($id, $request, $this->imagesService));
 
         return redirect(route('admin.furniture.index'));
     }
@@ -132,25 +145,10 @@ class FurnitureController extends Controller
         $furniture = $this->dispatch(new GetFurnitureByIdQuery($id));
 
         if (\Storage::delete(str_replace('/storage/', '/public/', $furniture->image))) {
+            \Storage::delete(str_replace('/storage/', '/public/', filename_replacer($furniture->image, UploadImagesService::DESKTOP_POSTFIX)));
+            \Storage::delete(str_replace('/storage/', '/public/', filename_replacer($furniture->image, UploadImagesService::MOBILE_POSTFIX)));
+
             $furniture->image = '';
-            $furniture->update();
-        }
-
-        return [
-            'message' => 'Изображение удалено'
-        ];
-    }
-
-    /**
-     * @param int $id
-     * @return string[]
-     */
-    public function destroyImageMob(int $id): array
-    {
-        $furniture = $this->dispatch(new GetFurnitureByIdQuery($id));
-
-        if (\Storage::delete(str_replace('/storage/', '/public/', $furniture->image_mob))) {
-            $furniture->image_mob = '';
             $furniture->update();
         }
 
@@ -174,6 +172,37 @@ class FurnitureController extends Controller
 
         return [
             'message' => 'Файл удалён'
+        ];
+    }
+
+    public function textures(int $furnitureId)
+    {
+        foreach (request()->file('textures') as $file) {
+            $path = Storage::putFile(sprintf('public/furniture-textures/%d', $furnitureId), $file);
+
+            if ($path) {
+                $doorTexture = new FurnitureTexture();
+                $doorTexture->furniture_id = $furnitureId;
+                $doorTexture->label = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $doorTexture->path = str_replace('public/', 'storage/', $path);
+
+                $doorTexture->save();
+            }
+        }
+
+        return redirect(route('admin.furniture.edit', ['id' => $furnitureId, 'active' => 'textures']));
+    }
+
+    public function destroyTexture(int $id): array
+    {
+        $furnitureTexture = FurnitureTexture::findOrFail($id);
+
+        if (Storage::delete(str_replace('storage/', 'public/', $furnitureTexture->path))) {
+            $furnitureTexture->delete();
+        }
+
+        return [
+            'message' => 'Текстура удалена'
         ];
     }
 }

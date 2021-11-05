@@ -4970,7 +4970,7 @@ header {
   z-index: 1000;
   top: 0;
   width: 100%;
-  padding: 30px 112px 20px;
+  padding: 30px 112px 8px;
   transition: top 0.3s, padding 0.3s;
   background-color: rgba(88, 110, 120, 0.7);
   border-bottom-left-radius: 30px;
@@ -4988,8 +4988,7 @@ header .col-logo {
 
 header .col-logo img {
   max-width: 148px;
-  height: 49px;
-  margin: 19px 0 0 0;
+  margin: 10px 0 0 0;
   transition: margin 0.3s;
 }
 
@@ -8132,10 +8131,6 @@ footer .footer-menu li + li {
 
   header .col-logo img {
     width: 78px;
-  }
-
-  header .col-logo img {
-    height: 25px;
   }
 
   header .col-logo span {

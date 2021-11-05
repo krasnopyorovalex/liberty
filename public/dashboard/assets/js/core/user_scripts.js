@@ -204,7 +204,7 @@ $(function() {
                         icon: 'icon-checkmark3',
                         type: 'success'
                     });
-                    return _this.closest('.panel').fadeOut();
+                    return _this.closest('.panel, .texture-box').fadeOut();
                 }
             });
         }

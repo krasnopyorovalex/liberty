@@ -13,12 +13,13 @@
             @include('layouts.partials.errors')
             <div class="tabbable">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#main" data-toggle="tab">Основное</a></li>
+                    <li class="{{ request('active') ? '' : 'active' }}"><a href="#main" data-toggle="tab">Основное</a></li>
                     <li><a href="#images" data-toggle="tab">Слайдер</a></li>
+                    <li class="{{ request('active') ? 'active' : '' }}"><a href="#textures" data-toggle="tab">Текстуры</a></li>
                 </ul>
 
                 <div class="tab-content">
-                    <div class="tab-pane active" id="main">
+                    <div class="tab-pane {{ request('active') ? '' : 'active' }}" id="main">
                         <form action="{{ route('admin.furniture.update', ['id' => $furniture->id]) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
@@ -66,7 +67,7 @@
                                 </div>
                             @endif
 
-                            <div class="panel panel-flat border-blue border-xs">
+                            <div class="panel panel-flat border-blue border-xs hidden">
                                 <div class="panel-heading">
                                     <h5 class="panel-title">Варианты отделок:</h5>
                                 </div>
@@ -100,7 +101,7 @@
                                     @if ($furniture->image)
                                         <div class="panel panel-flat border-blue border-xs">
                                             <div class="panel-body">
-                                                <img src="{{ asset($furniture->image) }}" alt="" class="upload__image">
+                                                <img src="{{ asset($furniture->getDesktopImage()) }}" alt="" class="upload__image">
 
                                                 <div class="btn-group btn__actions">
                                                     <button type="button"
@@ -115,26 +116,7 @@
                                         @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $furniture, 'label' => 'Выберите изображение на компьютере(370x500px)'])
                                     </div>
                                 </div>
-                                <div class="col-md-4 image__box-a">
-                                    @if ($furniture->image_mob)
-                                        <div class="panel panel-flat border-blue border-xs">
-                                            <div class="panel-body">
-                                                <img src="{{ asset($furniture->image_mob) }}" alt="" class="upload__image">
-
-                                                <div class="btn-group btn__actions">
-                                                    <button type="button"
-                                                            data-href="{{ route('admin.furniture.destroy.img.mob', ['id' => $furniture->id]) }}"
-                                                            class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">
-                                                        Удалить <b><i class="icon-trash"></i></b></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    <div class="text-left">
-                                        @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $furniture, 'label' => 'Выберите изображение на компьютере для мобильных устройств(340x450px)'])
-                                    </div>
-                                </div>
-                                <div class="col-md-4 image__box-a">
+                                <div class="col-md-8 image__box-a">
                                     <div class="form-group">
                                         @if($furniture->file)
                                             <div class="panel panel-flat border-blue border-xs">
@@ -161,15 +143,6 @@
                     <div class="tab-pane" id="images">
                         <form action="#" enctype="multipart/form-data" method="post">
                             <div class="form-group">
-                                <div class="type-select-box">
-                                    <label for="type-select">Выберите для каких устройств загружаем изображения</label>
-                                    <select name="type" id="type-select" class="form-control border-blue border-xs select-search">
-                                        <option value="0">Компьютеры</option>
-                                        <option value="1">Мобильные</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <div class="col-lg-12">
                                     <input type="hidden" name="uploadUrl"
                                            value="{{ route('admin.furniture_images.store', $furniture) }}">
@@ -182,17 +155,44 @@
                         </form>
                         <div class="clearfix"></div>
                         @if ($furniture->images)
-                            <h4 class="text-center">Для компьютеров</h4>
                             <div id="_images_box">
                                 @include('admin.furniture._images_box')
                             </div>
                         @endif
-                        @if ($furniture->imagesForMobile)
-                            <h4 class="text-center">Для мобильных устройств</h4>
-                            <div id="_images_box-mob">
-                                @include('admin.furniture._images_box_mob')
+                    </div>
+                    <div class="tab-pane image__box-a {{ request('active') ? 'active' : '' }}" id="textures">
+                        <form action="{{ route('admin.furniture.store.textures', ['id' => $furniture->id]) }}" enctype="multipart/form-data" method="post">
+                            @csrf
+
+                            @if($furniture->textures)
+                                <div class="row">
+                                    @foreach($furniture->textures as $texture)
+                                        <div class="col-md-1 texture-box">
+                                            <div class="texture-item">
+                                                <img src="{{ asset($texture->path) }}" alt="" class="img-responsive" />
+                                                <button type="button"
+                                                        data-href="{{ route('admin.furniture.destroy.texture', ['id' => $texture->id]) }}"
+                                                        class="btn delete__img btn-danger btn-labeled btn-labeled-right btn-sm">
+                                                    &nbsp;<b><i class="icon-trash"></i></b>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endif
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="textures">Выберите текстуры на компьютере</label>
+                                        <input type="file" id="textures" name="textures[]" multiple required class="file-styled-primary file-3d border-blue border-xs" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Загрузить</button>
+                                    </div>
+                                </div>
                             </div>
-                        @endif
+                        </form>
                     </div>
                 </div>
             </div>

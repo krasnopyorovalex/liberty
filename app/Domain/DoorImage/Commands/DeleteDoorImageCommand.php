@@ -37,8 +37,10 @@ class DeleteDoorImageCommand
         $image = $this->dispatch(new GetDoorImageByIdQuery($this->id));
 
         Storage::delete([
-            'public/interiors/' . $image->interior_id . '/' . $image->basename . '.' . $image->ext,
-            'public/interiors/' . $image->interior_id . '/' . $image->basename . '_thumb.' . $image->ext
+            'public/doors/' . $image->door_id . '/' . $image->basename . '.' . $image->ext,
+            'public/doors/' . $image->door_id . '/' . $image->basename . '_thumb.' . $image->ext,
+            'public/doors/' . $image->door_id . '/' . $image->basename . '_desktop.' . $image->ext,
+            'public/doors/' . $image->door_id . '/' . $image->basename . '_mobile.' . $image->ext
         ]);
 
         return $image->delete();

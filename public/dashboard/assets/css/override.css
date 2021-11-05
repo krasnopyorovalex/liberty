@@ -357,3 +357,11 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 .finishing-options .finishing-options-item input:last-child {
     margin: .5rem 0 0 0;
 }
+.texture-item {
+    position: relative;
+}
+.texture-item button {
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+}

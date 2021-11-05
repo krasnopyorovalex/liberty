@@ -31,7 +31,15 @@ class Furniture extends Model
 
     public const STORE_PATH = 'public/furniture';
 
+    public const WIDTH = 376;
+    public const HEIGHT = 371;
+
+    public const WIDTH_MOBILE = 340;
+    public const HEIGHT_MOBILE = 450;
+
     protected $perPage = 18;
+
+    protected $with = ['textures'];
 
     protected $casts = [
         'finishing_options' => 'array'
@@ -58,6 +66,11 @@ class Furniture extends Model
     public function images(): HasMany
     {
         return $this->hasMany(FurnitureImage::class)->where('is_mobile', '0')->orderBy('pos');
+    }
+
+    public function textures(): HasMany
+    {
+        return $this->hasMany(FurnitureTexture::class, 'furniture_id');
     }
 
     public function imagesForMobile(): HasMany

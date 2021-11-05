@@ -36,9 +36,13 @@ class DeleteFurnitureImageCommand
     {
         $image = $this->dispatch(new GetFurnitureImageByIdQuery($this->id));
 
+        $path = sprintf('public/furniture/%s/%s', $image->furniture_id, $image->basename);
+
         Storage::delete([
-            'public/interiors/' . $image->interior_id . '/' . $image->basename . '.' . $image->ext,
-            'public/interiors/' . $image->interior_id . '/' . $image->basename . '_thumb.' . $image->ext
+            $path . '.' . $image->ext,
+            $path . '_thumb.' . $image->ext,
+            $path . '_desktop.' . $image->ext,
+            $path . '_mobile.' . $image->ext
         ]);
 
         return $image->delete();

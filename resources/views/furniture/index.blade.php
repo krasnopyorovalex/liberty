@@ -70,7 +70,8 @@
                                     <div class="door-card-gallery-item">
                                         <a href="{{ $image->getPath() }}" data-lightbox="gallery">
                                             <picture>
-                                                <img src="{{ $image->getPath() }}">
+                                                <source media="(max-width: 670px)" srcset="{{ $image->getMobileImage() }}">
+                                                <img src="{{ $image->getDesktopImage() }}" alt="{{ $image->name }}">
                                             </picture>
                                             {{ svg('zoom-in') }}
                                         </a>
@@ -111,12 +112,25 @@
                                 </div>
                             @endif
 
-                            @if($furniture->finishing_options)
+                            @if($furniture->textures)
                                 <div class="finishing-options">
                                     <div class="title">Варианты отделок:</div>
                                     <div class="flex">
-                                        @foreach($furniture->finishing_options as $opt)
-                                            <div class="finishing-options-item" style="background-color: {{ $opt }}"></div>
+                                        @foreach($furniture->textures->chunk(6) as $chunk)
+                                            <div class="row">
+                                                @foreach($chunk as $texture)
+                                                    <div class="col-2">
+                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                    </div>
+                                                @endforeach
+                                                @if(count($chunk) < 6)
+                                                    @for($i = 0; $i < 6 - count($chunk); $i++)
+                                                        <div class="col-2">
+                                                            <img src="{{ asset('img/placeholder-texture.jpg') }}" alt="">
+                                                        </div>
+                                                    @endfor
+                                                @endif
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>

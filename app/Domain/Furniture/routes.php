@@ -14,6 +14,8 @@ Route::group(['prefix' => 'furniture', 'as' => 'furniture.'], function () {
     Route::delete('{id}', [FurnitureController::class, 'destroy'])->name('destroy');
 
     Route::delete('destroy-image/{id}', [FurnitureController::class, 'destroyImage'])->name('destroy.img');
-    Route::delete('destroy-image-mob/{id}', [FurnitureController::class, 'destroyImageMob'])->name('destroy.img.mob');
     Route::delete('destroy-file/{id}', [FurnitureController::class, 'destroyFile'])->name('destroy.file');
+
+    Route::post('store-textures/{id}', [FurnitureController::class, 'textures'])->name('store.textures');
+    Route::delete('delete-textures/{id}', [FurnitureController::class, 'destroyTexture'])->name('destroy.texture');
 });

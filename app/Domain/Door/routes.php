@@ -15,8 +15,10 @@ Route::group(['prefix' => 'doors', 'as' => 'doors.'], function () {
     Route::delete('{id}', [DoorController::class, 'destroy'])->name('destroy');
 
     Route::delete('destroy-image/{id}', [DoorController::class, 'destroyImage'])->name('destroy.img');
-    Route::delete('destroy-image-mob/{id}', [DoorController::class, 'destroyImageMob'])->name('destroy.img.mob');
     Route::delete('destroy-file/{id}', [DoorController::class, 'destroyFile'])->name('destroy.file');
+
+    Route::post('store-textures/{id}', [DoorController::class, 'textures'])->name('store.textures');
+    Route::delete('delete-textures/{id}', [DoorController::class, 'destroyTexture'])->name('destroy.texture');
 });
 
 Route::group(['prefix' => 'door-modifications', 'as' => 'door_modifications.'], function () {

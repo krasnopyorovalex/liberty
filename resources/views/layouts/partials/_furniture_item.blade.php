@@ -2,10 +2,10 @@
     <a href="{{ $entity->url }}">
         <div class="category-products-item">
             <div class="img hovered">
-                <picture>
-                    <source media="(max-width: 670px)" srcset="{{ $entity->image_mob }}">
-                    <img src="{{ asset($entity->image) }}">
-                </picture>
+                @if($entity->image)
+                    <source media="(max-width: 670px)" srcset="{{ $entity->getMobileImage() }}">
+                    <img src="{{ $entity->getDesktopImage() }}" alt="{{ $entity->name }}">
+                @endif
             </div>
             <div class="info flex">
                 <div class="name">{{ $entity->name }}</div>
