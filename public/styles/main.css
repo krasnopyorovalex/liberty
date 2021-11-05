@@ -5330,7 +5330,7 @@ footer .footer-first-col {
 }
 
 footer .footer-first-col > div img {
-  width: auto;
+  width: 100%;
 }
 
 footer .footer-first-col .copyright {
