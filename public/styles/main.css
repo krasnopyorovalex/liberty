@@ -7675,14 +7675,6 @@ footer .footer-menu li + li {
     width: calc(100% - 1.875rem);
   }
 
-  .col-11 {
-    width: calc(100% - 1.875rem);
-  }
-
-  .col-10 {
-    width: calc(100% - 1.875rem);
-  }
-
   .col-10 {
     width: calc(100% - 1.875rem);
   }
@@ -9689,6 +9681,10 @@ footer .footer-menu li + li {
 
   .finishing-options .title {
     text-align: left;
+  }
+
+  .finishing-options .col-2 {
+    width: calc(50% - 1.875rem);
   }
 
   .finishing-options-item {
