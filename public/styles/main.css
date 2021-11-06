@@ -9056,6 +9056,14 @@ footer .footer-menu li + li {
     font-size: 15px;
   }
 
+  .breadcrumbs ul li {
+    margin: 0 0 0 10px;
+  }
+
+  .breadcrumbs ul li:after {
+    margin: 0 0 0 14px;
+  }
+
   .breadcrumbs-p-o .breadcrumbs {
     margin: 15px auto 15px 15px;
   }
