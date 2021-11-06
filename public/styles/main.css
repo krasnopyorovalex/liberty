@@ -9558,6 +9558,10 @@ footer .footer-menu li + li {
     margin: 30px 0 0 0;
   }
 
+  .colors .col-2 {
+    width: calc(50% - 1.875rem);
+  }
+
   .colors-col:nth-child(n + 4) {
     margin-top: 15px;
   }
@@ -9681,10 +9685,6 @@ footer .footer-menu li + li {
 
   .finishing-options .title {
     text-align: left;
-  }
-
-  .finishing-options .col-2 {
-    width: calc(50% - 1.875rem);
   }
 
   .finishing-options-item {
