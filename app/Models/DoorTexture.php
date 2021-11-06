@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property string $path
@@ -17,4 +18,9 @@ class DoorTexture extends Model
     public $timestamps = false;
 
     protected $guarded = [];
+
+    public function door(): BelongsTo
+    {
+        return $this->belongsTo(Door::class);
+    }
 }

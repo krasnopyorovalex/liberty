@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Door\Commands;
 
+use App\Services\UploadImagesService;
 use Domain\Door\Queries\GetDoorByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Storage;
@@ -37,16 +38,18 @@ class DeleteDoorCommand
      */
     public function handle(): bool
     {
-        $Door = $this->dispatch(new GetDoorByIdQuery($this->id));
+        $door = $this->dispatch(new GetDoorByIdQuery($this->id));
 
-        if ($Door->image) {
-            Storage::delete(str_replace('/storage/', '/public/', $Door->image));
+        if ($door->image) {
+            Storage::delete(str_replace('/storage/', '/public/', $door->image));
+            Storage::delete(str_replace('/storage/', '/public/', filename_replacer($door->image, UploadImagesService::DESKTOP_POSTFIX)));
+            Storage::delete(str_replace('/storage/', '/public/', filename_replacer($door->image, UploadImagesService::MOBILE_POSTFIX)));
         }
 
-        if ($Door->image_mob) {
-            Storage::delete(str_replace('/storage/', '/public/', $Door->image_mob));
+        if ($door->file) {
+            Storage::delete(str_replace('/storage/', '/public/', $door->file));
         }
 
-        return $Door->delete();
+        return $door->delete();
     }
 }

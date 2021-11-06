@@ -8,7 +8,7 @@
 @section('content')
 
     <a href="{{ route('admin.door_modifications.create', $door) }}" type="button" class="btn bg-primary">
-        Добавить
+        Создать на основе головной коллекции
         <i class="icon-stack-plus position-right"></i>
     </a>
 

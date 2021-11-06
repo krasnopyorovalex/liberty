@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Furniture;
+use App\Models\FurnitureHasAttributes;
 use App\Models\FurnitureTexture;
 use App\Services\UploadImagesService;
 use Domain\Author\Queries\GetAllAuthorsQuery;
@@ -23,7 +25,9 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /**
  * Class FurnitureController
@@ -66,6 +70,83 @@ class FurnitureController extends Controller
         $collections = $this->dispatch(new GetAllCollectionsQuery());
         $authors = $this->dispatch(new GetAllAuthorsQuery());
         $furnitureTypes = $this->dispatch(new GetAllFurnitureTypesQuery());
+
+        /*
+         * к сожалению, времени не было реализовать нормально,
+         * поэтому всю бизнес-логику копирования разместил в контроллере:(
+         */
+        if (request()->has('from')) {
+            $furnitureOriginal = $this->dispatch(new GetFurnitureByIdQuery((int) request('from')));
+            $furnitureCopy = $furnitureOriginal->replicate()->fill([
+                'alias' => $furnitureOriginal->alias . '-' . Str::random(4)
+            ]);
+
+            if ($furnitureOriginal->image) {
+                $furnitureCopy->image = str_replace(pathinfo($furnitureOriginal->image, PATHINFO_FILENAME), Str::random(40), $furnitureOriginal->image);
+
+                File::copy(
+                    storage_path('app'.str_replace('/storage/', '/public/', $furnitureOriginal->image)),
+                    storage_path('app'.str_replace('/storage/', '/public/', $furnitureCopy->image))
+                );
+
+                $this->imagesService->createDesktopImage($furnitureCopy->image, Furniture::WIDTH, Furniture::HEIGHT);
+                $this->imagesService->createMobileImage($furnitureCopy->image, Furniture::WIDTH_MOBILE, Furniture::HEIGHT_MOBILE);
+            }
+
+            if ($furnitureOriginal->file) {
+                $furnitureCopy->file = str_replace(pathinfo($furnitureOriginal->file, PATHINFO_FILENAME), Str::random(40), $furnitureOriginal->file);
+
+                File::copy(
+                    storage_path('app'.str_replace('/storage/', '/public/', $furnitureOriginal->file)),
+                    storage_path('app'.str_replace('/storage/', '/public/', $furnitureCopy->file))
+                );
+            }
+
+            $furnitureCopy->save();
+
+            if ($furnitureOriginal->furnitureAttributes) {
+                foreach ($furnitureOriginal->furnitureAttributes as $attribute) {
+                    FurnitureHasAttributes::create([
+                        'furniture_id' => $furnitureCopy->id,
+                        'furniture_attribute_id' => (int) $attribute->id,
+                        'value' => (string) $attribute->pivot->value
+                    ]);
+                }
+            }
+
+            if ($furnitureOriginal->textures) {
+                foreach ($furnitureOriginal->textures as $texture) {
+                    $texture->replicate()->fill([
+                        'furniture_id' => $furnitureCopy->id,
+                        'path' => preg_replace('#/\d/#', sprintf('/%d/', $furnitureCopy->id), $texture->path)
+                    ])->save();
+                }
+
+                File::copyDirectory(
+                    sprintf('%s/%d/', storage_path('app/public/furniture-textures'), $furnitureOriginal->id),
+                    sprintf('%s/%d/', storage_path('app/public/furniture-textures'), $furnitureCopy->id)
+                );
+            }
+
+            if ($furnitureOriginal->images) {
+                foreach ($furnitureOriginal->images as $image) {
+                    $image->replicate()->fill(['furniture_id' => $furnitureCopy->id])->save();
+                }
+
+                File::copyDirectory(
+                    sprintf('%s/%d/', storage_path('app/public/furniture'), $furnitureOriginal->id),
+                    sprintf('%s/%d/', storage_path('app/public/furniture'), $furnitureCopy->id)
+                );
+            }
+
+            return view('admin.furniture.edit', [
+                'furnitureAttributes' => $furnitureAttributes,
+                'collections' => $collections,
+                'authors' => $authors,
+                'furnitureTypes' => $furnitureTypes,
+                'furniture' => $furnitureCopy->refresh()
+            ]);
+        }
 
         return view('admin.furniture.create', [
             'furnitureAttributes' => $furnitureAttributes,

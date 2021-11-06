@@ -44,6 +44,7 @@
                     <td>
                         <div>
                             <a href="{{ route('admin.furniture.edit', $furniture) }}"><i class="icon-pencil7"></i></a>
+                            <a href="{{ route('admin.furniture.create', ['from' => $furniture->id]) }}" data-popup="tooltip" title="" data-original-title="Создать мебель путем копирования {{ $furniture->name }}"><i class="icon-copy"></i></a>
                             <form method="POST" action="{{ route('admin.furniture.destroy', $furniture) }}" class="form__delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

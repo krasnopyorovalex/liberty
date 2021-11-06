@@ -31,4 +31,7 @@ Route::group(['prefix' => 'door-modifications', 'as' => 'door_modifications.'], 
     Route::get('{id}/edit', [DoorModificationController::class, 'edit'])->name('edit');
     Route::put('{id}', [DoorModificationController::class, 'update'])->name('update');
     Route::delete('{id}', [DoorModificationController::class, 'destroy'])->name('destroy');
+
+    Route::post('store-textures/{id}', [DoorModificationController::class, 'textures'])->name('store.textures');
+    Route::delete('delete-textures/{id}', [DoorModificationController::class, 'destroyTexture'])->name('destroy.texture');
 });

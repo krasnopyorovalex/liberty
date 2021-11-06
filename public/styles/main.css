@@ -5214,11 +5214,15 @@ header.active {
 
 header.is-sticky {
   background-color: rgba(88, 110, 120, 0.9);
-  top: -55px;
+  top: -65px;
 }
 
 header.is-sticky .col-socials-menu .menu-line > ul > li .submenu {
   padding-top: 34px;
+}
+
+header.is-sticky .col-socials-menu .menu-line > ul.active {
+  top: 50px;
 }
 
 header.is-sticky .socials-line {
