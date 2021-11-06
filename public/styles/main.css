@@ -9416,6 +9416,18 @@ footer .footer-menu li + li {
     padding: 16px 65px 14px 32px;
   }
 
+  .door-card-header .section-sub-title {
+    box-sizing: border-box;
+  }
+
+  .door-card-header .section-sub-title {
+    margin-right: 0;
+  }
+
+  .door-card-header .section-sub-title {
+    width: 100%;
+  }
+
   .door-card-header .section-sub-title span {
     font-size: 14px;
   }
