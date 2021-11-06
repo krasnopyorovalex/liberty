@@ -9060,6 +9060,10 @@ footer .footer-menu li + li {
     margin: 0 0 0 10px;
   }
 
+  .breadcrumbs ul li {
+    padding: 0;
+  }
+
   .breadcrumbs ul li:after {
     margin: 0 0 0 14px;
   }
