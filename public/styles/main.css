@@ -9068,6 +9068,10 @@ footer .footer-menu li + li {
     margin: 15px auto 15px 15px;
   }
 
+  .breadcrumbs-door-card .breadcrumbs ul li:first-child {
+    padding: 0 0 0 8px;
+  }
+
   .about-text-first-screen {
     top: 330px;
   }
