@@ -1,5 +1,5 @@
 <div class="main-slider">
-    <div class="owl-carousel owl-theme">
+    <div>
         @foreach($images->take(1) as $image)
         <div class="main-slider-item">
             <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
