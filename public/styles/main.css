@@ -4981,14 +4981,15 @@ header {
 }
 
 header .col-logo {
-  justify-content: center;
-  max-width: 260px;
-  margin: 0 20px 0 0;
+  justify-content: flex-end;
+  align-self: flex-start;
+  max-width: 252px;
+  margin: 0 28px 0 0;
 }
 
 header .col-logo img {
-  max-width: 148px;
-  margin: 10px 0 0 0;
+  max-width: 114px;
+  margin: 0 0 9px 0;
   transition: margin 0.3s;
 }
 
@@ -5519,12 +5520,28 @@ footer .footer-menu li + li {
   font-weight: 400;
 }
 
+.main-slider-nav-control span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 6px;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 200ms ease;
+}
+
 .main-slider-nav-control:first-child span:first-child {
   margin: 0 0 0 20px;
 }
 
 .main-slider-nav-control.active span:last-child {
-  text-decoration: underline;
+  position: relative;
+}
+
+.main-slider-nav-control.active span:last-child:after {
+  opacity: 1;
 }
 
 .main-slider-nav-control:hover {

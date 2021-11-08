@@ -34,13 +34,13 @@
 <main>
     <header class="flex">
         <div class="col-logo flex">
-            <span>Фабрика дверей и мебели</span>
             <a href="{{ route('page.show') }}">
                 <picture>
                     <source media="(max-width: 670px)" srcset="{{ asset('img/logo-mob.png') }}">
                     <img src="{{ asset('img/logo.png') }}"/>
                 </picture>
             </a>
+            <span>Фабрика дверей и мебели</span>
         </div>
         <div class="col-socials-menu">
             <div class="socials-line flex">
