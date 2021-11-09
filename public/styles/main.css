@@ -5525,7 +5525,7 @@ footer .footer-menu li + li {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 2px;
   height: 6px;
   background-color: #fff;
   opacity: 0;
