@@ -120,7 +120,7 @@
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
                                                                 <a href="{{ $door->parent->url }}">
-                                                                    <img src="{{ asset(is_mobile() ? $door->parent->image_mob : $door->parent->image) }}" alt="{{ $door->parent->name }}">
+                                                                    <img src="{{ is_mobile() ? $door->parent->getImageMobile() : $door->parent->getImageDesktop() }}" alt="{{ $door->parent->name }}">
                                                                 </a>
                                                             </div>
                                                             <div class="name">
@@ -132,7 +132,7 @@
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
                                                                 <a href="{{ $modification->url }}">
-                                                                    <img src="{{ asset(is_mobile() ? $modification->image_mob : $modification->image) }}" alt="{{ $modification->name }}">
+                                                                    <img src="{{ asset(is_mobile() ? $modification->getImageMobile() : $modification->getImageDesktop()) }}" alt="{{ $modification->name }}">
                                                                 </a>
                                                             </div>
                                                             <div class="name">
@@ -151,7 +151,9 @@
                                                     <div class="colors-col">
                                                         @foreach($door->textures as $texture)
                                                             <div class="colors-col-item flex flex-end">
-                                                                <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                <a href="{{ asset($texture->path) }}" data-lightbox="texture-{{ $texture->id }}">
+                                                                    <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                </a>
                                                                 <div class="label">{{ $texture->label }}</div>
                                                             </div>
                                                             @if(($loop->index + 1) % 5 === 0)

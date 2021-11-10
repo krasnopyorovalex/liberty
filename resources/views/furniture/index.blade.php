@@ -120,7 +120,9 @@
                                             <div class="row">
                                                 @foreach($chunk as $texture)
                                                     <div class="col-2">
-                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                        <a href="{{ asset($texture->path) }}" data-lightbox="texture-{{ $texture->id }}">
+                                                            <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                        </a>
                                                     </div>
                                                 @endforeach
                                                 @if(count($chunk) < 6)
