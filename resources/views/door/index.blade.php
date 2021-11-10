@@ -149,6 +149,25 @@
                                             <div class="col-12">
                                                 <div class="colors flex flex-start">
                                                     <div class="colors-col">
+                                                        @foreach($door->textures as $texture)
+                                                            <div class="colors-col-item flex flex-end">
+                                                                <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                <div class="label">{{ $texture->label }}</div>
+                                                            </div>
+                                                            @if(($loop->index + 1) % 5 === 0)
+                                                                </div>
+                                                                <div class="colors-col">
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="colors flex flex-start">
+                                                    <div class="colors-col">
                                                         @foreach($door->textures->chunk(6) as $chunk)
                                                             <div class="row">
                                                                 @foreach($chunk as $texture)
