@@ -5166,7 +5166,7 @@ header .col-socials-menu .menu-line > ul > li a.active {
 header .col-socials-menu .menu-line > ul > li .submenu {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 0;
   padding-top: 30px;
 }
