@@ -5235,7 +5235,8 @@ header.is-sticky .col-socials-menu .menu-line ul {
 }
 
 header.is-sticky .col-logo img {
-  margin: 28px 0 0 0;
+  margin: 45px 0 0 0;
+  max-width: 100px;
 }
 
 .first-screen-about {
