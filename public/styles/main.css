@@ -5220,6 +5220,7 @@ header.is-sticky {
 
 header.is-sticky .col-socials-menu .menu-line > ul > li .submenu {
   padding-top: 34px;
+  top: 19px;
 }
 
 header.is-sticky .col-socials-menu .menu-line > ul.active {
