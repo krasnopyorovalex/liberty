@@ -120,7 +120,7 @@
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
                                                                 <a href="{{ $door->parent->url }}">
-                                                                    <img src="{{ is_mobile() ? $door->parent->getImageMobile() : $door->parent->getImageDesktop() }}" alt="{{ $door->parent->name }}">
+                                                                    <img src="{{ is_mobile() ? $door->parent->getMobileImage() : $door->parent->getDesktopImage() }}" alt="{{ $door->parent->name }}">
                                                                 </a>
                                                             </div>
                                                             <div class="name">
@@ -132,7 +132,7 @@
                                                         <div class="door-card-options-item active">
                                                             <div class="img">
                                                                 <a href="{{ $modification->url }}">
-                                                                    <img src="{{ asset(is_mobile() ? $modification->getImageMobile() : $modification->getImageDesktop()) }}" alt="{{ $modification->name }}">
+                                                                    <img src="{{ asset(is_mobile() ? $modification->getMobileImage() : $modification->getDesktopImage()) }}" alt="{{ $modification->name }}">
                                                                 </a>
                                                             </div>
                                                             <div class="name">
