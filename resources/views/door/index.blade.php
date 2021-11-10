@@ -165,31 +165,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="colors flex flex-start">
-                                                    <div class="colors-col">
-                                                        @foreach($door->textures->chunk(6) as $chunk)
-                                                            <div class="row">
-                                                                @foreach($chunk as $texture)
-                                                                    <div class="col-2">
-                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
-                                                                    </div>
-                                                                @endforeach
-                                                                @if(count($chunk) < 6)
-                                                                    @for($i = 0; $i < 6 - count($chunk); $i++)
-                                                                        <div class="col-2">
-                                                                            <img src="{{ asset('img/placeholder-texture.jpg') }}" alt="">
-                                                                        </div>
-                                                                    @endfor
-                                                                @endif
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div>
                                         <div class="door-card-options">
