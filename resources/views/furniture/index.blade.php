@@ -120,7 +120,7 @@
                                             <div class="row">
                                                 @foreach($chunk as $texture)
                                                     <div class="col-2">
-                                                        <a href="{{ asset($texture->path) }}" data-lightbox="texture-{{ $texture->id }}">
+                                                        <a href="{{ asset($texture->path) }}" data-lightbox="textures">
                                                             <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                         </a>
                                                     </div>

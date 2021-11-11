@@ -151,7 +151,7 @@
                                                     <div class="colors-col">
                                                         @foreach($door->textures as $texture)
                                                             <div class="colors-col-item flex flex-end">
-                                                                <a href="{{ asset($texture->path) }}" data-lightbox="texture-{{ $texture->id }}">
+                                                                <a href="{{ asset($texture->path) }}" data-lightbox="textures">
                                                                     <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                                 </a>
                                                                 <div class="label">{{ $texture->label }}</div>
