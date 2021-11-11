@@ -25,31 +25,32 @@
         </div>
     </div>
     <section class="favorite-list">
-        @foreach($collection as $entity)
-            @switch($entity->getTable())
-                @case('furniture')
-                    <div class="container">
-                        <div class="row flex-start">
-                            @include('layouts.partials._furniture_item', ['entity' => $entity])
-                        </div>
-                    </div>
-                @break
+        @if($favoriteCollectionDto->furniture)
+            <div class="container">
+                <div class="row flex-start">
+                    @foreach($favoriteCollectionDto->furniture as $furniture)
+                        @include('layouts.partials._furniture_item', ['entity' => $entity])
+                    @endforeach
+                </div>
+            </div>
+        @endif
 
-                @case('doors')
-                    <div class="container">
-                        <div class="row flex-start">
-                            <div class="col-4">
-                                @include('layouts.partials._door_item', ['entity' => $entity])
-                            </div>
-                        </div>
-                    </div>
-                @break
+        @if($favoriteCollectionDto->doors)
+            <div class="container">
+                <div class="row flex-start">
+                    @foreach($favoriteCollectionDto->doors as $door)
+                        @include('layouts.partials._door_item', ['entity' => $door])
+                    @endforeach
+                </div>
+            </div>
+        @endif
 
-                @default
-                    <section class="interior-projects">
-                        @include('layouts.partials._portfolio_item', ['entity' => $entity])
-                    </section>
-            @endswitch
-        @endforeach
+        @if($favoriteCollectionDto->portfolio)
+            @foreach($favoriteCollectionDto->portfolio as $portfolio)
+                <section class="interior-projects">
+                    @include('layouts.partials._portfolio_item', ['entity' => $portfolio])
+                </section>
+            @endforeach
+        @endif
     </section>
 @endsection
