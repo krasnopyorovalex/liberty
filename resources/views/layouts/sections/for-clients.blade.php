@@ -6,7 +6,7 @@
             <span></span>
             <div class="decoration-line wow slideInLeft"></div>
         </div>
-        <div class="accordion-info flex flex-start">
+        <div class="accordion-info">
             {!! $forClient->text !!}
         </div>
     @endforeach
