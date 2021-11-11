@@ -25,16 +25,6 @@
         </div>
     </div>
     <section class="favorite-list">
-        @if($favoriteCollectionDto->furniture)
-            <div class="container">
-                <div class="row flex-start">
-                    @foreach($favoriteCollectionDto->furniture as $furniture)
-                        @include('layouts.partials._furniture_item', ['entity' => $furniture])
-                    @endforeach
-                </div>
-            </div>
-        @endif
-
         @if($favoriteCollectionDto->doors)
             <div class="container">
                 <div class="row flex-start">
@@ -42,6 +32,16 @@
                         <div class="col-4">
                             @include('layouts.partials._door_item', ['entity' => $door])
                         </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
+        @if($favoriteCollectionDto->furniture)
+            <div class="container">
+                <div class="row flex-start">
+                    @foreach($favoriteCollectionDto->furniture as $furniture)
+                        @include('layouts.partials._furniture_item', ['entity' => $furniture])
                     @endforeach
                 </div>
             </div>
