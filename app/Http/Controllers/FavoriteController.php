@@ -34,15 +34,21 @@ class FavoriteController extends Controller
         foreach ($this->favorite->list() as $favorite) {
             $instance = (new \ReflectionClass($favorite->entity_class))->newInstance();
 
+            $record = $instance::where('id', $favorite->entity_id)->first();
+
+            if (!$record) {
+                continue;
+            }
+
             switch ($favorite->entity_class) {
                 case (Door::class):
-                    $favoriteCollectionDto->doors[] = $instance::where('id', $favorite->entity_id)->first();
+                    $favoriteCollectionDto->doors[] = $record;
                     break;
                 case (Furniture::class):
-                    $favoriteCollectionDto->furniture[] = $instance::where('id', $favorite->entity_id)->first();
+                    $favoriteCollectionDto->furniture[] = $record;
                     break;
                 default:
-                    $favoriteCollectionDto->portfolio[] = $instance::where('id', $favorite->entity_id)->first();
+                    $favoriteCollectionDto->portfolio[] = $record;
             }
         }
 
