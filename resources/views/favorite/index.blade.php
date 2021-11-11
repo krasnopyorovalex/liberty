@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="row flex-start">
                     @foreach($favoriteCollectionDto->furniture as $furniture)
-                        @include('layouts.partials._furniture_item', ['entity' => $entity])
+                        @include('layouts.partials._furniture_item', ['entity' => $furniture])
                     @endforeach
                 </div>
             </div>
