@@ -214,8 +214,8 @@
                                 <div class="doors-cards-item">
                                     <div class="doors-cards-item-img">
                                         <picture>
-                                            <source media="(max-width: 670px)" srcset="{{ $anotherProject->image_mob }}">
-                                            <img src="{{ asset($anotherProject->image) }}">
+                                            <source media="(max-width: 670px)" srcset="{{ $anotherProject->getMobileImage() }}">
+                                            <img src="{{ asset($anotherProject->getDesktopImage()) }}">
                                         </picture>
                                         <div class="decoration-line wow slideInLeft"></div>
                                     </div>
