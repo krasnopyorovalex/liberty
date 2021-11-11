@@ -38,6 +38,7 @@
         @endif
 
         @if($favoriteCollectionDto->furniture)
+            <br /><br />
             <div class="container">
                 <div class="row flex-start">
                     @foreach($favoriteCollectionDto->furniture as $furniture)
