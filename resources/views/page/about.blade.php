@@ -44,7 +44,7 @@
         <iframe width="100%" height="{{ is_mobile() ? '500' : '827' }}" src="https://www.youtube.com/embed/7UNIwBtYEDE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 
-    @include('layouts.sections.about-blocks', ['css' => 'about-company-slider with-arrows owl-carousel owl-theme'])
+    @include('layouts.sections.about-blocks', ['css' => 'why-choose-us-slider with-arrows owl-carousel owl-theme'])
     @include('layouts.sections.employees')
 
     <div class="section-header">
