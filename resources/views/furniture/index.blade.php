@@ -211,8 +211,8 @@
                         </div>
                         <div class="doors-cards">
                             @foreach($anotherProjects as $anotherProject)
-                                <a href="{{ $anotherProject->url }}">
-                                    <div class="doors-cards-item">
+                                <div class="doors-cards-item">
+                                    <a href="{{ $anotherProject->url }}">
                                         <div class="doors-cards-item-img">
                                             <picture>
                                                 <source media="(max-width: 670px)" srcset="{{ $anotherProject->getMobileImage() }}">
@@ -226,8 +226,8 @@
                                                 <div class="cost-value">{!! $anotherProject->getPrice() !!}</div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                     </div>
