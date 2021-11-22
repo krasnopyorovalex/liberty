@@ -211,21 +211,23 @@
                         </div>
                         <div class="doors-cards">
                             @foreach($anotherProjects as $anotherProject)
-                                <div class="doors-cards-item">
-                                    <div class="doors-cards-item-img">
-                                        <picture>
-                                            <source media="(max-width: 670px)" srcset="{{ $anotherProject->getMobileImage() }}">
-                                            <img src="{{ asset($anotherProject->getDesktopImage()) }}">
-                                        </picture>
-                                        <div class="decoration-line wow slideInLeft"></div>
-                                    </div>
-                                    <div class="doors-cards-item-info flex">
-                                        <div class="doors-cards-item-info-title">{{ $anotherProject->name }}</div>
-                                        <div class="doors-cards-item-info-cost">
-                                            <div class="cost-value">{!! $anotherProject->getPrice() !!}</div>
+                                <a href="{{ $anotherProject->url }}">
+                                    <div class="doors-cards-item">
+                                        <div class="doors-cards-item-img">
+                                            <picture>
+                                                <source media="(max-width: 670px)" srcset="{{ $anotherProject->getMobileImage() }}">
+                                                <img src="{{ asset($anotherProject->getDesktopImage()) }}">
+                                            </picture>
+                                            <div class="decoration-line wow slideInLeft"></div>
+                                        </div>
+                                        <div class="doors-cards-item-info flex">
+                                            <div class="doors-cards-item-info-title">{{ $anotherProject->name }}</div>
+                                            <div class="doors-cards-item-info-cost">
+                                                <div class="cost-value">{!! $anotherProject->getPrice() !!}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>
