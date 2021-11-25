@@ -64,7 +64,7 @@
                 <div class="col-4">
                     <div class="employee-projects-item">
                         <div class="employee-projects-item-img hovered">
-                            <a href="{{ $furniture->url }}">
+                            <a href="{{ $furniture->url }}" class="image-link">
                                 <picture>
                                     <source media="(max-width: 670px)" srcset="{{ $furniture->getMobileImage() }}">
                                     <img src="{{ asset($furniture->getDesktopImage()) }}">
