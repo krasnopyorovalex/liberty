@@ -64,10 +64,12 @@
                 <div class="col-4">
                     <div class="employee-projects-item">
                         <div class="employee-projects-item-img hovered">
-                            <picture>
-                                <source media="(max-width: 670px)" srcset="{{ $furniture->getMobileImage() }}">
-                                <img src="{{ asset($furniture->getDesktopImage()) }}">
-                            </picture>
+                            <a href="{{ $furniture->url }}">
+                                <picture>
+                                    <source media="(max-width: 670px)" srcset="{{ $furniture->getMobileImage() }}">
+                                    <img src="{{ asset($furniture->getDesktopImage()) }}">
+                                </picture>
+                            </a>
                         </div>
                         <div class="employee-projects-item-info uppercase">
                             <a href="{{ $furniture->url }}">{{ $furniture->name }}</a>
