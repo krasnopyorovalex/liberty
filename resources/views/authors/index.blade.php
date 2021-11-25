@@ -65,8 +65,8 @@
                     <div class="employee-projects-item">
                         <div class="employee-projects-item-img hovered">
                             <picture>
-                                <source media="(max-width: 670px)" srcset="{{ $furniture->image_mob }}">
-                                <img src="{{ asset($furniture->image) }}">
+                                <source media="(max-width: 670px)" srcset="{{ $furniture->getMobileImage() }}">
+                                <img src="{{ asset($furniture->getDesktopImage()) }}">
                             </picture>
                         </div>
                         <div class="employee-projects-item-info uppercase">
