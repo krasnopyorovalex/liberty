@@ -32,7 +32,7 @@ class GetNextPrevFurnitureQuery
             ->first();
 
         if (!$nextPrevDto->prev) {
-            $nextPrevDto->next = Furniture::where('collection_id', $this->furniture->collection_id)
+            $nextPrevDto->prev = Furniture::where('collection_id', $this->furniture->collection_id)
                 ->orderBy('id','asc')
                 ->first();
         }
