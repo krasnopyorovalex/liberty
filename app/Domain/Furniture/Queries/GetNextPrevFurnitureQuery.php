@@ -26,12 +26,12 @@ class GetNextPrevFurnitureQuery
     {
         $nextPrevDto = new NextPrevDto();
 
-        $nextPrevDto->next = Furniture::where('id', '>', $this->furniture->id)
+        $nextPrevDto->prev = Furniture::where('id', '>', $this->furniture->id)
             ->where('collection_id', $this->furniture->collection_id)
             ->orderBy('id','asc')
             ->first();
 
-        $nextPrevDto->prev = Furniture::where('id', '<', $this->furniture->id)
+        $nextPrevDto->next = Furniture::where('id', '<', $this->furniture->id)
             ->where('collection_id', $this->furniture->collection_id)
             ->orderBy('id','desc')
             ->first();
