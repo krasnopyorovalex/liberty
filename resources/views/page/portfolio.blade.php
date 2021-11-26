@@ -41,7 +41,12 @@
     <div class="breadcrumbs">
         <ul>
             <li><a href="{{ route('page.show') }}">Главная</a></li>
-            <li>{{ $page->name }}</li>
+            @if(request()->has('type'))
+                <li>{{ $page->name }}</li>
+                <li></li>
+            @else
+                <li>{{ $page->name }}</li>
+            @endif
         </ul>
     </div>
 
@@ -62,7 +67,7 @@
                         <div class="row">
                             @foreach($portfolioTypes as $portfolioType)
                             <div class="col-3">
-                                <div class="interior-categories-box-item hovered">
+                                <div class="interior-categories-box-item hovered {{ request('type') === $portfolioType->id ? 'active' : '' }}">
                                     <a href="{{ request()->url() }}?type={{ $portfolioType->id }}">{{ $portfolioType->name }}</a>
                                 </div>
                             </div>

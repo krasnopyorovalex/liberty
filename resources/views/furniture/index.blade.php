@@ -22,6 +22,7 @@
                 <div class="breadcrumbs">
                     <ul>
                         <li><a href="{{ route('page.show') }}">Главная</a></li>
+                        <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}">Мебель</a></li>
                         <li><a href="{{ $furniture->collection->url }}">{{ strip_tags($furniture->collection->name) }}</a></li>
                         <li>{{ $furniture->name }}</li>
                     </ul>
