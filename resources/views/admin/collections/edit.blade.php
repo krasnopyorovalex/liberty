@@ -89,8 +89,8 @@
                                     <div class="type-select-box">
                                         <label for="type-select">Выберите для каких устройств загружаем изображения</label>
                                         <select name="type" id="type-select" class="form-control border-blue border-xs select-search">
-                                            <option value="0">Компьютеры</option>
-                                            <option value="1">Мобильные</option>
+                                            <option value="0">Компьютеры(1920x784px)</option>
+                                            <option value="1">Мобильные(370x670px)</option>
                                         </select>
                                     </div>
                                 </div>
