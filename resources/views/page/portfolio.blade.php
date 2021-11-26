@@ -67,7 +67,7 @@
                         <div class="row">
                             @foreach($portfolioTypes as $portfolioType)
                             <div class="col-3">
-                                <div class="interior-categories-box-item hovered {{ request('type') === $portfolioType->id ? 'active' : '' }}">
+                                <div class="interior-categories-box-item hovered {{ request('type') == $portfolioType->id ? 'active' : '' }}">
                                     <a href="{{ request()->url() }}?type={{ $portfolioType->id }}">{{ $portfolioType->name }}</a>
                                 </div>
                             </div>
