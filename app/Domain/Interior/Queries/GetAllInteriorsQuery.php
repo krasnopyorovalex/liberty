@@ -17,6 +17,12 @@ class GetAllInteriorsQuery
      */
     public function handle()
     {
-        return Interior::with(['interiorType'])->get();
+        $query = Interior::with(['interiorType']);
+
+        if (request()->has('type')) {
+            $query->where('interior_type_id', request('type'));
+        }
+
+        return $query->get();
     }
 }
