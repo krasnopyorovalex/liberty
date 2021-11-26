@@ -9,18 +9,14 @@ use App\Models\Furniture;
 
 class GetNextPrevFurnitureQuery
 {
-    /**
-     * @var int
-     */
-    private int $id;
+    private Furniture $furniture;
 
     /**
-     * GetFurnitureByIdQuery constructor.
-     * @param int $id
+     * @param Furniture $furniture
      */
-    public function __construct(int $id)
+    public function __construct(Furniture $furniture)
     {
-        $this->id = $id;
+        $this->furniture = $furniture;
     }
 
     /**
@@ -30,8 +26,15 @@ class GetNextPrevFurnitureQuery
     {
         $nextPrevDto = new NextPrevDto();
 
-        $nextPrevDto->next = Furniture::where('id', '>', $this->id)->orderBy('id','asc')->first();
-        $nextPrevDto->prev = Furniture::where('id', '<', $this->id)->orderBy('id','desc')->first();
+        $nextPrevDto->next = Furniture::where('id', '>', $this->furniture->id)
+            ->where('collection_id', $this->furniture->collection_id)
+            ->orderBy('id','asc')
+            ->first();
+
+        $nextPrevDto->prev = Furniture::where('id', '<', $this->furniture->id)
+            ->where('collection_id', $this->furniture->collection_id)
+            ->orderBy('id','desc')
+            ->first();
 
         return $nextPrevDto;
     }
