@@ -31,6 +31,12 @@ class GetNextPrevFurnitureQuery
             ->orderBy('id','asc')
             ->first();
 
+        if (!$nextPrevDto->prev) {
+            $nextPrevDto->next = Furniture::where('collection_id', $this->furniture->collection_id)
+                ->orderBy('id','asc')
+                ->first();
+        }
+
         $nextPrevDto->next = Furniture::where('id', '<', $this->furniture->id)
             ->where('collection_id', $this->furniture->collection_id)
             ->orderBy('id','desc')
