@@ -65,7 +65,7 @@ class Furniture extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(FurnitureImage::class)->where('is_mobile', '0')->orderBy('pos');
+        return $this->hasMany(FurnitureImage::class)->orderBy('pos');
     }
 
     public function textures(): HasMany

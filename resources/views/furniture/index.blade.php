@@ -66,7 +66,7 @@
                     <div class="col-6">
                         <div class="door-card-gallery-box">
                             <div class="door-card-gallery owl-carousel owl-theme">
-                                @foreach($furniture->getImages() as $image)
+                                @foreach($furniture->images as $image)
                                     <div class="door-card-gallery-item">
                                         <a href="{{ $image->getPath() }}" data-lightbox="gallery">
                                             <picture>

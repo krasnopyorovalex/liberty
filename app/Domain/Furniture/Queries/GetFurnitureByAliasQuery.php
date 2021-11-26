@@ -31,6 +31,6 @@ class GetFurnitureByAliasQuery
      */
     public function handle()
     {
-        return Furniture::with(['collection', 'furnitureAttributes'])->where('alias', $this->alias)->firstOrFail();
+        return Furniture::with(['collection', 'furnitureAttributes', 'images'])->where('alias', $this->alias)->firstOrFail();
     }
 }
