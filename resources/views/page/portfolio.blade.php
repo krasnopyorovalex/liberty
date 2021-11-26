@@ -43,7 +43,7 @@
             <li><a href="{{ route('page.show') }}">Главная</a></li>
             @if(request()->has('type'))
                 <li>{{ $page->name }}</li>
-                <li></li>
+                <li>{{ $portfolioTypes->firstWhere('id', request()->get('type'))->name }}</li>
             @else
                 <li>{{ $page->name }}</li>
             @endif
