@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Traits\AutoAliasTrait;
-use App\Models\Traits\Images;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,7 +26,6 @@ class Interior extends Model
 {
     use HasFactory;
     use AutoAliasTrait;
-    use Images;
 
     public const STORE_PATH = 'public/interiors';
 
@@ -43,12 +41,7 @@ class Interior extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(InteriorImage::class)->where('is_mobile', '0')->orderBy('pos');
-    }
-
-    public function imagesForMobile(): HasMany
-    {
-        return $this->hasMany(InteriorImage::class)->where('is_mobile', '1')->orderBy('pos');
+        return $this->hasMany(InteriorImage::class)->orderBy('pos');
     }
 
     public function interiorType(): BelongsTo

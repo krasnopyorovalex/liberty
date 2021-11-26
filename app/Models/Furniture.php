@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Traits\AutoAliasTrait;
-use App\Models\Traits\Images;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,7 +26,6 @@ class Furniture extends Model
 {
     use AutoAliasTrait;
     use HasFactory;
-    use Images;
 
     public const STORE_PATH = 'public/furniture';
 
@@ -71,11 +69,6 @@ class Furniture extends Model
     public function textures(): HasMany
     {
         return $this->hasMany(FurnitureTexture::class, 'furniture_id');
-    }
-
-    public function imagesForMobile(): HasMany
-    {
-        return $this->hasMany(FurnitureImage::class)->where('is_mobile', '1')->orderBy('pos');
     }
 
     public function furnitureInteriorSlider(): HasOne
