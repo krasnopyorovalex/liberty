@@ -138,6 +138,6 @@ class Furniture extends Model
      */
     public function getPrice(): string
     {
-        return sprintf('%s Р', number_format($this->price, 0, '.', ' '));
+        return sprintf('%s ₽', number_format($this->price, 0, '.', ' '));
     }
 }
