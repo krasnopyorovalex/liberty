@@ -40,7 +40,7 @@
         <div class="digits">
             <span>1</span>/{{ $portfolio->getImages()->count() }}
             @if($isFavorite)
-                <div class="favorite-action" data-action="{{ route('favorite.remove', $portfolio) }}" data-entity="{{ get_class($portfolio) }}">
+                <div class="favorite-action is-favorite" data-action="{{ route('favorite.remove', $portfolio) }}" data-entity="{{ get_class($portfolio) }}">
                     {{ svg('favorite-active') }}
                 </div>
             @else

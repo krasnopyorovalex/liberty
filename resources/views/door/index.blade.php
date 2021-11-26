@@ -84,7 +84,7 @@
                                 @endforeach
                             </div>
                             @if($isFavorite)
-                                <div class="favorite-action" data-action="{{ route('favorite.remove', $door) }}" data-entity="{{ get_class($door) }}">
+                                <div class="favorite-action is-favorite" data-action="{{ route('favorite.remove', $door) }}" data-entity="{{ get_class($door) }}">
                                     {{ svg('favorite-active') }}
                                 </div>
                             @else

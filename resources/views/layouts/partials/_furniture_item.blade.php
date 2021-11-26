@@ -14,7 +14,7 @@
         </div>
     </a>
     @if(request()->path() === 'favorite')
-    <div class="favorite-action" data-action="{{ route('favorite.remove', $entity) }}" data-entity="{{ get_class($entity) }}">
+    <div class="favorite-action is-favorite" data-action="{{ route('favorite.remove', $entity) }}" data-entity="{{ get_class($entity) }}">
         {{ svg('favorite-active') }}
     </div>
     @endif
