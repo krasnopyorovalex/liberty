@@ -97,5 +97,6 @@
             @include('layouts.partials._portfolio_item', ['entity' => $interior])
         @endforeach
         </section>
+        <br/><br/>
     @endif
 @endsection
