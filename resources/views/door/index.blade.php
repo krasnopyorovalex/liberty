@@ -106,7 +106,7 @@
                         <div class="tabs-flex-column flex">
                             <div class="tabs">
                                 <ul>
-                                    <li class="active">Раскладки</li>
+                                    <li class="active">Модели</li>
                                     <li>Отделки</li>
                                     <li>Наличники</li>
                                     <li>В интерьере</li>
