@@ -21,12 +21,14 @@
                         <picture>
                             <img src="{{ asset($image->getPath()) }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                         </picture>
+                        @if($image->text || $image->name)
                         <div class="main-slider-item-desc">
                             <div class="door-card-slider-text">
                                 <h1 class="uppercase">{{ $image->name }}</h1>
                                 <p>{{ $image->text }}</p>
                             </div>
                         </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
