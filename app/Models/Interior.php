@@ -43,7 +43,12 @@ class Interior extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(InteriorImage::class)->orderBy('pos');
+        return $this->hasMany(InteriorImage::class)->where('is_mobile', '0')->orderBy('pos');
+    }
+
+    public function imagesForMobile(): HasMany
+    {
+        return $this->hasMany(InteriorImage::class)->where('is_mobile', '1')->orderBy('pos');
     }
 
     public function interiorType(): BelongsTo
