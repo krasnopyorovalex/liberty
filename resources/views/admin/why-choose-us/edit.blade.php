@@ -45,7 +45,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $whyChooseUs, 'label' => 'Выберите изображение на компьютере'])
+                                    @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $whyChooseUs, 'label' => 'Выберите изображение на компьютере(1920x742px)'])
                                 </div>
                                 <div class="col-md-6 image__box-a">
                                     @if ($whyChooseUs->image_mob)
@@ -59,7 +59,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $whyChooseUs, 'label' => 'Выберите изображение на компьютере для мобильных устройств'])
+                                    @imageInput(['name' => 'image_mob', 'type' => 'file', 'entity' => $whyChooseUs, 'label' => 'Выберите изображение на компьютере для мобильных устройств(360x600px)'])
                                 </div>
                             </div>
                             @submit_btn()
