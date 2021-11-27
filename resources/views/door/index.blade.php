@@ -1,4 +1,4 @@
-@extends('layouts.app', ['className' => 'first-screen sub-page'])
+@extends('layouts.app', ['className' => 'first-screen sub-page door-first-screen'])
 
 @section('title', $door->title)
 @section('description', $door->description)
