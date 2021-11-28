@@ -66,16 +66,19 @@
                 <div class="row flex-stretch">
                     <div class="col-6">
                         <div class="door-card-gallery-box">
+                            <div class="hidden for-lightbox">
+                                @foreach($furniture->images as $image)
+                                    <a href="{{ $image->getPath() }}" data-lightbox="gallery">&nbsp;</a>
+                                @endforeach
+                            </div>
                             <div class="door-card-gallery owl-carousel owl-theme">
                                 @foreach($furniture->images as $image)
-                                    <div class="door-card-gallery-item">
-                                        <a href="{{ $image->getPath() }}" data-lightbox="gallery">
-                                            <picture>
-                                                <source media="(max-width: 670px)" srcset="{{ $image->getMobileImage() }}">
-                                                <img src="{{ $image->getDesktopImage() }}" alt="{{ $image->name }}">
-                                            </picture>
-                                            {{ svg('zoom-in') }}
-                                        </a>
+                                    <div class="door-card-gallery-item for-lightbox-item" data-original="{{ $image->getPath() }}">
+                                        <picture>
+                                            <source media="(max-width: 670px)" srcset="{{ $image->getMobileImage() }}">
+                                            <img src="{{ $image->getDesktopImage() }}" alt="{{ $image->name }}">
+                                        </picture>
+                                        {{ svg('zoom-in') }}
                                     </div>
                                 @endforeach
                             </div>
