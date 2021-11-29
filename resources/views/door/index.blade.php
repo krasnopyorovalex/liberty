@@ -153,8 +153,8 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="colors flex flex-start">
-                                                    <div class="colors-col">
                                                         @if(is_mobile())
+                                                        <div class="colors-col">
                                                             @foreach($door->textures as $texture)
                                                                 <div class="colors-col-item flex flex-end">
                                                                     <a href="{{ asset($texture->path) }}" data-lightbox="textures">
@@ -163,7 +163,9 @@
                                                                     <div class="label">{{ $texture->label }}</div>
                                                                 </div>
                                                             @endforeach
+                                                        </div>
                                                         @else
+                                                        <div class="colors-col">
                                                             @foreach($door->textures as $texture)
                                                                 <div class="colors-col-item flex flex-end">
                                                                     <a href="{{ asset($texture->path) }}" data-lightbox="textures">
@@ -176,6 +178,7 @@
                                                                     <div class="colors-col">
                                                                 @endif
                                                             @endforeach
+                                                                    </div>
                                                         @endif
                                                     </div>
                                                 </div>
