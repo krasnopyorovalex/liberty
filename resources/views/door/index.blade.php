@@ -153,24 +153,19 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="colors flex flex-start">
-                                                        @if(is_mobile())
-
-                                                        @else
-                                                        <div class="colors-col">
-                                                            @foreach($door->textures as $texture)
-                                                                <div class="colors-col-item flex flex-end">
-                                                                    <a href="{{ asset($texture->path) }}" data-lightbox="textures">
-                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
-                                                                    </a>
-                                                                    <div class="label">{{ $texture->label }}</div>
+                                                    <div class="colors-col">
+                                                        @foreach($door->textures as $texture)
+                                                            <div class="colors-col-item flex flex-end">
+                                                                <a href="{{ asset($texture->path) }}" data-lightbox="textures">
+                                                                    <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                </a>
+                                                                <div class="label">{{ $texture->label }}</div>
+                                                            </div>
+                                                            @if(($loop->index + 1) % 5 === 0)
                                                                 </div>
-                                                                @if(($loop->index + 1) % 5 === 0)
-                                                                    </div>
-                                                                    <div class="colors-col">
-                                                                @endif
-                                                            @endforeach
-                                                                    </div>
-                                                        @endif
+                                                                <div class="colors-col">
+                                                            @endif
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
