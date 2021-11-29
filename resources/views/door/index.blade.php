@@ -154,18 +154,29 @@
                                             <div class="col-12">
                                                 <div class="colors flex flex-start">
                                                     <div class="colors-col">
-                                                        @foreach($door->textures as $texture)
-                                                            <div class="colors-col-item flex flex-end">
-                                                                <a href="{{ asset($texture->path) }}" data-lightbox="textures">
-                                                                    <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
-                                                                </a>
-                                                                <div class="label">{{ $texture->label }}</div>
-                                                            </div>
-                                                            @if(($loop->index + 1) % 5 === 0)
+                                                        @if(is_mobile())
+                                                            @foreach($door->textures as $texture)
+                                                                <div class="colors-col-item flex flex-end">
+                                                                    <a href="{{ asset($texture->path) }}" data-lightbox="textures">
+                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                    </a>
+                                                                    <div class="label">{{ $texture->label }}</div>
                                                                 </div>
-                                                                <div class="colors-col">
-                                                            @endif
-                                                        @endforeach
+                                                            @endforeach
+                                                        @else
+                                                            @foreach($door->textures as $texture)
+                                                                <div class="colors-col-item flex flex-end">
+                                                                    <a href="{{ asset($texture->path) }}" data-lightbox="textures">
+                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                    </a>
+                                                                    <div class="label">{{ $texture->label }}</div>
+                                                                </div>
+                                                                @if(($loop->index + 1) % 5 === 0)
+                                                                    </div>
+                                                                    <div class="colors-col">
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
