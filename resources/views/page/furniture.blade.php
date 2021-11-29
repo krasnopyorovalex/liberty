@@ -44,8 +44,13 @@
                 <div class="breadcrumbs">
                     <ul>
                         <li><a href="{{ route('page.show') }}">Главная</a></li>
-                        <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}">Мебель</a></li>
-                        <li>{{ $page->name }}</li>
+
+                        @if(request()->has('type'))
+                            <li><a href="{{ $page->url }}">{{ $page->name }}</a></li>
+                            <li>{{ $furnitureTypes->firstWhere('id', request()->get('type'))->name }}</li>
+                        @else
+                            <li>{{ $page->name }}</li>
+                        @endif
                     </ul>
                 </div>
             </div>

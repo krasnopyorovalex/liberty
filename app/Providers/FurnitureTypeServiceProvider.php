@@ -18,7 +18,8 @@ class FurnitureTypeServiceProvider extends ServiceProvider
         $this->app->make('view')->composer([
             'layouts.app',
             'layouts.sections.furniture',
-            'collections.index'
+            'collections.index',
+            'page.furniture'
         ], FurnitureTypeComposer::class);
     }
 }
