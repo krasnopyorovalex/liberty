@@ -24,7 +24,9 @@
                         <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                     </picture>
                     <div class="main-slider-item-desc">
+                        @if($image->text)
                         <p>{!! $image->text !!}</p>
+                        @endif
                         <div class="btn-main-slider-box">
                             <div class="btn call-popup" data-target="popup-recall-me">заказать звонок</div>
                         </div>
