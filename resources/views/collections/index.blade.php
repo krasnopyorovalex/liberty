@@ -50,7 +50,13 @@
                 <div class="breadcrumbs">
                     <ul>
                         <li><a href="{{ route('page.show') }}">Главная</a></li>
-                        <li>{{ strip_tags($collection->name) }}</li>
+                        <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}">Мебель</a></li>
+                        @if(request()->has('type'))
+                            <li><a href="{{ $collection->url }}">{{ strip_tags($collection->name) }}</a></li>
+                            <li>{{ $furnitureTypes->firstWhere('id', request()->get('type'))->name }}</li>
+                        @else
+                            <li>{{ strip_tags($collection->name) }}</li>
+                        @endif
                     </ul>
                 </div>
             </div>
