@@ -153,7 +153,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 @if(is_mobile())
-                                                    <div class="flex">
+                                                    <div class="flex finishing-options">
                                                         @foreach($door->textures->chunk(6) as $chunk)
                                                             <div class="row">
                                                                 @foreach($chunk as $texture)
