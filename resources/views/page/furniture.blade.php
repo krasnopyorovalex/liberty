@@ -44,6 +44,7 @@
                 <div class="breadcrumbs">
                     <ul>
                         <li><a href="{{ route('page.show') }}">Главная</a></li>
+                        <li><a href="{{ route('page.show', ['alias' => 'furniture']) }}">Мебель</a></li>
                         <li>{{ $page->name }}</li>
                     </ul>
                 </div>
