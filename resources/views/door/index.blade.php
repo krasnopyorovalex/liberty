@@ -154,7 +154,7 @@
                                             <div class="col-12">
                                                 <div class="colors flex flex-start">
                                                         @if(is_mobile())
-                                                        <div class="colors-col">
+                                                        <div class="colors-col flex">
                                                             @foreach($door->textures as $texture)
                                                                 <div class="colors-col-item flex flex-end">
                                                                     <a href="{{ asset($texture->path) }}" data-lightbox="textures">
