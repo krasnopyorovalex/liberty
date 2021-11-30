@@ -113,7 +113,7 @@
                                         </div>
                                     @endif
                                     <div class="text-left">
-                                        @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $furniture, 'label' => 'Выберите изображение на компьютере(370x500px)'])
+                                        @imageInput(['name' => 'image', 'type' => 'file', 'entity' => $furniture, 'label' => 'Выберите изображение на компьютере'])
                                     </div>
                                 </div>
                                 <div class="col-md-8 image__box-a">
