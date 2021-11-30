@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-about">
-                <div class="authors-slider owl-carousel owl-theme">
+                <div class="authors-slider owl-carousel owl-theme employee-slider">
                     @foreach($employees as $employee)
                         <div class="authors-slider-item">
                             @if($employee->image)
