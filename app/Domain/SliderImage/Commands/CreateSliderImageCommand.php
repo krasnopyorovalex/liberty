@@ -29,7 +29,9 @@ class CreateSliderImageCommand
      */
     public function handle(): bool
     {
-        $maxPosition = SliderImage::select('pos')->max('pos');
+        $maxPosition = SliderImage::select(['pos', 'slider_id'])
+            ->where('slider_id', $this->uploadImage->getEntityId())
+            ->max('pos');
 
         $sliderImage = new SliderImage();
         $sliderImage->basename = $this->uploadImage->getImageHashName();
