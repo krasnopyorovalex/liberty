@@ -50,19 +50,19 @@
             @endif
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="interior-card-slider-thumbs owl-carousel owl-theme">
-                    @foreach($portfolio->getImages() as $image)
-                        <div class="interior-card-slider-thumbs-item">
-                            <img src="{{ $image->getThumb() }}" alt="{{ $image->alt }}" data-index="{{ $loop->index }}" />
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12">--}}
+{{--                <div class="interior-card-slider-thumbs owl-carousel owl-theme">--}}
+{{--                    @foreach($portfolio->getImages() as $image)--}}
+{{--                        <div class="interior-card-slider-thumbs-item">--}}
+{{--                            <img src="{{ $image->getThumb() }}" alt="{{ $image->alt }}" data-index="{{ $loop->index }}" />--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     @include('layouts.sections.sales-leaders')
     @include('layouts.sections.why-choose-us')
 @endsection
