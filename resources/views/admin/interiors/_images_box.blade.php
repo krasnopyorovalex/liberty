@@ -4,7 +4,7 @@
             <div class="image-thumb">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <img src="{{ $image->getThumb() }}" alt="">
+                        <img src="{{ $image->getPath() }}" alt="">
                         <div class="caption-overflow">
                         <span>
                             <a href="{{ route('admin.interior_images.edit', $image) }}" data-toggle="modal" data-target="#edit-image" class="btn btn-flat border-white text-white btn-rounded btn-icon">
