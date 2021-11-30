@@ -8,7 +8,7 @@
             @endif
             <a href="{{ $author->url }}" class="author-name">{{ $author->name }}</a>
             <div class="btn-box">
-                <div class="btn">проектов {{ $author->doors_count + $author->furniture_count + $author->interiors_count }}</div>
+                <a href="{{ $author->url }}" class="btn">проектов {{ $author->doors_count + $author->furniture_count + $author->interiors_count }}</a>
             </div>
         </div>
     @endforeach
