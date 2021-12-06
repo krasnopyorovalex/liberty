@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('img/favicons/apple-touch-icon-167x167.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicons/apple-touch-icon-180x180.png') }}">
     <link rel="apple-touch-icon" sizes="1024x1024" href="{{ asset('img/favicons/apple-touch-icon-1024x1024.png') }}">
-    <link rel="stylesheet" href="{{ asset('styles/main.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/main.min.css') }}?v={{ \Illuminate\Support\Str::random() }}">
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
 </head>
 <body>
@@ -223,7 +223,7 @@
     </div>
 </div>
 
-<script src="{{ asset('js/main.min.js') }}"></script>
+<script src="{{ asset('js/main.min.js') }}?v={{ \Illuminate\Support\Str::random() }}"></script>
 <script src="{{ asset('js/vendor.min.js') }}"></script>
 </body>
 </html>
