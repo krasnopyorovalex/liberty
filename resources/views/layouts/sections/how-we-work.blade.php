@@ -6,7 +6,7 @@
             <div class="decoration-line"></div>
         </div>
     </div>
-    <div class="section-body">
+    <div class="section-body container">
         <div class="row flex-start">
             @foreach($howWeWorks as $howWeWork)
                 <div class="col-4">
