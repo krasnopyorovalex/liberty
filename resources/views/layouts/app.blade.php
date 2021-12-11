@@ -10,7 +10,7 @@
     @stack('og')
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0">
+          content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="{{ asset('img/favicons/favicon-16x16.png') }}" type="image/png">
     <link rel="icon" sizes="32x32" href="{{ asset('img/favicons/favicon-32x32.png') }}" type="image/png">
