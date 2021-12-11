@@ -31,7 +31,7 @@
                                 <div class="sales-leaders-slider-item-img-double">
                             @endif
                             <div class="sales-leaders-slider-item-img-single">
-                                <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
+                                <img class="owl-lazy" data-src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                                 <div class="decoration-line"></div>
                                 <div class="title flex">
                                     <a href="{{ $image->link }}">{{ $image->name }}</a>

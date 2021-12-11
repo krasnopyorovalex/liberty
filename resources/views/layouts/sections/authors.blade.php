@@ -3,7 +3,7 @@
         <div class="authors-slider-item">
             @if($author->image)
                 <a href="{{ $author->url }}">
-                    <img src="{{ $author->image->path }}" alt="{{ $author->image->alt }}" title="{{ $author->image->title }}" />
+                    <img class="owl-lazy" data-src="{{ $author->image->path }}" alt="{{ $author->image->alt }}" title="{{ $author->image->title }}" />
                 </a>
             @endif
             <a href="{{ $author->url }}" class="author-name">{{ $author->name }}</a>
