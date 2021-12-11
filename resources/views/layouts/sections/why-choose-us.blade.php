@@ -5,7 +5,7 @@
     </div>
     <div class="why-choose-us-slider owl-carousel owl-theme">
         @foreach($whyChooseUs as $item)
-            <div class="step-item" style="background-image: url('{{ $item->image }}')">
+            <div class="step-item" style="background-image: url('{{ is_mobile() ? $item->image_mob : $item->image }}')">
                 <div class="step-item-info">
                     <div class="step-item-info-title">
                         <span>0{{ $loop->index + 1 }}. </span>
