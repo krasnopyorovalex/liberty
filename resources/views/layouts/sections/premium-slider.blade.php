@@ -15,7 +15,7 @@
                         <source media="(max-width: 670px)" class="owl-lazy" data-srcset="{{ $sliderItem->image_mob }}">
                     @endif
                     @if($sliderItem->image)
-                        <img class="owl-lazy" data-src="{{ $sliderItem->image }}" alt="{{ $sliderItem->name }}">
+                        <img src="{{ $sliderItem->image }}" alt="{{ $sliderItem->name }}">
                     @endif
                 </picture>
                 <div class="slider-projects-item-desc">
