@@ -40,7 +40,7 @@
 
                         <div class="tab-pane" id="image">
                             @if ($employee->image)
-                                <div class="panel panel-flat border-blue border-xs" id="image__box">
+                                <div class="panel panel-flat border-blue border-xs image__box-a" id="image__box">
                                     <div class="panel-body">
                                         <img src="{{ asset($employee->image->path) }}" alt="" class="upload__image">
 
