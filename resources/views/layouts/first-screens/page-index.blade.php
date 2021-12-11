@@ -2,7 +2,7 @@
     <div class="owl-carousel owl-theme">
         @foreach($images as $image)
         <div class="main-slider-item">
-            <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
+            <img class="owl-lazy" data-src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
             <div class="main-slider-item-desc">
                 <p>{!! $image->text !!}</p>
 \                <div class="btn-main-slider-box">
