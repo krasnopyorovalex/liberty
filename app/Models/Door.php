@@ -146,6 +146,6 @@ class Door extends Model
      */
     public function getPrice(): string
     {
-        return sprintf('%s ₽', number_format($this->price, 0, '.', ' '));
+        return sprintf('%s А', number_format($this->price, 0, '.', ' '));
     }
 }
