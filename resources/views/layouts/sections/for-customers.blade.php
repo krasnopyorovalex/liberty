@@ -1,7 +1,13 @@
 <section class="for-customers">
-    <div class="section-header">
-        <div class="section-title wow slideInLeft">
-            заказчикам
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-header">
+                    <div class="section-title wow slideInLeft">
+                        заказчикам
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container">
