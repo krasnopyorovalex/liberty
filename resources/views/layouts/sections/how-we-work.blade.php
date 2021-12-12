@@ -1,9 +1,15 @@
 <section class="how-we-work">
-    <div class="section-header">
-        <div class="section-title wow slideInLeft">как мы работаем</div>
-        <div class="section-sub-title wow slideInLeft">
-            Предметы, которые передаются из поколения в поколение
-            <div class="decoration-line"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-header">
+                    <div class="section-title wow slideInLeft">как мы работаем</div>
+                    <div class="section-sub-title wow slideInLeft">
+                        Предметы, которые передаются из поколения в поколение
+                        <div class="decoration-line"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container">

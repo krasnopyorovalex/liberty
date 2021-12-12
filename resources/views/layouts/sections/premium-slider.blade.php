@@ -1,10 +1,14 @@
 @if($sliderItems->count())
 <section class="premium-collections">
     <img src="img/premium-collections-bg.png" alt="alt">
-    <div class="section-header">
-        <div class="section-title wow slideInLeft">ИСПОЛНЕНИЕ ПРЕМИУМ КЛаССА</div>
-        <div class="section-sub-title sub-title-without-bg wow slideInLeft">Коллекции современных классических
-            интерьеров
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-header">
+                    <div class="section-title wow slideInLeft">ИСПОЛНЕНИЕ ПРЕМИУМ КЛаССА</div>
+                    <div class="section-sub-title sub-title-without-bg wow slideInLeft">Коллекции современных классических интерьеров</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="slider-projects owl-theme owl-carousel">

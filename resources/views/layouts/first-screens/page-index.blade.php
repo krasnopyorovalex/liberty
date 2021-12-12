@@ -3,10 +3,16 @@
         @foreach($images as $image)
         <div class="main-slider-item">
             <img class="owl-lazy" data-src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
-            <div class="main-slider-item-desc">
-                <p>{!! $image->text !!}</p>
-\                <div class="btn-main-slider-box">
-                    <a href="{{ $image->link }}" class="btn btn-main-slider-more">подробнее</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="main-slider-item-desc">
+                            <p>{!! $image->text !!}</p>
+                            <div class="btn-main-slider-box">
+                                <a href="{{ $image->link }}" class="btn btn-main-slider-more">подробнее</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
