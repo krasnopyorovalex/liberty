@@ -103,7 +103,7 @@
             <br/>
         @endif
     </section>
-    @if(!$searchResult->furniture && request()->has('keyword'))
+    @if(!($searchResult->furniture && $searchResult->furniture->count()) && request()->has('keyword'))
         <section>
             <div class="container">
                 <div class="row">
