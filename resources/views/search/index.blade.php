@@ -103,7 +103,7 @@
             <br/>
         @endif
     </section>
-    @if(!$searchResult->furniture && !$searchResult->doors && !$searchResult->portfolios && request()->has('keyword'))
+    @if(!$searchResult->furniture && request()->has('keyword'))
         <section>
             <div class="container">
                 <div class="row">
