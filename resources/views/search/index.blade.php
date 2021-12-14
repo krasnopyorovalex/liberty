@@ -103,11 +103,13 @@
             <br/>
         @endif
     </section>
-    @if(!$searchResult->furniture && !$searchResult->doors && !$searchResult->portfolios)
+    @if(!$searchResult->furniture && !$searchResult->doors && !$searchResult->portfolios && request()->has('keyword'))
         <section>
-            <div class="row">
-                <div class="col-12">
-                    <p>Ничего не найдено</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="center">Ничего не найдено</p>
+                    </div>
                 </div>
             </div>
         </section>
