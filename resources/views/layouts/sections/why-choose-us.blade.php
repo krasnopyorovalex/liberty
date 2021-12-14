@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-header">
-                    <div class="section-title">почему выбирают нас</div>
+                    <div class="section-title"><span>почему</span> выбирают нас</div>
                     <div class="section-sub-title sub-title-without-bg">Предметы мебели, которые передаются из поколения в поколение</div>
                 </div>
             </div>
