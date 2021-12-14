@@ -103,4 +103,13 @@
             <br/>
         @endif
     </section>
+    @if(!$searchResult->furniture && !$searchResult->doors && !$searchResult->portfolios)
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <p>Ничего не найдено</p>
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection
