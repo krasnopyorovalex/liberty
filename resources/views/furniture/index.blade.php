@@ -117,7 +117,7 @@
                             @endif
 
                             @if($furniture->textures)
-                                <div class="finishing-options">
+                                <div class="finishing-options lazy-box">
                                     <div class="title">Варианты отделок:</div>
                                     <div class="flex">
                                         @foreach($furniture->textures->chunk(6) as $chunk)
@@ -125,8 +125,9 @@
                                                 @foreach($chunk as $texture)
                                                     <div class="col-2">
                                                         <a href="{{ asset($texture->path) }}" data-lightbox="textures">
-                                                            <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                            <img data-src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                         </a>
+                                                        <div class="label">{{ $texture->label }}</div>
                                                     </div>
                                                 @endforeach
                                                 @if(count($chunk) < 6)
