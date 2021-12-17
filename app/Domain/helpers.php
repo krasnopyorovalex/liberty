@@ -144,7 +144,7 @@ if (! function_exists('change_image_desktop_mob')) {
 if (! function_exists('is_mobile')) {
     function is_mobile(): bool
     {
-        return !MobileDetect::isDesktop();
+        return MobileDetect::isMobile();
     }
 }
 
