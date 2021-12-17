@@ -161,6 +161,7 @@
                                                                         <a href="{{ asset($texture->path) }}" data-lightbox="textures">
                                                                             <img data-src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                                         </a>
+                                                                        <div class="label">{{ $texture->label }}</div>
                                                                     </div>
                                                                 @endforeach
                                                                 @if(count($chunk) < 6)
@@ -174,12 +175,12 @@
                                                         @endforeach
                                                     </div>
                                                 @else
-                                                    <div class="colors flex flex-start">
+                                                    <div class="colors flex flex-start lazy-box">
                                                         <div class="colors-col">
                                                             @foreach($door->textures as $texture)
                                                                 <div class="colors-col-item flex flex-end">
                                                                     <a href="{{ asset($texture->path) }}" data-lightbox="textures">
-                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                        <img data-src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                                     </a>
                                                                     <div class="label">{{ $texture->label }}</div>
                                                                 </div>
