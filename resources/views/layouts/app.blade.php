@@ -36,7 +36,7 @@
         <div class="col-logo flex">
             <a href="{{ route('page.show') }}">
                 <picture>
-                    <source media="(max-width: 992px)" srcset="{{ asset('img/logo-mob.png') }}">
+                    <source media="(max-width: 1200px)" srcset="{{ asset('img/logo-mob.png') }}">
                     <img src="{{ asset('img/logo.png') }}"/>
                 </picture>
             </a>
