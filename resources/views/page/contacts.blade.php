@@ -18,7 +18,7 @@
 @section('first-screen')
     <picture class="as-bg">
         @if($page->image)
-            <source media="(max-width: 670px)" srcset="{{ $page->image_mob() }}">
+            <source media="(max-width: 670px)" srcset="{{ $page->image_mob }}">
             <img src="{{ $page->image }}" />
         @endif
     </picture>
