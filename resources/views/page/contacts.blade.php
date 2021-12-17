@@ -19,7 +19,7 @@
     <picture class="as-bg">
         @if($page->image)
             <source media="(max-width: 670px)" srcset="{{ $page->image_mob }}">
-            <img src="{{ $page->image }}" />
+            <img src="{{ $page->image ? $page->image->path : '' }}" />
         @endif
     </picture>
     <div class="first-screen-text">
