@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'className' => 'first-screen sub-page contacts',
-    'bgImg' => is_mobile() ? $page->image_mob : ($page->image ? $page->image->path : '')
+    //'bgImg' => is_mobile() ? $page->image_mob : ($page->image ? $page->image->path : '')
 ])
 
 @section('title', $page->title)
