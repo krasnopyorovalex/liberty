@@ -166,7 +166,7 @@
                                                                 @if(count($chunk) < 6)
                                                                     @for($i = 0; $i < 6 - count($chunk); $i++)
                                                                         <div class="col-2">
-                                                                            <img src="{{ asset('img/placeholder-texture.jpg') }}" alt="">
+                                                                            <img src="{{ asset('img/placeholder-texture.jpg') }}" class="placeholder-texture" alt="">
                                                                         </div>
                                                                     @endfor
                                                                 @endif
