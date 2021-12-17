@@ -82,7 +82,7 @@
                                     <div class="door-card-gallery-item for-lightbox-item" data-original="{{ $image->getPath() }}">
                                         <picture>
                                             <source media="(max-width: 670px)" srcset="{{ $image->getMobileImage() }}">
-                                            <img src="{{ $image->getDesktopImage() }}" alt="{{ $image->name }}">
+                                            <img class="owl-lazy" data-src="{{ $image->getDesktopImage() }}" alt="{{ $image->name }}">
                                         </picture>
                                         {{ svg('zoom-in') }}
                                     </div>
