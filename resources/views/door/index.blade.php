@@ -19,7 +19,7 @@
                 @foreach(change_images_slider($door->slider) as $image)
                     <div class="main-slider-item">
                         <picture>
-                            <img src="{{ asset($image->getPath()) }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
+                            <img class="owl-lazy" data-src="{{ asset($image->getPath()) }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                         </picture>
                         @if($image->text || $image->name)
                         <div class="main-slider-item-desc">
