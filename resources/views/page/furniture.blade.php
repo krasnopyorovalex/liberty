@@ -18,7 +18,7 @@
     @if($page->slider)
     <div class="main-slider with-arrows rybrika-slider">
         <div class="owl-carousel owl-theme">
-            @foreach(change_images_slider($page->slider) as $image)
+            @foreach($page->slider->images as $image)
                 <div class="main-slider-item">
                     <picture>
                         <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
