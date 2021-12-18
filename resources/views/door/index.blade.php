@@ -153,13 +153,13 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 @if(is_mobile())
-                                                    <div class="flex finishing-options lazy-box">
+                                                    <div class="flex finishing-options">
                                                         @foreach($door->textures->chunk(6) as $chunk)
                                                             <div class="row">
                                                                 @foreach($chunk as $texture)
                                                                     <div class="col-2">
                                                                         <a href="{{ asset($texture->path) }}" data-lightbox="textures">
-                                                                            <img data-src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                            <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                                         </a>
                                                                         <div class="label">{{ $texture->label }}</div>
                                                                     </div>
@@ -180,7 +180,7 @@
                                                             @foreach($door->textures as $texture)
                                                                 <div class="colors-col-item flex flex-end">
                                                                     <a href="{{ asset($texture->path) }}" data-lightbox="textures">
-                                                                        <img data-src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
+                                                                        <img src="{{ asset($texture->path) }}" alt="{{ $texture->label }}" />
                                                                     </a>
                                                                     <div class="label">{{ $texture->label }}</div>
                                                                 </div>
