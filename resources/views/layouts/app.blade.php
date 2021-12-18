@@ -29,6 +29,9 @@
     <link rel="apple-touch-icon" sizes="1024x1024" href="{{ asset('img/favicons/apple-touch-icon-1024x1024.png') }}">
     <link rel="stylesheet" href="{{ asset('styles/main.min.css') }}?v={{ \Illuminate\Support\Str::random() }}">
     <link rel="canonical" href="@yield('canonical', request()->url())"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 <main>
