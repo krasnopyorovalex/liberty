@@ -12,7 +12,7 @@
             <div class="slider-projects-item">
                 <picture>
                     @if($sliderItem->image)
-                        <source media="(max-width: 670px)" srcset="{{ asset($sliderItem->image_mob) }}">
+                        <source media="(max-width: 930px)" srcset="{{ asset($sliderItem->image_mob) }}">
                         <img src="{{ asset($sliderItem->image) }}" alt="{{ $sliderItem->name }}">
                     @endif
                 </picture>
