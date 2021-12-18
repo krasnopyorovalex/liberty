@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'className' => 'first-screen sub-page contacts',
-    'bgImg' => is_mobile() ? $page->image_mob : ($page->image ? $page->image->path : '')
+    //'bgImg' => is_mobile() ? $page->image_mob : ($page->image ? $page->image->path : '')
 ])
 
 @section('title', $page->title)
@@ -16,12 +16,12 @@
 @endpush
 
 @section('first-screen')
-{{--    <picture class="as-bg">--}}
-{{--        @if($page->image)--}}
-{{--            <source media="(max-width: 670px)" srcset="{{ $page->image_mob }}">--}}
-{{--            <img src="{{ $page->image ? $page->image->path : '' }}" />--}}
-{{--        @endif--}}
-{{--    </picture>--}}
+    <picture class="as-bg">
+        @if($page->image)
+            <source media="(max-width: 670px)" srcset="{{ $page->image_mob }}">
+            <img src="{{ $page->image ? $page->image->path : '' }}" />
+        @endif
+    </picture>
     <div class="first-screen-text">
         <div class="text">
             <h1>{{ $page->name }}</h1>
