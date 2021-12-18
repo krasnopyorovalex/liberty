@@ -8,7 +8,7 @@
             <div class="step-item">
                 <picture class="as-bg">
                     <source media="(max-width: 670px)" srcset="{{ $item->image_mob }}">
-                    <img src="{{ $item->image ? $item->image->path : '' }}" />
+                    <img src="{{ $item->image }}" />
                 </picture>
                 <div class="step-item-info">
                     <div class="step-item-info-title">
