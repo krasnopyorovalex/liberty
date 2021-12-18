@@ -21,8 +21,8 @@
             @foreach($page->slider->images as $image)
                 <div class="main-slider-item">
                     <picture>
-                        @isset($page->slider->imagesForMobile->toArray()[$loop->index])
-                            <source media="(max-width: 670px)" srcset="{{ $page->slider->imagesForMobile->toArray()[$loop->index] }}">
+                        @isset($page->slider->imagesForMobile[$loop->index])
+                            <source media="(max-width: 670px)" srcset="{{ $page->slider->imagesForMobile[$loop->index] }}">
                         @endisset
                         <img src="{{ $image->getPath() }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                     </picture>
