@@ -16,12 +16,12 @@
 @endpush
 
 @section('first-screen')
-    <picture class="as-bg">
-        @if($page->image)
+    @if($page->image)
+        <picture class="as-bg">
             <source media="(max-width: 670px)" srcset="{{ $page->image_mob }}">
             <img src="{{ $page->image ? $page->image->path : '' }}" />
-        @endif
-    </picture>
+        </picture>
+    @endif
     <div class="first-screen-text">
         <div class="text">
             <h1>{{ $page->name }}</h1>
