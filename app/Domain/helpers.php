@@ -151,7 +151,7 @@ if (! function_exists('is_mobile')) {
 if (! function_exists('change_images_slider')) {
     function change_images_slider(Model $slider)
     {
-        return MobileDetect::isMobile() ? $slider->imagesForMobile : $slider->images;
+        return MobileDetect::isMobile() && !MobileDetect::isTablet() ? $slider->imagesForMobile : $slider->images;
     }
 }
 
