@@ -776,7 +776,7 @@ button:active,button:focus{outline:0;border:0}
 .not-overflow{overflow:hidden}
 .not-overflow .main-slider{visibility:hidden}
 .visible-sm{display:none}
-.as-bg img{position:absolute;top:0;bottom:0;left:0;right:0;height:100%}
+.as-bg img{position:absolute;top:0;bottom:0;left:0;right:0;height:100%;z-index:-1}
 .icon{display:inline-block;vertical-align:middle;fill:#fff;transition:.3s}
 .icon-insta{width:21px;height:20px}
 .icon-fb{width:11px;height:21px}
