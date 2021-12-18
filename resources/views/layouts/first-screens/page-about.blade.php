@@ -1,6 +1,6 @@
 <picture>
     @if($page->image_mob)
-        <source media="(max-width: 670px)" srcset="{{ asset($page->image_mob) }}">
+        <source media="(max-width: 930px)" srcset="{{ asset($page->image_mob) }}">
     @endif
     @if($page->image)
         <img src="{{ asset($page->image->path) }}">
