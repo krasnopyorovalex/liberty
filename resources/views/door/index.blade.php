@@ -16,7 +16,7 @@
     @if($door->slider)
         <div class="main-slider with-arrows door-card-slider">
             <div class="owl-carousel owl-theme">
-                @foreach(change_images_slider($door->slider) as $image)
+                @foreach($door->slider->images as $image)
                     <div class="main-slider-item">
                         <picture>
                             @isset($door->slider->imagesForMobile[$loop->index])
