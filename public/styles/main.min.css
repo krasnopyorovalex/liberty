@@ -1481,7 +1481,6 @@ footer .footer-menu li+li{margin:24px 0 0}
 .container .owl-carousel .owl-dots,section .owl-carousel .owl-dots{text-align:center}
 .container .owl-carousel .owl-dots button,section .owl-carousel .owl-dots button{background-color:#c7c0b6}
 .container .owl-carousel .owl-dots button.active,section .owl-carousel .owl-dots button.active{background-color:#5a6e79}
-.slider-projects-item,.slider-projects-item>img{min-height:450px}
 .slider-projects-item-desc .title{font-size:13px}
 .slider-projects-item .btn-box{bottom:122px}
 .slider-projects.owl-carousel .owl-dots{bottom:87px}
@@ -1841,6 +1840,7 @@ footer .footer-menu{margin:0;display:none}
 .col-4{width:calc(33.33333% - 1.875rem)}
 .col-3{width:calc(25% - 1.875rem)}
 .col-1,.col-2{width:calc(100% - 1.875rem)}
+.slider-projects-item,.slider-projects-item>img{min-height:450px}
 .main-slider-nav-control{margin:0}
 .how-we-work .row.owl-carousel .col-4{width:calc(100% - 1.875rem)}
 }
