@@ -19,6 +19,9 @@
                 @foreach(change_images_slider($door->slider) as $image)
                     <div class="main-slider-item">
                         <picture>
+                            @isset($door->slider->imagesForMobile[$loop->index])
+                                <source media="(max-width: 670px)" srcset="{{ $door->slider->imagesForMobile[$loop->index]->getPath() }}">
+                            @endisset
                             <img class="owl-lazy" data-src="{{ asset($image->getPath()) }}" alt="{{ $image->alt }}" title="{{ $image->title }}" />
                         </picture>
                         @if($image->text || $image->name)
