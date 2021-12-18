@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'className' => 'first-screen sub-page doors',
-    'bgImg' => is_mobile() ? $page->image_mob : ($page->image ? $page->image->path : '')
+    //'bgImg' => is_mobile() ? $page->image_mob : ($page->image ? $page->image->path : '')
 ])
 
 @section('title', $page->title)
@@ -16,6 +16,12 @@
 @endpush
 
 @section('first-screen')
+    @if($page->image)
+        <picture class="as-bg">
+            <source media="(max-width: 670px)" srcset="{{ $page->image_mob }}">
+            <img src="{{ $page->image ? $page->image->path : '' }}" />
+        </picture>
+    @endif
     <div class="first-screen-text">
         <div class="text">
             <div class="digit">01.</div>
