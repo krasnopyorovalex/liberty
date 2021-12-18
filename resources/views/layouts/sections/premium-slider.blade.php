@@ -12,7 +12,8 @@
             <div class="slider-projects-item">
                 <picture>
                     @if($sliderItem->image)
-                        <img src="{{ is_mobile() ? $sliderItem->image_mob : $sliderItem->image }}" alt="{{ $sliderItem->name }}">
+                        <source media="(max-width: 670px)" srcset="{{ asset($sliderItem->image_mob) }}">
+                        <img src="{{ asset($sliderItem->image) }}" alt="{{ $sliderItem->name }}">
                     @endif
                 </picture>
                 <div class="slider-projects-item-desc">
