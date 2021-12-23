@@ -226,7 +226,7 @@
     </div>
 </div>
 
-<script src="{{ asset('js/main.min.js') }}?v={{ \Illuminate\Support\Str::random() }}"></script>
+<script src="{{ asset('js/main.min.js') }}"></script>
 <script src="{{ asset('js/vendor.min.js') }}"></script>
 </body>
 </html>
